@@ -1,3 +1,5 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -7,7 +9,8 @@ import org.testng.annotations.Test;
 /**
  * Created by alex on 05.02.2017.
  */
-public class RegistrationTest extends TestHomePage {
+public class RegistrationTest {
+    WebDriver driver = new FirefoxDriver();
 
     @BeforeClass
     public void startUp(){

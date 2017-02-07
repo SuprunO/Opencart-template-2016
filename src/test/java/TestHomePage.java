@@ -12,9 +12,10 @@ import java.sql.Driver;
  */
 public class TestHomePage {
     WebDriver driver = new FirefoxDriver();
-    WebDriverWait wait = new WebDriverWait(driver,25);
 
-    private String login="Login";
+    private String LOGIN="Login";
+    private String HOME="Home";
+    private String CONTACT_US="Contact Us";
 
 
     @BeforeClass
@@ -25,17 +26,17 @@ public class TestHomePage {
 
     @Test
     public void verifyLogin() {
-        Assert.assertEquals(HomePage.lnk_Login(driver).getText(), login, "Login check failed");
+        Assert.assertEquals(HomePage.lnk_Login(driver).getText(), LOGIN, "Login check failed");
     }
 
     @Test
     public void verifyHome(){
-        Assert.assertEquals(HomePage.lnk_Home(driver).getText(), "Home", "Home check failed");
+        Assert.assertEquals(HomePage.lnk_Home(driver).getText(), HOME, "Home check failed");
     }
 
     @Test
     public void verifyContactUs(){
-        Assert.assertEquals(HomePage.lnk_ContactUs(driver).getText(), "Contact Us"," Contact us check failed");
+        Assert.assertEquals(HomePage.lnk_ContactUs(driver).getText(), CONTACT_US," Contact us check failed");
   }
 
 }
