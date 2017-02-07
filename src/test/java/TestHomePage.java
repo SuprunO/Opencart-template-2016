@@ -13,15 +13,15 @@ import java.sql.Driver;
 public class TestHomePage {
     WebDriver driver = new FirefoxDriver();
 
-    private String LOGIN="Login";
-    private String HOME="Home";
-    private String CONTACT_US="Contact Us";
+    private String LOGIN = "Login";
+    private String HOME = "Home";
+    private String CONTACT_US = "Contact Us";
 
 
     @BeforeClass
-    public void startUp(){
+    public void startUp() {
         driver.get("http://kidsclotheslab.com");
-        }
+    }
 
 
     @Test
@@ -30,13 +30,21 @@ public class TestHomePage {
     }
 
     @Test
-    public void verifyHome(){
+    public void verifyHome() {
         Assert.assertEquals(HomePage.lnk_Home(driver).getText(), HOME, "Home check failed");
     }
 
     @Test
-    public void verifyContactUs(){
-        Assert.assertEquals(HomePage.lnk_ContactUs(driver).getText(), CONTACT_US," Contact us check failed");
-  }
+    public void verifyContactUs() {
+        Assert.assertEquals(HomePage.lnk_ContactUs(driver).getText(), CONTACT_US, " Contact us check failed");
+    }
 
+    //Footer
+
+    private String INFO = "Information";
+
+    @Test
+    public void verifyInfoHeader() {
+        Assert.assertEquals(HomePage.InfoHeader(driver).getText(), INFO, "Information header is wrong or missing");
+    }
 }

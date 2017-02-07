@@ -20,4 +20,20 @@ public class HomePage {
     public static WebElement lnk_ContactUs(WebDriver driver) {
         return driver.findElement(By.linkText("Contact Us"));
     }
+
+
+    //FOOTER
+    //Headers
+    private static String INFO = "div.col-sm-2:first-child h5";
+    private static String My_Account = "div.col-sm-2:first-child h5";
+    private static String Our_Offers = "div.col-sm-2:first-child h5";
+    private static String Company_Info = "div.col-sm-2:first-child h5";
+    private static String Contact_Us = "div.col-sm-2:first-child h5";
+
+
+    public static WebElement InfoHeader(WebDriver driver){
+        return driver.findElement(By.cssSelector(INFO));
+
+    //Policies
+    }
 }

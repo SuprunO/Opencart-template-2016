@@ -9,11 +9,11 @@ import org.testng.annotations.Test;
 /**
  * Created by alex on 05.02.2017.
  */
-public class RegistrationTest {
-    WebDriver driver = new FirefoxDriver();
+public class RegistrationTest extends RegisterAccountPage {
+
 
     @BeforeClass
-    public void startUp(){
+    public void startUp() {
         driver.get("http://kidsclotheslab.com/index.php?route=account/login");
     }
 
@@ -37,5 +37,11 @@ public class RegistrationTest {
     @Test
     public void RegisterAccountButton() {
         Assert.assertEquals(RegistrationPage.RegisterAccountButton(driver).getText(), "Continue", " Continue Button text is wrong or missing");
+    }
+
+    @Test
+    public void registrationTest() {
+        driver.get("http://kidsclotheslab.com/index.php?route=account/register");
+        clientsCredentials("Rob","Kawalski","rob.kawalski@gmail.com","+0444657889","Brooklyn av 45B","New York","USA","Arizona","156423");
     }
 }

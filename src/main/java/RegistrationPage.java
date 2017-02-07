@@ -10,8 +10,6 @@ import static java.awt.SystemColor.text;
  */
 public class RegistrationPage {
 
-
-
     public static WebElement NewCustomerHeader(WebDriver driver) {
         return driver.findElement(By.cssSelector("div.col-sm-6:first-child h2"));
     }
