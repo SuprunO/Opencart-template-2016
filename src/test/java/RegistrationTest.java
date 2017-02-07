@@ -9,10 +9,15 @@ import org.testng.annotations.Test;
  */
 public class RegistrationTest extends TestHomePage {
 
+    @BeforeClass
+    public void startUp(){
+        driver.get("http://kidsclotheslab.com/index.php?route=account/login");
+    }
+
 
     @Test
     public void NewCustomerHeader() {
-        HomePage.lnk_Login(driver).click();
+
         Assert.assertEquals(RegistrationPage.NewCustomerHeader(driver).getText(), "New Customer", "The NewCustomerHeader is wrong or missing");
     }
 
@@ -24,5 +29,10 @@ public class RegistrationTest extends TestHomePage {
     @Test
     public void RegisterAccountText() {
         Assert.assertEquals(RegistrationPage.RegisterAccountText(driver).getText(), "By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.", " Register Account text is wrong or missing");
+    }
+
+    @Test
+    public void RegisterAccountButton() {
+        Assert.assertEquals(RegistrationPage.RegisterAccountButton(driver).getText(), "Continue", " Continue Button text is wrong or missing");
     }
 }
