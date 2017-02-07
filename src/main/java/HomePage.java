@@ -7,21 +7,17 @@ import org.openqa.selenium.WebElement;
  */
 public class HomePage {
 
-    private static WebElement LoginElement = null;
     public static WebElement lnk_Login(WebDriver driver) {
-        LoginElement = driver.findElement(By.linkText("Login"));
-        return LoginElement;
-
+        return driver.findElement(By.linkText("Login"));
     }
-    private static WebElement HomeLinkElement = null;
+
+
     public static WebElement lnk_Home(WebDriver driver) {
-        HomeLinkElement = driver.findElement(By.linkText("Home"));
-        return HomeLinkElement;
+        return driver.findElement(By.linkText("Home"));
     }
 
-    private static WebElement ContactUsElement = null;
+
     public static WebElement lnk_ContactUs(WebDriver driver) {
-        ContactUsElement = driver.findElement(By.linkText("Contact Us"));
-        return ContactUsElement;
+        return driver.findElement(By.linkText("Contact Us"));
     }
 }
