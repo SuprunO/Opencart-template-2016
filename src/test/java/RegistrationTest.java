@@ -42,6 +42,6 @@ public class RegistrationTest extends RegisterAccountPage {
     @Test
     public void registrationTest() {
         driver.get("http://kidsclotheslab.com/index.php?route=account/register");
-        clientsCredentials("Rob","Kawalski","rob.kawalski@gmail.com","+0444657889","Brooklyn av 45B","New York","USA","Arizona","156423");
+        clientsCredentials("Rob","Kawalski","rob.kanalski@gmail.com","+0444657889","Brooklyn av 45B","New York","United States","Baker Island","156423");
     }
 }

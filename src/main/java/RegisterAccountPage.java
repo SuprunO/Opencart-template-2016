@@ -33,15 +33,16 @@ public class RegisterAccountPage {
         driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(FirstName);
         driver.findElement(By.cssSelector(LASTNAME)).sendKeys(LastName);
         driver.findElement(By.cssSelector(EMAIL)).sendKeys(EMail);
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(EMAIL)));
-        driver.findElement(By.id(PHONE)).sendKeys(Telephone);
-        driver.findElement(By.id(ADDRESS)).sendKeys(Address);
-        driver.findElement(By.id(CITY)).sendKeys(City);
-        driver.findElement(By.id(COUNTRY)).sendKeys(Country);
-        driver.findElement(By.id(STATE)).sendKeys(State);
-        driver.findElement(By.id(PASSWORD)).sendKeys(Password);
-        driver.findElement(By.id(PASSCONFIRM)).sendKeys(Password);
-        driver.findElement(By.id(RADIOBUTTON)).click();
-        driver.findElement(By.id(CONTINUEBUTTON)).click();
+        driver.findElement(By.cssSelector(PHONE)).sendKeys(Telephone);
+        driver.findElement(By.cssSelector(ADDRESS)).sendKeys(Address);
+        driver.findElement(By.cssSelector(CITY)).sendKeys(City);
+        driver.findElement(By.cssSelector(COUNTRY)).sendKeys(Country);
+        driver.findElement(By.cssSelector(STATE)).sendKeys(State);
+        driver.findElement(By.cssSelector(PASSWORD)).sendKeys(Password);
+        driver.findElement(By.cssSelector(PASSCONFIRM)).sendKeys(Password);
+        driver.findElement(By.cssSelector(RADIOBUTTON)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(CONTINUEBUTTON)));
+        driver.findElement(By.cssSelector(CONTINUEBUTTON)).click();
+        driver.findElement(By.cssSelector(CONTINUEBUTTON)).click();
     }
 }
