@@ -6,18 +6,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Created by alex on 07.02.2017.
  */
 public class PageObject {
-    private static WebDriver driver;
-    public static WebDriver getDriver(){
-        driver = new FirefoxDriver();
-        return driver;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+
+    public PageObject(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, 25);
     }
-
-    private static WebDriverWait wait;
-    public static WebDriverWait getWait(){
-        wait = new WebDriverWait(driver,25);
-        return wait;
-
-    }
-
-
 }
+

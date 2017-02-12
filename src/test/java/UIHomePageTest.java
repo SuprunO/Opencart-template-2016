@@ -10,13 +10,16 @@ import java.sql.Driver;
 /**
  * Created by alex on 04.02.2017.
  */
-public class TestHomePage {
-    WebDriver driver = new FirefoxDriver();
+public class UIHomePageTest extends PageObject{
+    //WebDriver driver = new FirefoxDriver();
+
+    public UIHomePageTest(WebDriver driver) {
+        super(driver);
+    }
 
     private String LOGIN = "Login";
     private String HOME = "Home";
     private String CONTACT_US = "Contact Us";
-
 
     @BeforeClass
     public void startUp() {
@@ -26,16 +29,16 @@ public class TestHomePage {
 
     @Test
     public void verifyLogin() {
-        Assert.assertEquals(HomePage.lnk_Login(driver).getText(), LOGIN, "Login check failed");
+        Assert.assertEquals(HomePage.(driver).getText(), LOGIN, "Login check failed");
     }
 
     @Test
-    public void verifyHome() {
+    public HomePage verifyHome() {
         Assert.assertEquals(HomePage.lnk_Home(driver).getText(), HOME, "Home check failed");
     }
 
     @Test
-    public void verifyContactUs() {
+    public HomePage verifyContactUs() {
         Assert.assertEquals(HomePage.lnk_ContactUs(driver).getText(), CONTACT_US, " Contact us check failed");
     }
 
@@ -46,5 +49,8 @@ public class TestHomePage {
     @Test
     public void verifyInfoHeader() {
         Assert.assertEquals(HomePage.InfoHeader(driver).getText(), INFO, "Information header is wrong or missing");
+    }
+
+    private class Login {
     }
 }
