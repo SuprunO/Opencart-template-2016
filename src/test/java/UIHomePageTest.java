@@ -10,12 +10,7 @@ import java.sql.Driver;
 /**
  * Created by alex on 04.02.2017.
  */
-public class UIHomePageTest extends PageObject{
-    //WebDriver driver = new FirefoxDriver();
-
-    public UIHomePageTest(WebDriver driver) {
-        super(driver);
-    }
+public class UIHomePageTest{
 
     private String LOGIN = "Login";
     private String HOME = "Home";
@@ -29,7 +24,7 @@ public class UIHomePageTest extends PageObject{
 
     @Test
     public void verifyLogin() {
-        Assert.assertEquals(HomePage.(driver).getText(), LOGIN, "Login check failed");
+        Assert.assertEquals(HomePage(driver).getText(), LOGIN, "Login check failed");
     }
 
     @Test

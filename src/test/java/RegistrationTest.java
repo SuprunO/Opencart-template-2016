@@ -9,14 +9,18 @@ import org.testng.annotations.Test;
 /**
  * Created by alex on 05.02.2017.
  */
-public class RegistrationTest extends PageObject {
+public class RegistrationTest{
 
-    public RegistrationTest(WebDriver driver) {
-        super(driver);
-    }
+
+
+
+
 
         @BeforeClass
         public void startUp () {
+            Registration registration = new Registration();
+
+
             driver.get("http://kidsclotheslab.com/index.php?route=account/login");
         }
 

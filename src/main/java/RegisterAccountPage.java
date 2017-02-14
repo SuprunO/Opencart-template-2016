@@ -1,18 +1,10 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * Created by alex on 07.02.2017.
  */
-public class RegisterAccountPage extends PageObject {
-//    WebDriver driver = new FirefoxDriver();
-//    WebDriverWait wait = new WebDriverWait(driver, 35);
-
-    public RegisterAccountPage(WebDriver driver){
-        super(driver);
-    }
-
+public class RegisterAccountPage {
 
     //CSS LOCATORS
     private String FIRSTNAME = "#input-firstname";

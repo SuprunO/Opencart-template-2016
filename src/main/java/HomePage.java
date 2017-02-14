@@ -6,15 +6,11 @@ import org.openqa.selenium.WebElement;
  * Created by alex on 04.02.2017.
  */
 public class HomePage extends PageObject{
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
 
     public WebElement getlnk_Login(WebDriver driver) {
 
         return driver.findElement(By.linkText("Login"));
     }
-
 
     public WebElement lnk_Home(WebDriver driver) {
         return driver.findElement(By.linkText("Home"));
@@ -24,7 +20,6 @@ public class HomePage extends PageObject{
     public WebElement lnk_ContactUs(WebDriver driver) {
         return driver.findElement(By.linkText("Contact Us"));
     }
-
 
     //FOOTER
     //Headers
