@@ -10,7 +10,12 @@ import java.sql.Driver;
 /**
  * Created by alex on 04.02.2017.
  */
-public class UIHomePageTest{
+public class UIHomePageTest extends PageObject{
+    //WebDriver driver = new FirefoxDriver();
+
+    public UIHomePageTest(WebDriver driver) {
+        super(driver);
+    }
 
     private String LOGIN = "Login";
     private String HOME = "Home";

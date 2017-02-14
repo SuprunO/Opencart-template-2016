@@ -8,22 +8,26 @@ import static java.awt.SystemColor.text;
 /**
  * Created by alex on 05.02.2017.
  */
-public class RegistrationPage {
+public class RegistrationPage extends  PageObject{
 
-    public static WebElement NewCustomerHeader(WebDriver driver) {
-        return driver.findElement(By.cssSelector("div.col-sm-6:first-child h2"));
+    public RegistrationPage(WebDriver driver){
+        super(driver);
     }
 
-    public static WebElement RegisterAccountHeader(WebDriver driver) {
-        return driver.findElement(By.cssSelector("div.col-sm-6:first-child strong"));
+    public WebElement NewCustomerHeader() {
+        return this.driver.findElement(By.cssSelector("div.col-sm-6:first-child h2"));
     }
 
-    public static WebElement RegisterAccountText(WebDriver driver) {
-        return driver.findElement(By.cssSelector(".well>p+p"));
+    public WebElement RegisterAccountHeader() {
+        return this.driver.findElement(By.cssSelector("div.col-sm-6:first-child strong"));
     }
 
-    public static WebElement RegisterAccountButton(WebDriver driver) {
-        return driver.findElement(By.cssSelector("div.col-sm-6:first-child a"));
+    public WebElement RegisterAccountText() {
+        return this.driver.findElement(By.cssSelector(".well>p+p"));
+    }
+
+    public WebElement RegisterAccountButton() {
+        return this.driver.findElement(By.cssSelector("div.col-sm-6:first-child a"));
     }
 
 }
