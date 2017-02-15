@@ -21,6 +21,7 @@ public class RegressionRegistrTest {
 
     @Test
     public void registrationTest () {
-        registrProcess.verifyCredentials(dataProvider.FirstName,dataProvider.Lastname,dataProvider.EMail,dataProvider.Telephone,dataProvider.Address,dataProvider.City,dataProvider.Country,dataProvider.State,dataProvider.Password);
+        registrProcess.verifyCredentials(dataProvider.FirstName,dataProvider.Lastname,dataProvider.EMail,dataProvider.Telephone,dataProvider.Address,dataProvider.City,dataProvider.State,dataProvider.Password);
     }
-}
+
+    }

@@ -33,11 +33,14 @@ public class RegistrPageWithUserCredentials extends PageObject {
     private String CONTINUEBUTTON = ".btn.btn-primary";
 
     public void clickOn(String CSSSelector){
-        driver.findElement(By.cssSelector("#input-country:first-child option[value=\"223\"]")).click();
+         driver.findElement(By.cssSelector("#input-country:first-child option[value=\"223\"]")).click();
+    }
+    public void enterCountry() {
+        clickOn(this.COUNTRY);
     }
 
 
-    public void verifyCredentials(String FirstName,String LastName, String EMail,String Telephone,String Address, String City, String Country, String State,  String Password) {
+    public void verifyCredentials(String FirstName,String LastName, String EMail,String Telephone,String Address, String City, String State,  String Password) {
         driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(FirstName);
         driver.findElement(By.cssSelector(LASTNAME)).sendKeys(LastName);
         driver.findElement(By.cssSelector(EMAIL)).sendKeys(EMail);
@@ -45,7 +48,6 @@ public class RegistrPageWithUserCredentials extends PageObject {
         driver.findElement(By.cssSelector(ADDRESS)).sendKeys(Address);
         driver.findElement(By.cssSelector(CITY)).sendKeys(City);
         //вызвать клик он тут
-        driver.findElement(By.cssSelector(COUNTRY));
         driver.findElement(By.cssSelector(STATE)).sendKeys(State);
         driver.findElement(By.cssSelector(PASSWORD)).sendKeys(Password);
         driver.findElement(By.cssSelector(PASSCONFIRM)).sendKeys(Password);
@@ -62,7 +64,6 @@ public class RegistrPageWithUserCredentials extends PageObject {
         public String Telephone = "+(44)567-56-65";
         public String Address = "Brookyn st, 45";
         public String City = "New york";
-        public String Country = "United States";
         public String State = "Alabama";
         public String Password = "156423";
     }
