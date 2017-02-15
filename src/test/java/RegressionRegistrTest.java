@@ -1,5 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 /**
@@ -9,15 +10,15 @@ public class RegressionRegistrTest {
 
 
     WebDriver driver=new FirefoxDriver();
-    RegistrationPage  registrationProcess= new RegistrationPage(driver);
+    RegistrPageWithUserCredentials registrProcess= new RegistrPageWithUserCredentials(driver);
+
+    @BeforeTest
+    public void startUp(){
+        driver.get("http://kidsclotheslab.com/index.php?route=account/register");
+    }
 
 
     @Test
     public void registrationTest () {
-        driver.get("http://kidsclotheslab.com/index.php?route=account/register");
-
-
-        //   user.FirstName ; user.Lastname, user.EMail, user.Telephone, user.Address, user.City, user.Country, user.State, user.Password);
     }
-
 }

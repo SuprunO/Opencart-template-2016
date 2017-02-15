@@ -8,9 +8,9 @@ import static java.awt.SystemColor.text;
 /**
  * Created by alex on 05.02.2017.
  */
-public class RegistrationPage extends  PageObject{
+public class RegistrPage1 extends  PageObject{
 
-    public RegistrationPage(WebDriver driver){
+    public RegistrPage1(WebDriver driver){
         super(driver);
     }
 

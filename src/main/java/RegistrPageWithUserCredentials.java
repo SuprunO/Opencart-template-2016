@@ -5,13 +5,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * Created by alex on 07.02.2017.
  */
-public class RegisterAccountPage extends PageObject {
+public class RegistrPageWithUserCredentials extends PageObject {
 
 
-    public RegisterAccountPage(WebDriver driver){
+    public RegistrPageWithUserCredentials(WebDriver driver){
         super(driver);
     }
-
 
     //CSS LOCATORS
     private String FIRSTNAME = "#input-firstname";
@@ -28,7 +27,7 @@ public class RegisterAccountPage extends PageObject {
     private String CONTINUEBUTTON = ".btn.btn-primary";
 
 
-    public void verifyCredentials(String FirstName, String LastName, String EMail, String Telephone, String Address, String City, String Country, String State, String Password) {
+    public void verifyCredentials(String FirstName,String LastName, String EMail,String Telephone,String Address, String City, String Password) {
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(FIRSTNAME))).sendKeys(FirstName);
         driver.findElement(By.cssSelector(LASTNAME)).sendKeys(LastName);
         driver.findElement(By.cssSelector(EMAIL)).sendKeys(EMail);
@@ -45,7 +44,7 @@ public class RegisterAccountPage extends PageObject {
     }
 }
 
-    class User{
+     class UserCredentialsProvider {
         String FirstName = "Rob";
         String Lastname = "Kawalski";
         String EMail = "rob.kaialski@gmail.com";

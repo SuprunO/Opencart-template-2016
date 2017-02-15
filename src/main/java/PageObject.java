@@ -1,4 +1,5 @@
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 /**
@@ -6,10 +7,17 @@ import org.openqa.selenium.WebDriver;
  */
 public class PageObject {
     public WebDriver driver;
+    public WebDriverWait wait;
 
     public PageObject(WebDriver driver) {
         this.driver = driver;
     }
+
+    public PageObject(WebDriverWait driverWait){
+        this.wait=driverWait;
+    }
+
+
 
 }
 

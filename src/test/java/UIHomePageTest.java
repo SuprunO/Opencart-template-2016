@@ -10,47 +10,32 @@ import java.sql.Driver;
 /**
  * Created by alex on 04.02.2017.
  */
-public class UIHomePageTest extends PageObject{
-    //WebDriver driver = new FirefoxDriver();
+public class UIHomePageTest {
 
-    public UIHomePageTest(WebDriver driver) {
-        super(driver);
-    }
+    WebDriver driver = new FirefoxDriver();
+    HomePage homePage = new HomePage(driver);
 
     private String LOGIN = "Login";
     private String HOME = "Home";
     private String CONTACT_US = "Contact Us";
 
     @BeforeClass
-    public void startUp() {
+    public void start_Up() {
         driver.get("http://kidsclotheslab.com");
     }
 
-
     @Test
-    public void verifyLogin() {
-        Assert.assertEquals(HomePage(driver).getText(), LOGIN, "Login check failed");
+    public void verify_Lnk_Login() {
+        Assert.assertEquals(homePage.get_lnk_Login().getText(), LOGIN, "Login check failed");
     }
 
     @Test
-    public HomePage verifyHome() {
-        Assert.assertEquals(HomePage.lnk_Home(driver).getText(), HOME, "Home check failed");
+    public void verify_Lnk_Home() {
+        Assert.assertEquals(homePage.get_lnk_Home().getText(), HOME, "Home check failed");
     }
 
     @Test
-    public HomePage verifyContactUs() {
-        Assert.assertEquals(HomePage.lnk_ContactUs(driver).getText(), CONTACT_US, " Contact us check failed");
-    }
-
-    //Footer
-
-    private String INFO = "Information";
-
-    @Test
-    public void verifyInfoHeader() {
-        Assert.assertEquals(HomePage.InfoHeader(driver).getText(), INFO, "Information header is wrong or missing");
-    }
-
-    private class Login {
+    public void verify_Contact_Us() {
+        Assert.assertEquals(homePage.get_lnk_ContactUs().getText(), CONTACT_US, " Contact us check failed");
     }
 }
