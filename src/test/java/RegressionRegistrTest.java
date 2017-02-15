@@ -15,13 +15,13 @@ public class RegressionRegistrTest {
     UserCredentialsProvider dataProvider = new UserCredentialsProvider();
 
     @BeforeTest
-    public void startUp(){
+    public void startUp() {
         driver.get("http://kidsclotheslab.com/index.php?route=account/register");
     }
 
     @Test
-    public void registrationTest () {
-        registrProcess.verifyCredentials(dataProvider.FirstName,dataProvider.Lastname,dataProvider.EMail,dataProvider.Telephone,dataProvider.Address,dataProvider.City,dataProvider.State,dataProvider.Password);
+    public void inputCredentialsTest() {
+        registrProcess.verifyCredentials(dataProvider.FirstName, dataProvider.Lastname, dataProvider.EMail, dataProvider.Telephone, dataProvider.Address, dataProvider.City, dataProvider.State, dataProvider.Password);
     }
 
-    }
+}

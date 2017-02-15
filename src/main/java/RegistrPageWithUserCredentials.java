@@ -10,11 +10,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class RegistrPageWithUserCredentials extends PageObject {
 
 
-    public RegistrPageWithUserCredentials(WebDriver driver){
+    public RegistrPageWithUserCredentials(WebDriver driver) {
         super(driver);
     }
 
-    public RegistrPageWithUserCredentials(WebDriverWait driverWait){
+    public RegistrPageWithUserCredentials(WebDriverWait driverWait) {
         super(driverWait);
     }
 
@@ -32,15 +32,16 @@ public class RegistrPageWithUserCredentials extends PageObject {
     private String RADIOBUTTON = ".agree+input";
     private String CONTINUEBUTTON = ".btn.btn-primary";
 
-    public void clickOn(String CSSSelector){
-         driver.findElement(By.cssSelector("#input-country:first-child option[value=\"223\"]")).click();
+    private void clickOn(String CSSSelector) {
+        driver.findElement(By.cssSelector(CSSSelector)).click();
     }
+
     public void enterCountry() {
         clickOn(this.COUNTRY);
     }
 
 
-    public void verifyCredentials(String FirstName,String LastName, String EMail,String Telephone,String Address, String City, String State,  String Password) {
+    public void verifyCredentials(String FirstName, String LastName, String EMail, String Telephone, String Address, String City, String State, String Password) {
         driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(FirstName);
         driver.findElement(By.cssSelector(LASTNAME)).sendKeys(LastName);
         driver.findElement(By.cssSelector(EMAIL)).sendKeys(EMail);
@@ -57,13 +58,13 @@ public class RegistrPageWithUserCredentials extends PageObject {
     }
 }
 
-     class UserCredentialsProvider {
-        public String FirstName = "Rob";
-        public String Lastname = "Kawalski";
-        public String EMail = "rob.kaialski@gmail.com";
-        public String Telephone = "+(44)567-56-65";
-        public String Address = "Brookyn st, 45";
-        public String City = "New york";
-        public String State = "Alabama";
-        public String Password = "156423";
-    }
+class UserCredentialsProvider {
+    public String FirstName = "Rob";
+    public String Lastname = "Kawalski";
+    public String EMail = "rob.kaialski@gmail.com";
+    public String Telephone = "+(44)567-56-65";
+    public String Address = "Brookyn st, 45";
+    public String City = "New york";
+    public String State = "Alabama";
+    public String Password = "156423";
+}
