@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,12 +25,16 @@ public class RegistrPageWithUserCredentials extends PageObject {
     private String PHONE = "#input-telephone";
     private String ADDRESS = "#input-address-1";
     private String CITY = "#input-city";
-    private String COUNTRY = "#input-country:first-child";
+    private String COUNTRY = "#input-country:first-child option[value=\"223\"]";
     private String STATE = "#input-zone:first-child";
     private String PASSWORD = "#input-password";
     private String PASSCONFIRM = "#input-confirm";
     private String RADIOBUTTON = ".agree+input";
     private String CONTINUEBUTTON = ".btn.btn-primary";
+
+    public void clickOn(String CSSSelector){
+        driver.findElement(By.cssSelector("#input-country:first-child option[value=\"223\"]")).click();
+    }
 
 
     public void verifyCredentials(String FirstName,String LastName, String EMail,String Telephone,String Address, String City, String Country, String State,  String Password) {
@@ -39,7 +44,8 @@ public class RegistrPageWithUserCredentials extends PageObject {
         driver.findElement(By.cssSelector(PHONE)).sendKeys(Telephone);
         driver.findElement(By.cssSelector(ADDRESS)).sendKeys(Address);
         driver.findElement(By.cssSelector(CITY)).sendKeys(City);
-        driver.findElement(By.cssSelector(COUNTRY)).sendKeys(Country);
+        //вызвать клик он тут
+        driver.findElement(By.cssSelector(COUNTRY));
         driver.findElement(By.cssSelector(STATE)).sendKeys(State);
         driver.findElement(By.cssSelector(PASSWORD)).sendKeys(Password);
         driver.findElement(By.cssSelector(PASSCONFIRM)).sendKeys(Password);
