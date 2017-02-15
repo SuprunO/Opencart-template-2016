@@ -48,7 +48,6 @@ public class RegistrPageWithUserCredentials extends PageObject {
         driver.findElement(By.cssSelector(PHONE)).sendKeys(Telephone);
         driver.findElement(By.cssSelector(ADDRESS)).sendKeys(Address);
         driver.findElement(By.cssSelector(CITY)).sendKeys(City);
-        //вызвать клик он тут
         driver.findElement(By.cssSelector(STATE)).sendKeys(State);
         driver.findElement(By.cssSelector(PASSWORD)).sendKeys(Password);
         driver.findElement(By.cssSelector(PASSCONFIRM)).sendKeys(Password);
