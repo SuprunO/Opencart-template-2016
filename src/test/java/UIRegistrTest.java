@@ -12,11 +12,12 @@ public class UIRegistrTest {
 
     WebDriver driver = new FirefoxDriver();
     RegistrPage1 regPage = new RegistrPage1(driver);
+    UserCredentialsProvider dataProvider = new UserCredentialsProvider();
 
 
     @BeforeClass
     public void startUp() {
-        driver.get("http://kidsclotheslab.com/index.php?route=account/login");
+        driver.get(dataProvider.SiteURL+"/index.php?route=account/login");
     }
 
 

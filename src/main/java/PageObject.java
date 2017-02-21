@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Created by alex on 07.02.2017.
  */
 public class PageObject {
+
     public WebDriver driver;
     public WebDriverWait wait;
 

@@ -18,6 +18,8 @@ public class RegistrPageWithUserCredentials extends PageObject {
         super(driverWait);
     }
     //CSS LOCATORS
+    private String siteURL ="http://weddingclothesnow.com";
+
     private String FIRSTNAME = "#input-firstname";
     private String LASTNAME = "#input-lastname";
     private String EMAIL = "#input-email";
@@ -56,6 +58,7 @@ public class RegistrPageWithUserCredentials extends PageObject {
 
 class UserCredentialsProvider {
     //credentials for registration page
+    public String SiteURL ="http://weddingclothesnow.com";
     public String FirstName = "Rob";
     public String Lastname = "Kawalski";
     public String EMail = "rob.kaialski@gmail.com";
@@ -67,8 +70,12 @@ class UserCredentialsProvider {
     public String Password = "156423";
 
     //Credentials for paypage
+    public String Country = "United States";
     public String IssuingBank ="CityBank";
     public String CardNumber ="4444333322221111";
+    public String ExpirationMonth = "02";
+    public String ExpirationYear = "2020";
     public String CVV2 ="987";
+
 
 }

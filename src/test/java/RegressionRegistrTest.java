@@ -15,7 +15,7 @@ public class RegressionRegistrTest {
 
     @BeforeTest
     public void startUp() {
-        driver.get("http://weddingclothesnow.com/index.php?route=account/register");
+        driver.get(dataProvider.SiteURL +"/index.php?route=account/register");
     }
 
     @Test
