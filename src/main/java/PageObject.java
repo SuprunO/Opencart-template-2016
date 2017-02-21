@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,7 +18,9 @@ public class PageObject {
         this.wait=driverWait;
     }
 
-
+    public void clickOn(String CSSSelector) {
+        driver.findElement(By.cssSelector(CSSSelector)).click();
+    }
 
 }
 
