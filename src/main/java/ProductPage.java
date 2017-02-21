@@ -1,4 +1,5 @@
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
 
 /**
  * Created by alex on 21.02.2017.
@@ -13,7 +14,7 @@ public class ProductPage extends PageObject {
     private String CHOOSESIZE = "option[value=\"201\"]";
     private String CHOOSECOLOR = "#input-option279 option[value=\"199\"]";
     private String CHOOSEQTY = "#input-quantity";
-    private String ADDTOCARTBUTTON = "button-cart";
+    private String ADDTOCARTBUTTON = "#button-cart";
 
 
     public void enterSize() {
@@ -24,11 +25,7 @@ public class ProductPage extends PageObject {
         clickOn(this.CHOOSECOLOR);
     }
 
-    public void enterQTY() {
-        clickOn(this.CHOOSEQTY);
-    }
-
-    public void ClickONButton() {
+    public void ClickOnAddToCartButton() {
         clickOn(this.ADDTOCARTBUTTON);
     }
 }
