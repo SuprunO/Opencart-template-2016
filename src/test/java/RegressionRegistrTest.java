@@ -16,6 +16,7 @@ public class RegressionRegistrTest {
     @BeforeTest
     public void startUp() {
         driver.get(dataProvider.SiteURL +"/index.php?route=account/register");
+        driver.manage().window().maximize();
     }
 
     @Test

@@ -18,6 +18,7 @@ public class PayPageRegistrPageTest {
     @BeforeTest
     public void startUp() {
         driver.get(dataProvider.SiteURL + "/index.php?route=checkout/creditcard");
+        driver.manage().window().maximize();
     }
 
     @Test(priority = 1)

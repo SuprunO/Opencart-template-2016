@@ -17,7 +17,8 @@ public class UIRegistrTest {
 
     @BeforeClass
     public void startUp() {
-        driver.get(dataProvider.SiteURL+"/index.php?route=account/login");
+        driver.get(dataProvider.SiteURL + "/index.php?route=account/login");
+        driver.manage().window().maximize();
     }
 
 

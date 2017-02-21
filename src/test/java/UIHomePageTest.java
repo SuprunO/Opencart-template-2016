@@ -23,7 +23,9 @@ public class UIHomePageTest {
     @BeforeClass
     public void start_Up() {
         driver.get(dataProvider.SiteURL);
+        driver.manage().window().maximize();
     }
+
 
     @Test
     public void verify_Lnk_Login() {
