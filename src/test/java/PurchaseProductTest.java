@@ -8,19 +8,40 @@ import org.testng.annotations.Test;
  */
 public class PurchaseProductTest {
     WebDriver driver = new FirefoxDriver();
-    ProductPage PurcaseProduct = new ProductPage(driver);
+    ProductPage PurchaseProduct = new ProductPage(driver);
+    RegistrPageWithUserCredentials registrPageProcess = new RegistrPageWithUserCredentials(driver);
+    UserCredentialsProvider dataProvider = new UserCredentialsProvider();
+    CheckoutPage TestCheckoutPage = new CheckoutPage(driver);
 
     @BeforeTest
     public void StartUp() {
-        driver.get("http://fashionstylefit.com/index.php?route=product/product&path=59_60&product_id=76");
+        driver.get("http://kidsclotheslab.com/index.php?route=product/product&path=62&product_id=246");
         driver.manage().window().maximize();
     }
 
     @Test
     public void MakePurchase() {
-        PurcaseProduct.enterSize();
-        PurcaseProduct.enterColor();
-        PurcaseProduct.ClickOnAddToCartButton();
+        PurchaseProduct.enterSize();
+        PurchaseProduct.enterColor();
+        PurchaseProduct.ClickOnAddToCartButton();
+    }
+
+
+    public void inputCredentialsRegistrationPageTest() {
+        registrPageProcess.verifyCredentials(dataProvider.FirstName, dataProvider.Lastname, dataProvider.EMail, dataProvider.Telephone, dataProvider.Address, dataProvider.City, dataProvider.PostCode, dataProvider.State, dataProvider.Password);
+
+    }
+
+    public void buyProductAndRegistrationTest() {
+        TestCheckoutPage.pushBillingContinueButton();
+        TestCheckoutPage.pushDeliveryDetailsContinueButton();
+        TestCheckoutPage.pushDeliveryMethodContinueButton();
+        TestCheckoutPage.pushPaymentMethodContinueButton();
+        TestCheckoutPage.pushConfirmOrderButton();
     }
 }
+
+
+
+
 

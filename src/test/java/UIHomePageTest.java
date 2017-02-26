@@ -41,4 +41,6 @@ public class UIHomePageTest {
     public void verify_Contact_Us() {
         Assert.assertEquals(homePage.get_lnk_ContactUs().getText(), CONTACT_US, " Contact us check failed");
     }
+
+
 }

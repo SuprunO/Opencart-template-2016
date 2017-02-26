@@ -58,7 +58,7 @@ public class RegistrPageWithUserCredentials extends PageObject {
 
 class UserCredentialsProvider {
     //credentials for registration page
-    public String SiteURL ="http://"+"fashionstylefit.com";
+    public String SiteURL ="http://kidsclotheslab.com/";
     public String FirstName = "Rob";
     public String Lastname = "Kawalski";
     public String EMail = "rob.kakalski@gmail.com";
