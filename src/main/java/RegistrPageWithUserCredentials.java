@@ -2,7 +2,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+import java.util.List;
 
 /**
  * Created by alex on 07.02.2017.
@@ -38,6 +42,9 @@ public class RegistrPageWithUserCredentials extends PageObject {
     public void enterCountry() {
         clickOn(this.COUNTRY);
     }
+
+
+
 
 
     public void verifyCredentials(String FirstName, String LastName, String EMail, String Telephone, String Address, String City, String Psstcode, String State, String Password) {
