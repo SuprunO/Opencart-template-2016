@@ -23,25 +23,25 @@ public class ProductPage extends PageObject {
     //Locators
     private  String CHOOSESIZEFIELD ="#input-option582";
     private String CHOOSESIZEOPTION = "#input-option582>option:nth-child(2)";
-    private String CHOOSECOLOR = "option[value=\"2262\"]";
+ //   private String CHOOSECOLOR = "option[value=\"2262\"]";
  //   private String CHOOSEQTY = "#input-quantity";
     private String ADDTOCARTBUTTON = "#button-cart";
 
 
-    public void enterSize() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(CHOOSESIZEOPTION)));
-        Select oSelect = new Select(driver.findElement(By.cssSelector(CHOOSESIZEFIELD)));
+    public void enterSize() throws InterruptedException {
+       clickOn(this.CHOOSESIZEFIELD);
+        Thread.sleep(5000);
 
-        oSelect.selectByIndex(2263);
+        clickOn(this.CHOOSESIZEOPTION);
     }
 
 
-    public void enterColor() {
+//    public void enterColor() {
+//
+//       driver.findElement(By.cssSelector(CHOOSECOLOR)).click();
+  //  }
 
-       driver.findElement(By.cssSelector(CHOOSECOLOR)).click();
-    }
-
-    public void ClickOnAddToCartButton() {
+    public void clickOnAddToCartButton() {
         clickOn(this.ADDTOCARTBUTTON);
     }
 }

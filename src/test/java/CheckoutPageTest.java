@@ -18,14 +18,14 @@ public class CheckoutPageTest {
         driver.manage().window().maximize();
     }
 
-    @Test
-    public void buyProductsAndRegistrationTest() {
-
-        TestCheckoutPage.pushBillingContinueButton();
-        TestCheckoutPage.pushDeliveryDetailsContinueButton();
-        TestCheckoutPage.pushDeliveryMethodContinueButton();
-        TestCheckoutPage.pushPaymentMethodContinueButton();
-        TestCheckoutPage.pushConfirmOrderButton();
-    }
+//    @Test
+//    public void buyProductsAndRegistrationTest() {
+//
+//        TestCheckoutPage.pushBillingContinueButton();
+//        TestCheckoutPage.pushDeliveryDetailsContinueButton();
+//        TestCheckoutPage.pushDeliveryMethodContinueButton();
+//        TestCheckoutPage.pushPaymentMethodContinueButton();
+//        TestCheckoutPage.pushConfirmOrderButton();
+//    }
 
 }

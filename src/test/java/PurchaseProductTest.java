@@ -10,7 +10,7 @@ public class PurchaseProductTest {
     WebDriver driver = new FirefoxDriver();
     ProductPage PurchaseProduct = new ProductPage(driver);
     RegistrPageWithUserCredentials registrPageProcess = new RegistrPageWithUserCredentials(driver);
-    UserCredentialsProvider dataProvider = new UserCredentialsProvider();
+    UserCredentialsProvider userData = new UserCredentialsProvider();
     CheckoutPage TestCheckoutPage = new CheckoutPage(driver);
 
     @BeforeTest
@@ -21,14 +21,18 @@ public class PurchaseProductTest {
 
     @Test
     public void MakePurchase() {
-        PurchaseProduct.enterSize();
-        PurchaseProduct.enterColor();
-        PurchaseProduct.ClickOnAddToCartButton();
+        try {
+            PurchaseProduct.enterSize();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+   //     PurchaseProduct.enterColor();
+        PurchaseProduct.clickOnAddToCartButton();
     }
 
 
     public void inputCredentialsRegistrationPageTest() {
-        registrPageProcess.verifyCredentials(dataProvider.FirstName, dataProvider.Lastname, dataProvider.EMail, dataProvider.Telephone, dataProvider.Address, dataProvider.City, dataProvider.PostCode, dataProvider.State, dataProvider.Password);
+        registrPageProcess.verifyCredentials(userData.FirstName, userData.Lastname, userData.EMail, userData.Telephone, userData.Address, userData.City, userData.PostCode, userData.State, userData.Password);
 
     }
 
