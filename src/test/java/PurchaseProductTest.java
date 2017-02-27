@@ -18,7 +18,6 @@ public class PurchaseProductTest {
     WebDriver driver = new ChromeDriver();
 
 
-    //WebDriver driver = new FirefoxDriver();
     ProductPage purchaseProduct = new ProductPage(driver);
     RegistrPageWithUserCredentials registrPageProcess = new RegistrPageWithUserCredentials(driver);
     UserCredentialsProvider userData = new UserCredentialsProvider();
