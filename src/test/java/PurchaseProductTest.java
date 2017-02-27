@@ -12,7 +12,7 @@ public class PurchaseProductTest {
 
 @BeforeClass
     public void setDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32");
+        System.setProperty("webdriver.chrome.driver", "C://chromedriver_win32/chromedriver.exe");
     }
 
     WebDriver driver = new ChromeDriver();
