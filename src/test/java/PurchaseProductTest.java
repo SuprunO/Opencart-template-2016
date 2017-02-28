@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
  */
 public class PurchaseProductTest {
 
-@BeforeClass
+    @BeforeClass
     public void setDriver() {
         System.setProperty("webdriver.chrome.driver", "C://chromedriver_win32/chromedriver.exe");
     }
@@ -21,10 +21,10 @@ public class PurchaseProductTest {
     ProductPage purchaseProduct = new ProductPage(driver);
     RegistrPageWithUserCredentials registrPageProcess = new RegistrPageWithUserCredentials(driver);
     UserCredentialsProvider userData = new UserCredentialsProvider();
-    CheckoutPage TestCheckoutPage = new CheckoutPage(driver);
+    CheckoutPage testCheckoutPage = new CheckoutPage(driver);
 
     @BeforeTest
-    public void StartUp() {
+     void StartUp() {
 
         driver.get("http://kidsclotheslab.com/index.php?route=product/product&path=62&product_id=246");
         driver.manage().window().maximize();

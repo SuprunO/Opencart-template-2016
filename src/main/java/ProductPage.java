@@ -43,15 +43,5 @@ public class ProductPage extends PageObject {
 
 
 
-//    public void enterColor() {
-//
-//       driver.findElement(By.cssSelector(CHOOSECOLOR)).click();
-    //  }
-
-//    public void clickOnAddToCartButton() {
-//        clickOn(this.ADDTOCARTBUTTON);
-//    }
-
-
 
 
