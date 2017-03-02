@@ -91,11 +91,4 @@ public class CheckoutPage extends PageObject {
         waiter(CONFIRM_ORDER_BUTTON);
         clickOn(this.CONFIRM_ORDER_BUTTON);
     }
-
-
-
-
-
-
-
 }
