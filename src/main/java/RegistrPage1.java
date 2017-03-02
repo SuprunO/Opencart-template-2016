@@ -10,7 +10,7 @@ import static java.awt.SystemColor.text;
  */
 public class RegistrPage1 extends PageObject{
 
-    public RegistrPage1(WebDriver driver){
+    public RegistrPage1(WebDriver driver) {
         super(driver);
     }
 

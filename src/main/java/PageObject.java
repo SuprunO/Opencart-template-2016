@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -9,14 +10,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PageObject {
 
     public WebDriver driver;
-    public WebDriverWait wait;
+
 
     public PageObject(WebDriver driver) {
         this.driver = driver;
     }
 
-    public PageObject(WebDriverWait driverWait){
-        this.wait=driverWait;
+    public void waiter(String SomeLocatorByCSSSelector){
+        WebDriverWait waitForOne = new WebDriverWait(driver, 25);
+        waitForOne.until(ExpectedConditions.elementToBeClickable(By.cssSelector(SomeLocatorByCSSSelector)));
     }
 
     public void clickOn(String CSSSelector) {

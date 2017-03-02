@@ -12,12 +12,12 @@ public class UIRegistrTest {
 
     WebDriver driver = new FirefoxDriver();
     RegistrPage1 regPage = new RegistrPage1(driver);
-    UserCredentialsProvider dataProvider = new UserCredentialsProvider();
+    UserCredentialsProvider userData = new UserCredentialsProvider();
 
 
     @BeforeClass
     public void startUp() {
-        driver.get(dataProvider.SiteURL + "/index.php?route=account/login");
+        driver.get(userData.SiteURL + "/index.php?route=account/login");
         driver.manage().window().maximize();
     }
 

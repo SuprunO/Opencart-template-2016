@@ -34,7 +34,7 @@ public class HomePage extends PageObject {
 
 
     //CART popup
-    public WebElement getCheckoutLink(){
+    public WebElement getPopUpCheckoutLink(){
      return driver.findElement(By.cssSelector(CHECKOUT_LINK));
     }
 
@@ -42,6 +42,9 @@ public class HomePage extends PageObject {
     //CART popup
     private String CART_LINK=".btn.btn-inverse.btn-block.btn-lg.dropdown-toggle";
     private String CHECKOUT_LINK="text-right>a:nth-child(2)";
+
+
+
 
     //Categories
     private String CATEGORY1=".nav.navbar-nav>li:nth-child(1)>a";

@@ -11,23 +11,25 @@ public class PayPageRegistrPageTest {
 
     WebDriver driver = new FirefoxDriver();
     PayPage payPageUserCredentialsInput = new PayPage(driver);
-    UserCredentialsProvider dataProvider = new UserCredentialsProvider();
+    UserCredentialsProvider userData = new UserCredentialsProvider();
     TransactionFinalPage paymentStatus = new TransactionFinalPage(driver);
 
 
     @BeforeTest
     public void startUp() {
-        driver.get(dataProvider.SiteURL + "/index.php?route=checkout/creditcard");
+        driver.get(userData.SiteURL + "/index.php?route=checkout/creditcard");
         driver.manage().window().maximize();
     }
 
     @Test(priority = 1)
     public void paypageInputCredentialsTest() {
-        payPageUserCredentialsInput.enterClientCredentialsPaypage(dataProvider.FirstName, dataProvider.Lastname, dataProvider.Address, dataProvider.City, dataProvider.PostCode, dataProvider.Country, dataProvider.Telephone, dataProvider.EMail, dataProvider.IssuingBank, dataProvider.CardNumber, dataProvider.ExpirationMonth, dataProvider.ExpirationYear, dataProvider.CVV2);
+        payPageUserCredentialsInput.enterClientCredentialsPaypage(userData.FirstName, userData.Lastname, userData.Address, userData.City, userData.PostCode, userData.Country, userData.Telephone, userData.EMail, userData.IssuingBank, userData.CardNumber, userData.ExpirationMonth, userData.ExpirationYear, userData.CVV2);
     }
 
     @Test(priority = 2)
     public void verifyThePaymentIsDone() {
         Assert.assertEquals(paymentStatus.checkTheTransactionIsSuccessful().getText(), "Transaction Success", "The payment test is successfull");
     }
+
+
 }

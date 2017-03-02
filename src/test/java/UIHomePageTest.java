@@ -14,7 +14,7 @@ public class UIHomePageTest {
 
     WebDriver driver = new FirefoxDriver();
     HomePage homePage = new HomePage(driver);
-    UserCredentialsProvider dataProvider = new UserCredentialsProvider();
+    UserCredentialsProvider userData = new UserCredentialsProvider();
 
     private String LOGIN = "Login";
     private String HOME = "Home";
@@ -22,7 +22,7 @@ public class UIHomePageTest {
 
     @BeforeClass
     public void start_Up() {
-        driver.get(dataProvider.SiteURL);
+        driver.get(userData.SiteURL);
         driver.manage().window().maximize();
     }
 

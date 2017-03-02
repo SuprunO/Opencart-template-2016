@@ -11,10 +11,6 @@ public class PayPage extends PageObject {
         super(driver);
     }
 
-    public PayPage(WebDriverWait driverWait) {
-        super(driverWait);
-    }
-
     //CSS LOCATORS
     private String FIRSTNAME = "[name=first_name]";
     private String LASTNAME = "[name=last_name]";
@@ -29,10 +25,11 @@ public class PayPage extends PageObject {
     private String EXPIRATIONMONTH = ".cc_exp_month";
     private String EXPIRATIONYEAR = "[name=cc_exp_year]";
     private String CVV = "[name=cc_cvv]";
-    private String SUBMITTRANSACTIONBUTTON = "#formsubmit";
+    private String SUBMIT_TRANSACTIONBUTTON = "#formsubmit";
 
 
     public void enterClientCredentialsPaypage(String FirstName, String LastName, String Address, String City, String PostalCode, String Country, String Phone, String Email, String IssuingBank, String CardNumber, String ExpirationMonth, String ExpirationYear, String CVV2) {
+        waiter(FIRSTNAME);
         driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(FirstName);
         driver.findElement(By.cssSelector(LASTNAME)).sendKeys(LastName);
         driver.findElement(By.cssSelector(ADDRESS)).sendKeys(Address);
@@ -46,7 +43,11 @@ public class PayPage extends PageObject {
         driver.findElement(By.cssSelector(EXPIRATIONMONTH)).sendKeys(ExpirationMonth);
         driver.findElement(By.cssSelector(EXPIRATIONYEAR)).sendKeys(ExpirationYear);
         driver.findElement(By.cssSelector(CVV)).sendKeys(CVV2);
-        driver.findElement(By.cssSelector(SUBMITTRANSACTIONBUTTON)).click();
+    }
+
+    public void clickOnSubmitTransactionButton(){
+        clickOn(SUBMIT_TRANSACTIONBUTTON);
+
     }
 }
 

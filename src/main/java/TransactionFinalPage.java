@@ -12,9 +12,6 @@ public class TransactionFinalPage extends PageObject{
         super(driver);
     }
 
-    public TransactionFinalPage(WebDriverWait driverWait) {
-        super(driverWait);
-    }
 
     // Locators
     private String PAYMENTISSUCCESSFUL = "div>h2";
