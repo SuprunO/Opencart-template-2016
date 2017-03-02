@@ -1,7 +1,6 @@
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -10,12 +9,9 @@ import org.testng.annotations.Test;
  */
 public class PurchaseProductTest {
 
-    @BeforeClass
-    public void setDriver() {
-        System.setProperty("webdriver.chrome.driver", "C://chromedriver_win32/chromedriver.exe");
-    }
 
-    WebDriver driver = new ChromeDriver();
+
+    WebDriver driver = new FirefoxDriver();
 
 
     ProductPage purchaseProduct = new ProductPage(driver);
@@ -46,7 +42,8 @@ public class PurchaseProductTest {
 
     @AfterClass
     public void cleanup() {
-        driver.quit();
+        driver.quit(
+        );
 
     }
 }
