@@ -92,6 +92,6 @@ class UserCredentialsProvider {
     public String ExpirationMonth = "02";
     public String ExpirationYear = "2020";
     public String CVV2 = "987";
-
-
 }
+
+

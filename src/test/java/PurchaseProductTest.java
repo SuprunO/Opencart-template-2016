@@ -1,5 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -10,7 +11,6 @@ public class PurchaseProductTest {
 
 
     WebDriver driver = new FirefoxDriver();
-
 
 
     ProductPage purchaseProduct = new ProductPage(driver);
@@ -56,15 +56,17 @@ public class PurchaseProductTest {
         checkoutPage.clickOn_Step4_DeliveryMethodContinueButton();
         checkoutPage.clickOn_Step5_PaymentMethodContinueButton();
         checkoutPage.clickOn_Step6_ConfirmOrderButton();
-        payPageUserCredentialsInput.enterClientCredentialsPaypage(userData.FirstName,userData.Lastname,userData.Address,userData.City,userData.PostCode,userData.Country,userData.Telephone,userData.EMail,userData.IssuingBank,userData.CardNumber,userData.ExpirationMonth,userData.ExpirationYear,userData.CVV2);
+        payPageUserCredentialsInput.enterClientCredentialsPaypage(userData.FirstName, userData.Lastname, userData.Address, userData.City, userData.PostCode, userData.Country, userData.Telephone, userData.EMail, userData.IssuingBank, userData.CardNumber, userData.ExpirationMonth, userData.ExpirationYear, userData.CVV2);
         payPageUserCredentialsInput.clickOnSubmitTransactionButton();
+    }
+
+    @AfterClass
+    public void cleanup() {
+        driver.quit();
     }
 }
 
-//    @AfterClass
-//    public void cleanup() {
-//        driver.quit(
-//        );
+
 
 
 
