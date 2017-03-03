@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.Select;
 /**
  * Created by alex on 21.02.2017.
  */
-public class CheckoutPage extends PageObject {
+public class CheckoutPage extends BasePage {
     public CheckoutPage(WebDriver driver) {
         super(driver);
     }

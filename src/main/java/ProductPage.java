@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.Select;
 /**
  * Created by alex on 21.02.2017.
  */
-public class ProductPage extends PageObject {
+public class ProductPage extends BasePage {
 
     //Locators
     private String CHOOSESIZEFIELD = "#input-option582";

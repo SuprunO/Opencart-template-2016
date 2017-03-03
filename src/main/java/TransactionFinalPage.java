@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by alex on 21.02.2017.
  */
-public class TransactionFinalPage extends PageObject{
+public class TransactionFinalPage extends BasePage{
 
     public TransactionFinalPage(WebDriver driver) {
         super(driver);

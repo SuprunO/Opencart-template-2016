@@ -11,26 +11,26 @@ import java.util.List;
 /**
  * Created by alex on 03.03.2017.
  */
-public class BrokenLinksCheckTest {
-
+public class BrokenImgCheckTest {
     WebDriver driver = new FirefoxDriver();
     BasePage verifyActive = new BasePage(driver);
 
     @Test
-    public void VerLink() {
+    public void VerifyImages() {
         WebDriver driver = new FirefoxDriver();
         UserCredentialsProvider userData = new UserCredentialsProvider();
         driver.manage().window().maximize();
         driver.get(userData.SiteURL);
-        List<WebElement> links = driver.findElements(By.tagName("a"));
-        System.out.println("Total links are " + links.size());
+        List<WebElement> images = driver.findElements(By.tagName("img"));
+        System.out.println("Total links are " + images.size());
 
-        for (int i = 0; i < links.size(); i++) {
-            WebElement ele = links.get(i);
-            String url = ele.getAttribute("href");
+        for (int i = 0; i < images.size(); i++) {
+            WebElement ele = images.get(i);
+            String url = ele.getAttribute("src");
             verifyActive.verifyActive(url);
         }
     }
-}
 
+
+}
 

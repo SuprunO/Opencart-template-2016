@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by alex on 04.02.2017.
  */
-public class HomePage extends PageObject {
+public class HomePage extends BasePage {
 
 
     public HomePage(WebDriver driver) {

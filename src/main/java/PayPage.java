@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by alex on 21.02.2017.
  */
-public class PayPage extends PageObject {
+public class PayPage extends BasePage {
 
     public PayPage(WebDriver driver) {
         super(driver);

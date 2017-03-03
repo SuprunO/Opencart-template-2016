@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by alex on 02.03.2017.
  */
-public class RealCheckoutPage extends PageObject {
+public class RealCheckoutPage extends BasePage {
 
     public RealCheckoutPage(WebDriver driver) {
         super(driver);
