@@ -61,7 +61,7 @@ public class RegistrPageWithUserCredentials extends PageObject {
 
 
 class UserCredentialsProvider {
-    //credentials for registration page
+
     protected String getSaltString() {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder salt = new StringBuilder();

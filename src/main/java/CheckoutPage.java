@@ -1,6 +1,5 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -30,7 +29,7 @@ public class CheckoutPage extends PageObject {
     private String PASSWORD = "#input-payment-password";
     private String PASSCONFIRM = "#input-payment-confirm";
     private String RADIOBUTTON = ".agree+input";
-    private String CONTINUEBUTTON = "#button-register";
+
 
     public void inputCredentials(String FirstName, String LastName, String EMail, String Telephone, String Address, String City, String Postcode, String Password) {
 
