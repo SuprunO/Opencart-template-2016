@@ -30,7 +30,5 @@ public class BrokenImgCheckTest {
             verifyActive.verifyActive(url);
         }
     }
-
-
 }
 
