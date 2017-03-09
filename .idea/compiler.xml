@@ -23,10 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="KidsClothes" />
+        <module name="Opencart-template-2016" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="KidsClothes" target="1.5" />
+      <module name="Opencart-template-2016" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
