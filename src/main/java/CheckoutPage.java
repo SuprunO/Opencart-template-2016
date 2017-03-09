@@ -12,15 +12,12 @@ public class CheckoutPage extends BasePage {
 
     //Locators
 
-    //STEP#1
-    private String NEW_CUSTOMER_CONTINUE_BUTTON="#button-account";
-    public void pushNewCustomerContinueButton(){clickOn(this.NEW_CUSTOMER_CONTINUE_BUTTON);}
 
     //STEP#2
     private String FIRSTNAME = "#input-payment-firstname";
     private String LASTNAME = "#input-payment-lastname";
     private String EMAIL = "#input-payment-email";
-    private String PHONE = "#input-payment-telephone";
+    private String PHONE ="#input-payment-telephone";
     private String ADDRESS = "#input-payment-address-1";
     private String CITY = "#input-payment-city";
     private String POSTCODE = "#input-payment-postcode";
@@ -32,7 +29,7 @@ public class CheckoutPage extends BasePage {
 
 
     public void inputCredentials(String FirstName, String LastName, String EMail, String Telephone, String Address, String City, String Postcode, String Password) {
-
+        waiter(FIRSTNAME);
         driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(FirstName);
         driver.findElement(By.cssSelector(LASTNAME)).sendKeys(LastName);
         driver.findElement(By.cssSelector(EMAIL)).sendKeys(EMail);
@@ -55,17 +52,22 @@ public class CheckoutPage extends BasePage {
         select.selectByIndex(5);
     }
 
-   public void clickPrivacyPolicyRadioButton(){
-       clickOn(RADIOBUTTON);
-   }
+    public void clickPrivacyPolicyRadioButton(){
+        clickOn(RADIOBUTTON);
+    }
 
-   // CHECKOUT STEPS
+    // CHECKOUT STEPS
+    private String NEW_CUSTOMER_CONTINUE_BUTTON="#button-account";
     private String BILLING_CONTINUE_BUTTON = "#button-register";
     private String DELIVERY_DETAILS_CONTINUE_BUTTON = "#button-shipping-address";
     private String DELIVERY_METHOD_CONTINUE_BUTTON = "#button-shipping-method";
     private String PAYMENT_METHOD_CONTINUE_BUTTON = "#button-payment-method";
     private String CONFIRM_ORDER_BUTTON = "#cardgate-confirm";
 
+    public void clickOn_Step1_AccountContinueButton(){
+        waiter(NEW_CUSTOMER_CONTINUE_BUTTON);
+        clickOn(NEW_CUSTOMER_CONTINUE_BUTTON);
+    }
 
     public void clickOn_Step2_BillingContinueButton(){
         clickOn(this.BILLING_CONTINUE_BUTTON);

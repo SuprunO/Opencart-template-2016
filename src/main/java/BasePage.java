@@ -1,10 +1,12 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 import java.util.Random;
 
 
@@ -27,6 +29,29 @@ public class BasePage {
 
     public void clickOn(String CSSSelector) {
         driver.findElement(By.cssSelector(CSSSelector)).click();
+    }
+
+
+    public void verifyImages() {
+        List<WebElement> images = driver.findElements(By.tagName("img"));
+        System.out.println("Total links are " + images.size());
+
+        for (int i = 0; i < images.size(); i++) {
+            WebElement ele = images.get(i);
+            String url = ele.getAttribute("src");
+            verifyActive(url);
+        }
+    }
+
+    public void verifyLinks() {
+        List<WebElement> images = driver.findElements(By.tagName("a"));
+        System.out.println("Total links are " + images.size());
+
+        for (int i = 0; i < images.size(); i++) {
+            WebElement ele = images.get(i);
+            String url = ele.getAttribute("href");
+            verifyActive(url);
+        }
     }
 
     public void verifyActive(String linkUrl) {
