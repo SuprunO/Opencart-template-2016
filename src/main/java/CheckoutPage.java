@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * Created by alex on 21.02.2017.
@@ -63,6 +64,8 @@ public class CheckoutPage extends BasePage {
     private String DELIVERY_METHOD_CONTINUE_BUTTON = "#button-shipping-method";
     private String PAYMENT_METHOD_CONTINUE_BUTTON = "#button-payment-method";
     private String CONFIRM_ORDER_BUTTON = "#cardgate-confirm";
+
+    @Step("Click on continue button")
 
     public void clickOn_Step1_AccountContinueButton(){
         waiter(NEW_CUSTOMER_CONTINUE_BUTTON);
