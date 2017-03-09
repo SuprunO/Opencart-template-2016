@@ -1,11 +1,11 @@
+package UI_Test_Package;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.sql.Driver;
+import sitePages.HomePage;
+import technical.UserCredentialsProvider;
 
 /**
  * Created by alex on 04.02.2017.

@@ -1,14 +1,7 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-import ru.yandex.qatools.allure.annotations.Title;
-
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
+import technical.BasePage;
 
 /**
  * Created by alex on 03.03.2017.
@@ -17,18 +10,16 @@ public class BrokenImgCheckTest {
     WebDriver driver = new FirefoxDriver();
     BasePage getBasePageMethods = new BasePage(driver);
 
-    @Title("Broken images HomePage Test")
+
     @Test
     public void checkBrokenImg_HomePage() {
         driver.get("http://kidsclotheslab.com");
         System.out.println("Checking Home page...");
         getBasePageMethods.verifyImages();
 
-
-
     }
 
-    @Title("Broken images Test_Category1_Page_1")
+
     @Test
     public void checkBrokenImg_Category1_Page_1() {
         System.out.println("Checking _Category1_Page_1");

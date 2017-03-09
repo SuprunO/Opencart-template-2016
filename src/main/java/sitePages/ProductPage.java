@@ -1,6 +1,9 @@
+package sitePages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import technical.BasePage;
 
 /**
  * Created by alex on 21.02.2017.
@@ -8,8 +11,8 @@ import org.openqa.selenium.support.ui.Select;
 public class ProductPage extends BasePage {
 
     //Locators
-    private String CHOOSESIZEFIELD = "#input-option582";
-    private String CHOOSECOLORFIELD = "#input-option581";
+    private String CHOOSESIZEFIELD = "#input-option492";
+    private String CHOOSECOLORFIELD = "#input-option491";
     private String CHOOSEQTYFIELD = "#input-quantity";
     private String ADDTOCARTBUTTON = "#button-cart";
 
@@ -34,6 +37,7 @@ public class ProductPage extends BasePage {
     }
 
     public void pushAddToCartButton(){
+        waiter(ADDTOCARTBUTTON);
         clickOn(ADDTOCARTBUTTON);
     }
 

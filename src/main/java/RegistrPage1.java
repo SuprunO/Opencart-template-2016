@@ -1,14 +1,12 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import static java.awt.SystemColor.text;
+import technical.BasePage;
 
 /**
  * Created by alex on 05.02.2017.
  */
-public class RegistrPage1 extends BasePage{
+public class RegistrPage1 extends BasePage {
 
     public RegistrPage1(WebDriver driver) {
         super(driver);

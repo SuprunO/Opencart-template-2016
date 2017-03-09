@@ -1,6 +1,8 @@
+package sitePages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import technical.BasePage;
 
 /**
  * Created by alex on 21.02.2017.

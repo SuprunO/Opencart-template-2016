@@ -1,11 +1,11 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import ru.yandex.qatools.allure.annotations.Description;
-import ru.yandex.qatools.allure.annotations.Step;
-import ru.yandex.qatools.allure.annotations.Title;
+import sitePages.CheckoutPage;
+import sitePages.PayPage;
+import sitePages.ProductPage;
+import technical.UserCredentialsProvider;
 
 /**
  * Created by alex on 21.02.2017.
@@ -18,12 +18,13 @@ public class PurchaseProductTest {
     RealCheckoutPage realCheckoutPage = new RealCheckoutPage(driver);
     CheckoutPage checkoutPage = new CheckoutPage(driver);
     PayPage payPageUserCredentialsInput = new PayPage(driver);
+    CartPage cartPage=new CartPage(driver);
 
 
     @BeforeTest
     void StartUp() {
         System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
-        driver.get("http://kidsclotheslab.com/index.php?route=product/product&path=62&product_id=246");
+        driver.get(userData.SiteURL+"/index.php?route=product/product&path=62&product_id=247");
         driver.manage().window().maximize();
     }
 
@@ -35,7 +36,8 @@ public class PurchaseProductTest {
         purchaseProduct.inputQTYofProducts();
         purchaseProduct.pushAddToCartButton();
 
-        driver.get("http://kidsclotheslab.com/index.php?route=checkout/checkout");
+        //cartPage.getCartCheckoutButton().click();
+        driver.navigate().to("http://kidsclothesmart.com/index.php?route=checkout/checkout");
         checkoutPage.clickOn_Step1_AccountContinueButton();
 
         checkoutPage.inputCredentials(userData.FirstName, userData.Lastname, userData.EMail, userData.Telephone, userData.Address, userData.City, userData.PostCode, userData.Password);

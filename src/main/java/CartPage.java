@@ -4,15 +4,16 @@ import org.openqa.selenium.WebElement;
 import technical.BasePage;
 
 /**
- * Created by alex on 02.03.2017.
+ * Created by alex on 09.03.2017.
  */
-public class RealCheckoutPage extends BasePage {
+public class CartPage extends BasePage {
 
-    public RealCheckoutPage(WebDriver driver) {
+    public CartPage(WebDriver driver){
         super(driver);
     }
 
-    public WebElement checkout_BTN_on_RealCheckout_Page() {
+    public WebElement getCartCheckoutButton(){
+        waiterByLinkText("Checkout");
         return driver.findElement(By.linkText("Checkout"));
     }
 }

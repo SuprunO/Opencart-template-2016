@@ -1,3 +1,5 @@
+package technical;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +28,12 @@ public class BasePage {
         WebDriverWait waitForOne = new WebDriverWait(driver, 25);
         waitForOne.until(ExpectedConditions.elementToBeClickable(By.cssSelector(SomeLocatorByCSSSelector)));
     }
+
+    public void waiterByLinkText(String ByLinkText){
+        WebDriverWait waitForOne = new WebDriverWait(driver, 25);
+        waitForOne.until(ExpectedConditions.elementToBeClickable(By.linkText(ByLinkText)));
+    }
+
 
     public void clickOn(String CSSSelector) {
         driver.findElement(By.cssSelector(CSSSelector)).click();
@@ -73,7 +81,7 @@ public class BasePage {
 
 }
 
-class UserCredentialsProvider {
+public class UserCredentialsProvider {
 
     protected String getSaltString() {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -88,7 +96,7 @@ class UserCredentialsProvider {
 
     }
 
-    public String SiteURL = "http://kidsclotheslab.com/";
+    public String SiteURL = "http://kidsclothesmart.com";
     public String FirstName = "Rob";
     public String Lastname = "Kawalski";
     public String EMail =   getSaltString()+"@gmail.com";

@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import technical.BasePage;
 
 /**
  * Created by alex on 07.02.2017.

@@ -1,7 +1,9 @@
+package sitePages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import technical.BasePage;
 
 /**
  * Created by alex on 04.02.2017.

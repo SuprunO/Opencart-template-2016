@@ -26,9 +26,8 @@
         <module name="Opencart-template-2016" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="KidsClothes" target="1.5" />
-      <module name="Opencart-template-2016" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="Opencart-template-2016" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

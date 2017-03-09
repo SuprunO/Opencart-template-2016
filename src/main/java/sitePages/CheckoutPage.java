@@ -1,7 +1,10 @@
+package sitePages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import ru.yandex.qatools.allure.annotations.Step;
+import technical.BasePage;
 
 /**
  * Created by alex on 21.02.2017.
@@ -65,32 +68,37 @@ public class CheckoutPage extends BasePage {
     private String PAYMENT_METHOD_CONTINUE_BUTTON = "#button-payment-method";
     private String CONFIRM_ORDER_BUTTON = "#cardgate-confirm";
 
-    @Step("Click on continue button")
+    @Step("Click on New Account continue button")
 
     public void clickOn_Step1_AccountContinueButton(){
         waiter(NEW_CUSTOMER_CONTINUE_BUTTON);
         clickOn(NEW_CUSTOMER_CONTINUE_BUTTON);
     }
-
+    @Step("Click on Billing Continue button")
     public void clickOn_Step2_BillingContinueButton(){
         clickOn(this.BILLING_CONTINUE_BUTTON);
     }
 
+
+    @Step("Click on Delivery Details Continue button")
     public void clickOn_Step3_DeliveryDetailsContinueButton(){
         waiter(DELIVERY_DETAILS_CONTINUE_BUTTON);
         clickOn(this.DELIVERY_DETAILS_CONTINUE_BUTTON);
     }
 
+    @Step("Click on Delivery Method Continue button")
     public void clickOn_Step4_DeliveryMethodContinueButton(){
         waiter(DELIVERY_METHOD_CONTINUE_BUTTON);
         clickOn(this.DELIVERY_METHOD_CONTINUE_BUTTON);
     }
 
+    @Step("Click on Delivery Method Continue button")
     public void clickOn_Step5_PaymentMethodContinueButton(){
         waiter(PAYMENT_METHOD_CONTINUE_BUTTON);
         clickOn(this.PAYMENT_METHOD_CONTINUE_BUTTON);
     }
 
+    @Step("Confirm Order button")
     public void clickOn_Step6_ConfirmOrderButton(){
         waiter(CONFIRM_ORDER_BUTTON);
         clickOn(this.CONFIRM_ORDER_BUTTON);
