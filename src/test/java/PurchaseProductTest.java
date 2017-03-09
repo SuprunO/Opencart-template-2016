@@ -25,6 +25,10 @@ public class PurchaseProductTest {
         System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
         driver.get("http://kidsclotheslab.com/index.php?route=product/product&path=62&product_id=246");
         driver.manage().window().maximize();
+    }
+
+    @Test
+    public void endToEndTest() {
 
         purchaseProduct.chooseSize();
         purchaseProduct.chooseColor();
@@ -45,7 +49,7 @@ public class PurchaseProductTest {
         checkoutPage.clickOn_Step4_DeliveryMethodContinueButton();
 
         checkoutPage.clickOn_Step5_PaymentMethodContinueButton();
-        
+
         checkoutPage.clickOn_Step6_ConfirmOrderButton();
 
         payPageUserCredentialsInput.enterClientCredentialsPaypage(userData.FirstName, userData.Lastname, userData.Address, userData.City, userData.PostCode, userData.Country, userData.Telephone, userData.EMail, userData.IssuingBank, userData.CardNumber, userData.ExpirationMonth, userData.ExpirationYear, userData.CVV2);
