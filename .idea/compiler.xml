@@ -24,10 +24,12 @@
         <processorPath useClasspath="true" />
         <module name="KidsClothes" />
         <module name="Opencart-template-2016" />
+        <module name="Opencart_Template_2016" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="Opencart-template-2016" target="1.8" />
+      <module name="Opencart_Template_2016" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

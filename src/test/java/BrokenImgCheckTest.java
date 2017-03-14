@@ -16,6 +16,7 @@ public class BrokenImgCheckTest {
         driver.get("http://kidsclotheslab.com");
         System.out.println("Checking Home page...");
         getBasePageMethods.verifyImages();
+        driver.close();
 
     }
 
@@ -25,8 +26,7 @@ public class BrokenImgCheckTest {
         System.out.println("Checking _Category1_Page_1");
         driver.get("http://kidsclotheslab.com/index.php?route=product/category&path=63");
         getBasePageMethods.verifyImages();
-
-
+        driver.close();
     }
 
     @Test
@@ -34,8 +34,7 @@ public class BrokenImgCheckTest {
         System.out.println("Checking _Category1_Page_4");
         driver.get("http://kidsclotheslab.com/index.php?route=product/category&path=63&page=4");
         getBasePageMethods.verifyImages();
-
-
+        driver.close();
     }
 
     @Test
@@ -43,8 +42,7 @@ public class BrokenImgCheckTest {
         System.out.println("Checking _Category2_Page_1");
         driver.get("http://kidsclotheslab.com/index.php?route=product/category&path=62");
         getBasePageMethods.verifyImages();
-
-
+        driver.close();
     }
 
     @Test
@@ -52,8 +50,7 @@ public class BrokenImgCheckTest {
         System.out.println("Checking _Category2_Page_3");
         driver.get("http://kidsclotheslab.com/index.php?route=product/category&path=62page=3");
         getBasePageMethods.verifyImages();
-
-
+        driver.close();
     }
 
     @Test
@@ -61,8 +58,7 @@ public class BrokenImgCheckTest {
         System.out.println("Checking _Category2_Page_5");
         driver.get("http://kidsclotheslab.com/index.php?route=product/category&path=62page=5");
         getBasePageMethods.verifyImages();
-
-
+        driver.close();
     }
 
     @Test
@@ -70,7 +66,7 @@ public class BrokenImgCheckTest {
         System.out.println("Checking _Category3_Page_1");
         driver.get("http://kidsclotheslab.com/index.php?route=product/category&path=64");
         getBasePageMethods.verifyImages();
-
+        driver.close();
     }
 
     @Test
@@ -78,7 +74,7 @@ public class BrokenImgCheckTest {
         System.out.println("Checking _Category3_Page_3");
         driver.get("http://kidsclotheslab.com/index.php?route=product/category&path=64page=2");
         getBasePageMethods.verifyImages();
-
+        driver.close();
     }
 
     @Test
@@ -86,7 +82,7 @@ public class BrokenImgCheckTest {
         System.out.println("Checking _Category3_Page_5");
         driver.get("http://kidsclotheslab.com/index.php?route=product/category&path=62page=7");
         getBasePageMethods.verifyImages();
-
+        driver.close();
     }
 
 
@@ -95,22 +91,21 @@ public class BrokenImgCheckTest {
         System.out.println("Checking _Category1_Page_1_Product1");
         driver.get("http://kidsclotheslab.com/index.php?route=product/product&path=63&product_id=308");
         getBasePageMethods.verifyImages();
-
+        driver.close();
     }
 
     @Test
     public void checkBrokenImg_Product_Category_1_Page1_Product6() {
         driver.get("http://kidsclotheslab.com/index.php?route=product/product&path=63&product_id=311");
         getBasePageMethods.verifyImages();
-
+        driver.close();
     }
 
     @Test
     public void checkBrokenImg_Product_Category_1_Page1_Product8() {
         driver.get("http://kidsclotheslab.com/index.php?route=product/product&path=63&product_id=281");
         getBasePageMethods.verifyImages();
-
+        driver.close();
     }
-
 }
 

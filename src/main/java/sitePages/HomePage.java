@@ -15,7 +15,7 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-//Header
+    //Header
     public WebElement get_lnk_Login() {
 
         return driver.findElement(By.linkText("Login"));
@@ -30,31 +30,36 @@ public class HomePage extends BasePage {
         return driver.findElement(By.linkText("Contact Us"));
     }
 
-    public WebElement get_link_Cart(){
-        return driver.findElement(By.cssSelector(CART_LINK));
+    public WebElement get_Icon_Link_Cart() {
+        waiter(CART_ICON);
+        return driver.findElement(By.cssSelector(CART_ICON));
     }
 
-
     //CART popup
-    public WebElement getPopUpCheckoutLink(){
-     return driver.findElement(By.cssSelector(CHECKOUT_LINK));
+
+    public void clickOnCategory1(){
+        waiter(CATEGORY1_LINK);
+        clickOn(CATEGORY1_LINK);
     }
 
-
-    //CART popup
-    private String CART_LINK=".btn.btn-inverse.btn-block.btn-lg.dropdown-toggle";
-    private String CHECKOUT_LINK="text-right>a:nth-child(2)";
-
-
-
+    private String CART_ICON = ".cart-icon-standard";
 
     //Categories
-    private String CATEGORY1=".nav.navbar-nav>li:nth-child(1)>a";
-    private String CATEGORY2=".nav.navbar-nav>li:nth-child(2)>a";
-    private String CATEGORY3=".nav.navbar-nav>li:nth-child(3)>a";
+    private String CATEGORY1_LINK = ".with-sub-menu.hover>a>span>strong";
+    private String CATEGORY2 = ".nav.navbar-nav>li:nth-child(2)>a";
+    private String CATEGORY3 = ".nav.navbar-nav>li:nth-child(3)>a";
 
     //Header Featured Products
-    private String FeaturedProducts=".feature_container>h3";
+    private String FeaturedProducts = ".feature_container>h3";
+
+
+    //PRODUCTS
+    private String PRODUCT1="product clearfix product-hover";
+
+    public WebElement get_Product1(){
+        waiter(PRODUCT1);
+        return driver.findElement(By.cssSelector(PRODUCT1));
+    }
 
 
     //FOOTER

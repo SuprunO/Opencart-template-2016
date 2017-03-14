@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
-import java.util.Random;
 
 
 /**
@@ -19,13 +18,12 @@ public class BasePage {
 
     public WebDriver driver;
 
-
     public BasePage(WebDriver driver) {
         this.driver = driver;
     }
 
     public void waiter(String SomeLocatorByCSSSelector){
-        WebDriverWait waitForOne = new WebDriverWait(driver, 25);
+        WebDriverWait waitForOne = new WebDriverWait(driver, 30);
         waitForOne.until(ExpectedConditions.elementToBeClickable(By.cssSelector(SomeLocatorByCSSSelector)));
     }
 
@@ -79,39 +77,5 @@ public class BasePage {
     }
 
 
-}
-
-public class UserCredentialsProvider {
-
-    protected String getSaltString() {
-        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
-        while (salt.length() < 18) {
-            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
-            salt.append(SALTCHARS.charAt(index));
-        }
-        String saltStr = salt.toString();
-        return saltStr;
-
-    }
-
-    public String SiteURL = "http://kidsclothesmart.com";
-    public String FirstName = "Rob";
-    public String Lastname = "Kawalski";
-    public String EMail =   getSaltString()+"@gmail.com";
-    public String Telephone = "+(44)567-56-65";
-    public String Address = "Brookyn st, 45";
-    public String City = "New york";
-    public String PostCode = "03125";
-    public String Password = "156423";
-
-    //Credentials for paypage
-    public String Country = "United States";
-    public String IssuingBank = "CityBank";
-    public String CardNumber = "4444333322221111";
-    public String ExpirationMonth = "02";
-    public String ExpirationYear = "2020";
-    public String CVV2 = "987";
 }
 

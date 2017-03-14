@@ -1,8 +1,10 @@
+package UI_Test_Package;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import sitePages.RegistrPage1;
 import technical.UserCredentialsProvider;
 
 /**

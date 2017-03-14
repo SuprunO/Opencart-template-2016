@@ -11,8 +11,8 @@ import technical.BasePage;
 public class ProductPage extends BasePage {
 
     //Locators
-    private String CHOOSESIZEFIELD = "#input-option492";
-    private String CHOOSECOLORFIELD = "#input-option491";
+    private String CHOOSESIZEFIELD = "#input-option455";
+    private String CHOOSECOLORFIELD = "#input-option456";
     private String CHOOSEQTYFIELD = "#input-quantity";
     private String ADDTOCARTBUTTON = "#button-cart";
 
@@ -22,30 +22,41 @@ public class ProductPage extends BasePage {
 
 
     public void chooseSize() {
+
         Select select = new Select(driver.findElement(By.cssSelector(CHOOSESIZEFIELD)));
-        select.selectByIndex(5);
+        select.selectByIndex(3);
     }
 
-    public void chooseColor(){
+    public String currentSize(){
+        Select select = new Select(driver.findElement(By.cssSelector(CHOOSESIZEFIELD)));
+        String option = select.getFirstSelectedOption().getText();
+        return option;
+
+    }
+
+    public void chooseColor() {
         Select select = new Select(driver.findElement(By.cssSelector(CHOOSECOLORFIELD)));
         select.selectByIndex(1);
     }
 
-    public void inputQTYofProducts(){
+    public String currentColor() {
+        Select select = new Select(driver.findElement(By.cssSelector(CHOOSECOLORFIELD)));
+        String option = select.getFirstSelectedOption().getText();
+        return option;
+    }
+
+    public void inputQTYofProducts() {
         driver.findElement(By.cssSelector(CHOOSEQTYFIELD)).clear();
         driver.findElement(By.cssSelector(CHOOSEQTYFIELD)).sendKeys("5");
     }
 
-    public void pushAddToCartButton(){
+    public void pushAddToCartButton() {
         waiter(ADDTOCARTBUTTON);
         clickOn(ADDTOCARTBUTTON);
     }
 
-
-
-
-
 }
+
 
 
 

@@ -13,3 +13,5 @@ public class UI_PrivacyPageTest {
     WebDriver driver = new FirefoxDriver();
     PrivacyPage privacyPage = new PrivacyPage(driver);
     }
+
+

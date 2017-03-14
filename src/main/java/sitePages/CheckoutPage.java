@@ -16,7 +16,6 @@ public class CheckoutPage extends BasePage {
 
     //Locators
 
-
     //STEP#2
     private String FIRSTNAME = "#input-payment-firstname";
     private String LASTNAME = "#input-payment-lastname";

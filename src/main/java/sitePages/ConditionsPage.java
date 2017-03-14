@@ -1,3 +1,5 @@
+package sitePages;
+
 import org.openqa.selenium.WebDriver;
 import technical.BasePage;
 
