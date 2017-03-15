@@ -45,14 +45,68 @@ public class CheckoutPage extends BasePage {
 
     }
 
+    public String currentFirstNameInput(){
+        Select select = new Select(driver.findElement(By.cssSelector(FIRSTNAME)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentLastNameInput(){
+        Select select = new Select(driver.findElement(By.cssSelector(LASTNAME)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentEmailInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(EMAIL)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentPhoneInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(PHONE)));
+        return select.getFirstSelectedOption().getText();
+    }
+    public String currentAddressInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(ADDRESS)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentCityInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(CITY)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentPostCodeInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(POSTCODE)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentPasswordInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(PASSWORD)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentPasswordConfirmINput() {
+        Select select = new Select(driver.findElement(By.cssSelector(PASSCONFIRM)));
+        return select.getFirstSelectedOption().getText();
+    }
+
     public void chooseCountry(){
         Select select = new Select(driver.findElement(By.cssSelector(COUNTRY)));
         select.selectByIndex(239);
     }
 
+    public String currentCountrySelected(){
+        Select select = new Select(driver.findElement(By.cssSelector(COUNTRY)));
+        return select.getFirstSelectedOption().getText();
+    }
+
     public void chooseState(){
         Select select = new Select(driver.findElement(By.cssSelector(STATE)));
         select.selectByIndex(5);
+    }
+
+    public String currentStateSelected(){
+        Select select = new Select(driver.findElement(By.cssSelector(STATE)));
+        return select.getFirstSelectedOption().getText();
     }
 
     public void clickPrivacyPolicyRadioButton(){

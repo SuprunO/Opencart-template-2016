@@ -29,9 +29,7 @@ public class ProductPage extends BasePage {
 
     public String currentSize(){
         Select select = new Select(driver.findElement(By.cssSelector(CHOOSESIZEFIELD)));
-        String option = select.getFirstSelectedOption().getText();
-        return option;
-
+        return select.getFirstSelectedOption().getText();
     }
 
     public void chooseColor() {
@@ -41,13 +39,18 @@ public class ProductPage extends BasePage {
 
     public String currentColor() {
         Select select = new Select(driver.findElement(By.cssSelector(CHOOSECOLORFIELD)));
-        String option = select.getFirstSelectedOption().getText();
-        return option;
+        return select.getFirstSelectedOption().getText();
     }
 
     public void inputQTYofProducts() {
         driver.findElement(By.cssSelector(CHOOSEQTYFIELD)).clear();
         driver.findElement(By.cssSelector(CHOOSEQTYFIELD)).sendKeys("5");
+    }
+
+    public String currentQuantityInInput(){
+        Select select =new Select(driver.findElement(By.cssSelector(CHOOSEQTYFIELD)));
+        return select.getFirstSelectedOption().getText();
+
     }
 
     public void pushAddToCartButton() {

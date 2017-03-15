@@ -43,8 +43,9 @@ public class PurchaseProductTest {
         purchaseProduct.chooseSize();
         Assert.assertEquals(purchaseProduct.currentSize(), "110", "The size of 110 is not matched");
         purchaseProduct.chooseColor();
-        Assert.assertEquals(purchaseProduct.currentColor(),"pink","The color is wrong");
+        Assert.assertEquals(purchaseProduct.currentColor(), "pink", "The color is wrong");
         purchaseProduct.inputQTYofProducts();
+        Assert.assertEquals(purchaseProduct.currentQuantityInInput(), "5", "The quantity is not matched");
         purchaseProduct.pushAddToCartButton();
 
         try {
@@ -55,14 +56,26 @@ public class PurchaseProductTest {
 
         homePage.get_Icon_Link_Cart().click();
 
-
         cartPage.getCartCheckoutButton().click();
 
         checkoutPage.clickOn_Step1_AccountContinueButton();
         checkoutPage.inputCredentials(userData.FirstName, userData.Lastname, userData.EMail, userData.Telephone, userData.Address, userData.City, userData.PostCode, userData.Password);
+
+        Assert.assertEquals(checkoutPage.currentFirstNameInput(), userData.FirstName, "The First name have to be " + userData.FirstName);
+        Assert.assertEquals(checkoutPage.currentLastNameInput(), userData.Lastname, "The Last name have to be " + userData.Lastname);
+        Assert.assertEquals(checkoutPage.currentEmailInput(), userData.EMail, "The Email name have to be " + userData.EMail);
+        Assert.assertEquals(checkoutPage.currentPhoneInput(), userData.Telephone, "The Telephone name have to be " + userData.Telephone);
+        Assert.assertEquals(checkoutPage.currentAddressInput(), userData.Address, "The Address name have to be " + userData.Address);
+        Assert.assertEquals(checkoutPage.currentCityInput(), userData.City, "The City name have to be " + userData.City);
+        Assert.assertEquals(checkoutPage.currentPostCodeInput(), userData.PostCode, "The Telephone name have to be " + userData.PostCode);
+        Assert.assertEquals(checkoutPage.currentPasswordInput(), userData.Password, "The Password name have to be " + userData.Password);
+
         checkoutPage.chooseCountry();
+        Assert.assertEquals(checkoutPage.currentCountrySelected(), "United States", "The Country have to be United States");
         checkoutPage.chooseState();
+        Assert.assertEquals(checkoutPage.currentStateSelected(), "Alabama", "The State name have to be United States");
         checkoutPage.clickPrivacyPolicyRadioButton();
+
         checkoutPage.clickOn_Step2_BillingContinueButton();
 
         checkoutPage.clickOn_Step3_DeliveryDetailsContinueButton();
@@ -74,6 +87,18 @@ public class PurchaseProductTest {
         checkoutPage.clickOn_Step6_ConfirmOrderButton();
 
         payPageUserCredentialsInput.enterClientCredentialsPaypage(userData.FirstName, userData.Lastname, userData.Address, userData.City, userData.PostCode, userData.Country, userData.Telephone, userData.EMail, userData.IssuingBank, userData.CardNumber, userData.ExpirationMonth, userData.ExpirationYear, userData.CVV2);
+//циклом?
+        Assert.assertEquals(checkoutPage.currentFirstNameInput(), userData.FirstName, "The State name have to be " + userData.FirstName);
+        Assert.assertEquals(checkoutPage.currentLastNameInput(), userData.Lastname, "The State name have to be " + userData.Lastname);
+        Assert.assertEquals(checkoutPage.currentLastNameInput(), userData.Address, "The Address name have to be " + userData.Address);
+        Assert.assertEquals(checkoutPage.currentLastNameInput(), userData.Lastname, "The State name have to be " + userData.Lastname);
+        Assert.assertEquals(checkoutPage.currentLastNameInput(), userData.Lastname, "The State name have to be " + userData.Lastname);
+        Assert.assertEquals(checkoutPage.currentLastNameInput(), userData.Lastname, "The State name have to be " + userData.Lastname);
+        Assert.assertEquals(checkoutPage.currentLastNameInput(), userData.Lastname, "The State name have to be " + userData.Lastname);
+        Assert.assertEquals(checkoutPage.currentLastNameInput(), userData.Lastname, "The State name have to be " + userData.Lastname);
+        Assert.assertEquals(checkoutPage.currentLastNameInput(), userData.Lastname, "The State name have to be " + userData.Lastname);
+        Assert.assertEquals(checkoutPage.currentLastNameInput(), userData.Lastname, "The State name have to be " + userData.Lastname);
+
         payPageUserCredentialsInput.clickOnSubmitTransactionButton();
     }
 

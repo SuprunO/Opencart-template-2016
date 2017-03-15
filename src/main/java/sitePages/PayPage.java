@@ -2,6 +2,7 @@ package sitePages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import technical.BasePage;
 
 /**
@@ -47,7 +48,72 @@ public class PayPage extends BasePage {
         driver.findElement(By.cssSelector(CVV)).sendKeys(CVV2);
     }
 
-    public void clickOnSubmitTransactionButton(){
+    public String currentFirstNameInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(FIRSTNAME)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentLastNameInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(LASTNAME)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentAddressInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(ADDRESS)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentCityInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(CITY)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentPostalCodeInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(ZIP)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentCountryInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(COUNTRY)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentPhoneInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(PHONE)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String curreneMailInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(EMAIL)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentIssuingBankInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(ISSUINGBANK)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentCardNumberInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(CARDNUMBER)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentExpirationMonthInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(EXPIRATIONMONTH)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentExpirationYearInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(EXPIRATIONYEAR)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String currentCVVInput() {
+        Select select = new Select(driver.findElement(By.cssSelector(CVV)));
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public void clickOnSubmitTransactionButton() {
         clickOn(SUBMIT_TRANSACTIONBUTTON);
 
     }

@@ -25,7 +25,6 @@ public class HomePage extends BasePage {
         return driver.findElement(By.linkText("Home"));
     }
 
-
     public WebElement get_lnk_ContactUs() {
         return driver.findElement(By.linkText("Contact Us"));
     }
@@ -46,8 +45,8 @@ public class HomePage extends BasePage {
 
     //Categories
     private String CATEGORY1_LINK = ".with-sub-menu.hover>a>span>strong";
-    private String CATEGORY2 = ".nav.navbar-nav>li:nth-child(2)>a";
-    private String CATEGORY3 = ".nav.navbar-nav>li:nth-child(3)>a";
+   // private String CATEGORY2 = ".nav.navbar-nav>li:nth-child(2)>a";
+   // private String CATEGORY3 = ".nav.navbar-nav>li:nth-child(3)>a";
 
     //Header Featured Products
     private String FeaturedProducts = ".feature_container>h3";
