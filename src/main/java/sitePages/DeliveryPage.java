@@ -1,5 +1,6 @@
 package sitePages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import technical.BasePage;
 
@@ -8,8 +9,19 @@ import technical.BasePage;
  */
 public class DeliveryPage extends BasePage {
 
-    public  DeliveryPage(WebDriver driver){
+    private int SHIPPING_RATE = 18;
+
+    public DeliveryPage(WebDriver driver) {
         super(driver);
     }
 
+    private String DELIVERY_PAGE_CONTENT = "#content";
+
+    public String getDeliveryPageText(){
+      return driver.findElement(By.cssSelector(DELIVERY_PAGE_CONTENT)).getText();
+    }
+
+
+
 }
+

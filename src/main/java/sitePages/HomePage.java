@@ -29,9 +29,10 @@ public class HomePage extends BasePage {
         return driver.findElement(By.linkText("Contact Us"));
     }
 
-    public WebElement get_Icon_Link_Cart() {
+    public CartPage clickIconLinkCart() {
         waiter(CART_ICON);
-        return driver.findElement(By.cssSelector(CART_ICON));
+         driver.findElement(By.cssSelector(CART_ICON)).click();
+        return new CartPage(driver);
     }
 
     //CART popup

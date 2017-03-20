@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import sitePages.RegistrPage1;
-import technical.UserCredentialsProvider;
+import technical.User;
 
 /**
  * Created by alex on 05.02.2017.
@@ -15,7 +15,7 @@ public class UIRegistrTest {
 
     WebDriver driver = new FirefoxDriver();
     RegistrPage1 regPage = new RegistrPage1(driver);
-    UserCredentialsProvider userData = new UserCredentialsProvider();
+    User userData = new User();
 
 
     @BeforeClass

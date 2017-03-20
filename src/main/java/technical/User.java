@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Created by alex on 10.03.2017.
  */
-public class UserCredentialsProvider {
+public class User {
 
     protected String getSaltString() {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

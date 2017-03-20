@@ -2,6 +2,7 @@ package sitePages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import technical.BasePage;
 
@@ -48,8 +49,8 @@ public class ProductPage extends BasePage {
     }
 
     public String currentQuantityInInput(){
-        Select select =new Select(driver.findElement(By.cssSelector(CHOOSEQTYFIELD)));
-        return select.getFirstSelectedOption().getText();
+        WebElement qtyInput =driver.findElement(By.cssSelector(CHOOSEQTYFIELD));
+        return qtyInput.getText();
 
     }
 

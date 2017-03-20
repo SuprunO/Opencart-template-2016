@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import sitePages.HomePage;
-import technical.UserCredentialsProvider;
+import technical.User;
 
 /**
  * Created by alex on 04.02.2017.
@@ -14,7 +14,7 @@ public class UIHomePageTest {
 
     WebDriver driver = new FirefoxDriver();
     HomePage homePage = new HomePage(driver);
-    UserCredentialsProvider userData = new UserCredentialsProvider();
+    User userData = new User();
 
     private String LOGIN = "Login";
     private String HOME = "Home";

@@ -1,10 +1,12 @@
 package sitePages;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import ru.yandex.qatools.allure.annotations.Step;
 import technical.BasePage;
+import technical.User;
 
 /**
  * Created by alex on 21.02.2017.
@@ -31,62 +33,19 @@ public class CheckoutPage extends BasePage {
     private String RADIOBUTTON = ".agree+input";
 
 
-    public void inputCredentials(String FirstName, String LastName, String EMail, String Telephone, String Address, String City, String Postcode, String Password) {
+    public void inputCredentials(User user) {
+
         waiter(FIRSTNAME);
-        driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(FirstName);
-        driver.findElement(By.cssSelector(LASTNAME)).sendKeys(LastName);
-        driver.findElement(By.cssSelector(EMAIL)).sendKeys(EMail);
-        driver.findElement(By.cssSelector(PHONE)).sendKeys(Telephone);
-        driver.findElement(By.cssSelector(ADDRESS)).sendKeys(Address);
-        driver.findElement(By.cssSelector(CITY)).sendKeys(City);
-        driver.findElement(By.cssSelector(POSTCODE)).sendKeys(Postcode);
-        driver.findElement(By.cssSelector(PASSWORD)).sendKeys(Password);
-        driver.findElement(By.cssSelector(PASSCONFIRM)).sendKeys(Password);
+        driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(user.FirstName);
+        driver.findElement(By.cssSelector(LASTNAME)).sendKeys(user.Lastname);
+        driver.findElement(By.cssSelector(EMAIL)).sendKeys(user.EMail);
+        driver.findElement(By.cssSelector(PHONE)).sendKeys(user.Telephone);
+        driver.findElement(By.cssSelector(ADDRESS)).sendKeys(user.Address);
+        driver.findElement(By.cssSelector(CITY)).sendKeys(user.City);
+        driver.findElement(By.cssSelector(POSTCODE)).sendKeys(user.PostCode);
+        driver.findElement(By.cssSelector(PASSWORD)).sendKeys(user.Password);
+        driver.findElement(By.cssSelector(PASSCONFIRM)).sendKeys(user.Password);
 
-    }
-
-    public String currentFirstNameInput(){
-        Select select = new Select(driver.findElement(By.cssSelector(FIRSTNAME)));
-        return select.getFirstSelectedOption().getText();
-    }
-
-    public String currentLastNameInput(){
-        Select select = new Select(driver.findElement(By.cssSelector(LASTNAME)));
-        return select.getFirstSelectedOption().getText();
-    }
-
-    public String currentEmailInput() {
-        Select select = new Select(driver.findElement(By.cssSelector(EMAIL)));
-        return select.getFirstSelectedOption().getText();
-    }
-
-    public String currentPhoneInput() {
-        Select select = new Select(driver.findElement(By.cssSelector(PHONE)));
-        return select.getFirstSelectedOption().getText();
-    }
-    public String currentAddressInput() {
-        Select select = new Select(driver.findElement(By.cssSelector(ADDRESS)));
-        return select.getFirstSelectedOption().getText();
-    }
-
-    public String currentCityInput() {
-        Select select = new Select(driver.findElement(By.cssSelector(CITY)));
-        return select.getFirstSelectedOption().getText();
-    }
-
-    public String currentPostCodeInput() {
-        Select select = new Select(driver.findElement(By.cssSelector(POSTCODE)));
-        return select.getFirstSelectedOption().getText();
-    }
-
-    public String currentPasswordInput() {
-        Select select = new Select(driver.findElement(By.cssSelector(PASSWORD)));
-        return select.getFirstSelectedOption().getText();
-    }
-
-    public String currentPasswordConfirmINput() {
-        Select select = new Select(driver.findElement(By.cssSelector(PASSCONFIRM)));
-        return select.getFirstSelectedOption().getText();
     }
 
     public void chooseCountry(){
@@ -156,4 +115,6 @@ public class CheckoutPage extends BasePage {
         waiter(CONFIRM_ORDER_BUTTON);
         clickOn(this.CONFIRM_ORDER_BUTTON);
     }
+
+
 }
