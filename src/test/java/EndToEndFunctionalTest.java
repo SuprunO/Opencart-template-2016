@@ -23,7 +23,7 @@ public class EndToEndFunctionalTest {
 
 
     @BeforeTest
-    void StartUp() {
+    public void StartUp() {
         System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
         driver = new FirefoxDriver();
         userData = new User();

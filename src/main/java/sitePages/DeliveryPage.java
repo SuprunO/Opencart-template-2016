@@ -9,7 +9,6 @@ import technical.BasePage;
  */
 public class DeliveryPage extends BasePage {
 
-    private int SHIPPING_RATE = 18;
 
     public DeliveryPage(WebDriver driver) {
         super(driver);
@@ -17,11 +16,50 @@ public class DeliveryPage extends BasePage {
 
     private String DELIVERY_PAGE_CONTENT = "#content";
 
-    public String getDeliveryPageText(){
+    private String getDeliveryPageText(){
+        waiter(DELIVERY_PAGE_CONTENT);
       return driver.findElement(By.cssSelector(DELIVERY_PAGE_CONTENT)).getText();
     }
 
 
 
+    public Boolean getOrderHourConditions(){
+      return getDeliveryPageText().contains("48 working hours");
+    }
+
+    public Boolean getShipingRate(){
+        return getDeliveryPageText().contains("$18 per order");
+    }
+
+    public Boolean getMaximumDeliveryPeriod(){
+        return getDeliveryPageText().contains("maximum 20 working days");
+    }
+
+    public Boolean PaymentDetails(){
+        return getDeliveryPageText().contains("MasterCard and VISA");
+    }
+
+    public Boolean getMaximumStatusCheck(){
+        return getDeliveryPageText().contains("36 hours");
+    }
+
+    public Boolean getRefunds(){
+        return getDeliveryPageText().contains("10 working days");
+    }
+
+    public Boolean getRefundsInCaseOfCancellation(){
+        return getDeliveryPageText().contains("within 3 working days");
+    }
+
+    public Boolean getMaxPeriodOfRefundsInCaseOfCancellation(){
+        return getDeliveryPageText().contains("within 10 working days.");
+    }
+
+
+    //CSS
+    public Boolean getDeliveryPageFontsize(){
+        waiter(DELIVERY_PAGE_CONTENT);
+        return driver.findElement(By.cssSelector(DELIVERY_PAGE_CONTENT)).getCssValue("font-size").contains("14px");
+    }
 }
 

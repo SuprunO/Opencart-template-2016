@@ -9,6 +9,7 @@ import technical.BasePage;
 public class ConditionsPage extends BasePage {
         public ConditionsPage(WebDriver driver){
             super(driver);
-
         }
+
+
     }

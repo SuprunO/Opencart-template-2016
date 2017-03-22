@@ -1,6 +1,7 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import sitePages.DeliveryPage;
@@ -14,12 +15,8 @@ public class DeliveryPageConditionsCheck {
     DeliveryPage deliveryPage;
     User userData;
 
-
-
-
-
     @BeforeTest
-    void StartUp(){
+    void StartUp() {
         driver = new FirefoxDriver();
         driver.get("http://kidsclothesmart.com/index.php?route=information/information&information_id=6");
         driver.manage().window().maximize();
@@ -28,8 +25,55 @@ public class DeliveryPageConditionsCheck {
     }
 
     @Test
-    public void checkDeliveryConditions(){
-        Assert.assertTrue(deliveryPage.getDeliveryPageText().contains("shipping rate of $17 per order"),"Shipping rate have to be at $18 per order");
+    public void checkTimeOfOrderPreparation() {
+        Assert.assertEquals(deliveryPage.getOrderHourConditions(), Boolean.TRUE, "The purchase needs 48 hours to prepare it for shipping");
     }
+
+    @Test
+    public void checkShippingRate() {
+        Assert.assertEquals(deliveryPage.getShipingRate(), Boolean.TRUE, "The purchase needs 48 hours to prepare it for shipping");
+    }
+
+    @Test
+    public void checkMaxDelivery() {
+        Assert.assertEquals(deliveryPage.getMaximumDeliveryPeriod(), Boolean.TRUE, "The purchase needs 48 hours to prepare it for shipping");
+    }
+
+    @Test
+    public void checkPaymentDetails() {
+        Assert.assertEquals(deliveryPage.PaymentDetails(), Boolean.TRUE, "The purchase needs 48 hours to prepare it for shipping");
+    }
+
+    @Test
+    public void checkStatusCheck() {
+        Assert.assertEquals(deliveryPage.getMaximumStatusCheck(), Boolean.TRUE, "The purchase needs 48 hours to prepare it for shipping");
+    }
+
+    @Test
+    public void checkRefunds() {
+        Assert.assertEquals(deliveryPage.getRefunds(), Boolean.TRUE, "The purchase needs 48 hours to prepare it for shipping");
+    }
+
+    @Test
+    public void checkMaxPeriodRefunds() {
+        Assert.assertEquals(deliveryPage.getRefundsInCaseOfCancellation(), Boolean.TRUE, "The purchase needs 48 hours to prepare it for shipping");
+    }
+
+    @Test
+    public void getRefundsInCaseOfCancellation() {
+        Assert.assertEquals(deliveryPage.getMaxPeriodOfRefundsInCaseOfCancellation(), Boolean.TRUE, "The purchase needs 48 hours to prepare it for shipping");
+    }
+
+    @Test
+    public void getDeliveryFontsize() {
+        Assert.assertEquals(deliveryPage.getDeliveryPageFontsize(), Boolean.TRUE);
+    }
+
+    @AfterClass
+    public void cleanUp() {
+        driver.close();
+        driver.quit();
+    }
+
 
 }
