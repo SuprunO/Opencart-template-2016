@@ -21,7 +21,6 @@ public class EndToEndFunctionalTest {
     HomePage homePage;
     CategoriesPage categoriesPage;
 
-
     @BeforeTest
     public void StartUp() {
         System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");

@@ -14,20 +14,27 @@ public class PrivacyPageTest {
 
     WebDriver driver;
     PrivacyPage privacyPage;
-    User userData;
+    User user;
+
 
     @BeforeTest
     public void StartUp() {
         driver = new FirefoxDriver();
-        driver.get(userData.SiteURL + "/index.php?route=information/information&information_id=3");
+        user =new User();
+
+        driver.get(user.SiteURL+"/index.php?route=information/information&information_id=3");
         driver.manage().window().maximize();
         privacyPage = new PrivacyPage(driver);
-
     }
 
     @Test
     public void checkThePrivacyIsNotEmpty() {
-        Assert.assertTrue(privacyPage.privacyPageTextIsPresent());
+        Assert.assertFalse(privacyPage.privacyPageTextIsPresent(),"The Privacy Policy is empty, kindly put the Privacy Policy Text here");
+    }
+
+    @Test
+    public void checkPrivacyFontsize(){
+        Assert.assertEquals(privacyPage.getPrivacyPageFontsize(),Boolean.TRUE,"PrivacyPageFontsize is not 14px, kindly fix");
     }
 
     @AfterClass
