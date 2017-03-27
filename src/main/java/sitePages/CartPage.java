@@ -20,5 +20,5 @@ public class CartPage extends BasePage {
         return driver.findElement(By.cssSelector(CART_CHECKOUT_BUTTON));
     }
 
-    private String CART_CHECKOUT_BUTTON = ".pull-right>a";
+    private String CART_CHECKOUT_BUTTON = ".text-right a:nth-child(2)";
 }

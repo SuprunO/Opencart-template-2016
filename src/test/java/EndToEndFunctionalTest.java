@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 import sitePages.*;
 import technical.User;
 
+import static technical.BasePage.SiteURL;
+
 /**
  * Created by alex on 21.02.2017.
  */
@@ -26,7 +28,7 @@ public class EndToEndFunctionalTest {
         System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
         driver = new FirefoxDriver();
         userData = new User();
-        driver.get(userData.SiteURL + "/index.php?route=product/product&product_id=229");
+        driver.get(SiteURL + "/index.php?route=product/product&path=59&product_id=65");
         driver.manage().window().maximize();
         purchaseProduct = new ProductPage(driver);
         realCheckoutPage = new RealCheckoutPage(driver);
@@ -39,9 +41,9 @@ public class EndToEndFunctionalTest {
     @Test
     public void endToEndTest() {
         purchaseProduct.chooseSize();
-        Assert.assertEquals(purchaseProduct.currentSize(), "110", "The size of 110 is not matched");
+        Assert.assertEquals(purchaseProduct.currentSize(), "US6", "The size of is not matched");
         purchaseProduct.chooseColor();
-        Assert.assertEquals(purchaseProduct.currentColor(), "pink", "The color is wrong");
+        Assert.assertEquals(purchaseProduct.currentColor(), "white", "The color is wrong");
         purchaseProduct.inputQTYofProducts();
 
         purchaseProduct.pushAddToCartButton();

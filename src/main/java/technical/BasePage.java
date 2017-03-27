@@ -16,18 +16,24 @@ import java.util.List;
  */
 public class BasePage {
 
+//INPUT THE SITE NAME TO CHECK HERE:
+    public static String SiteURL = "http://"+"weddingdev.com";
+//-------------------------------------------------------------
+    //kidsclothesmart.com
+
+
     public WebDriver driver;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void waiter(String SomeLocatorByCSSSelector){
+    public void waiter(String SomeLocatorByCSSSelector) {
         WebDriverWait waitForOne = new WebDriverWait(driver, 30);
         waitForOne.until(ExpectedConditions.elementToBeClickable(By.cssSelector(SomeLocatorByCSSSelector)));
     }
 
-    public void waiterByLinkText(String ByLinkText){
+    public void waiterByLinkText(String ByLinkText) {
         WebDriverWait waitForOne = new WebDriverWait(driver, 25);
         waitForOne.until(ExpectedConditions.elementToBeClickable(By.linkText(ByLinkText)));
     }
@@ -73,7 +79,8 @@ public class BasePage {
             if (httpURLConnect.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) {
                 System.out.println(linkUrl + " - " + httpURLConnect.getResponseMessage() + " - " + HttpURLConnection.HTTP_NOT_FOUND);
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
     }
 
 

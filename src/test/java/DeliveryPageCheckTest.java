@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 import sitePages.DeliveryPage;
 import technical.User;
 
+import static technical.BasePage.SiteURL;
+
 /**
  * Created by alex on 20.03.2017.
  */
@@ -18,7 +20,7 @@ public class DeliveryPageCheckTest {
     @BeforeTest
     void StartUp() {
         driver = new FirefoxDriver();
-        driver.get("http://kidsclothesmart.com/index.php?route=information/information&information_id=6");
+        driver.get(SiteURL+"/index.php?route=information/information&information_id=6");
         driver.manage().window().maximize();
         deliveryPage = new DeliveryPage(driver);
         userData = new User();
@@ -71,8 +73,12 @@ public class DeliveryPageCheckTest {
 
     @AfterClass
     public void cleanUp() {
-        driver.close();
-        driver.quit();
+        try {
+            driver.close();
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println("some errors occured during closing driver: \n" + e);
+        }
     }
 
 

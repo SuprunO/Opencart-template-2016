@@ -29,6 +29,7 @@ public class HomePage extends BasePage {
         return driver.findElement(By.linkText("Contact Us"));
     }
 
+    //Adjust all the methods like this!!!
     public CartPage clickIconLinkCart() {
         waiter(CART_ICON);
          driver.findElement(By.cssSelector(CART_ICON)).click();
@@ -42,7 +43,7 @@ public class HomePage extends BasePage {
         clickOn(CATEGORY1_LINK);
     }
 
-    private String CART_ICON = ".cart-icon-standard";
+    private String CART_ICON = ".cart_div";
 
     //Categories
     private String CATEGORY1_LINK = ".with-sub-menu.hover>a>span>strong";

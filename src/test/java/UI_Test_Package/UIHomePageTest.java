@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 import sitePages.HomePage;
 import technical.User;
 
+import static technical.BasePage.SiteURL;
+
 /**
  * Created by alex on 04.02.2017.
  */
@@ -22,7 +24,7 @@ public class UIHomePageTest {
 
     @BeforeClass
     public void start_Up() {
-        driver.get(userData.SiteURL);
+        driver.get(SiteURL);
         driver.manage().window().maximize();
     }
 

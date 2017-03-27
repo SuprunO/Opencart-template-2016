@@ -12,8 +12,8 @@ import technical.BasePage;
 public class ProductPage extends BasePage {
 
     //Locators
-    private String CHOOSESIZEFIELD = "#input-option455";
-    private String CHOOSECOLORFIELD = "#input-option456";
+    private String CHOOSESIZEFIELD = "#input-option258";
+    private String CHOOSECOLORFIELD = "#input-option257";
     private String CHOOSEQTYFIELD = "#input-quantity";
     private String ADDTOCARTBUTTON = "#button-cart";
 

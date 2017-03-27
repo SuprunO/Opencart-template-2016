@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 import sitePages.RegistrPage1;
 import technical.User;
 
+import static technical.BasePage.SiteURL;
+
 /**
  * Created by alex on 05.02.2017.
  */
@@ -20,7 +22,7 @@ public class UIRegistrTest {
 
     @BeforeClass
     public void startUp() {
-        driver.get(userData.SiteURL + "/index.php?route=account/login");
+        driver.get(SiteURL + "/index.php?route=account/login");
         driver.manage().window().maximize();
     }
 

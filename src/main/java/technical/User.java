@@ -20,7 +20,7 @@ public class User {
 
     }
 
-    public String SiteURL = "http://kidsclothesmart.com";
+
     public String FirstName = "Rob";
     public String Lastname = "Kawalski";
     public String EMail =   getSaltString()+"@gmail.com";

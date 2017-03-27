@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 import sitePages.PrivacyPage;
 import technical.User;
 
+import static technical.BasePage.SiteURL;
+
 /**
  * Created by alex on 22.03.2017.
  */
@@ -22,7 +24,7 @@ public class PrivacyPageTest {
         driver = new FirefoxDriver();
         user =new User();
 
-        driver.get(user.SiteURL+"/index.php?route=information/information&information_id=3");
+        driver.get(SiteURL+"/index.php?route=information/information&information_id=3");
         driver.manage().window().maximize();
         privacyPage = new PrivacyPage(driver);
     }
@@ -39,7 +41,11 @@ public class PrivacyPageTest {
 
     @AfterClass
     public void cleanUp() {
-        driver.close();
-        driver.quit();
+        try {
+            driver.close();
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println("some errors occured during closing driver: \n" + e);
+        }
     }
 }
