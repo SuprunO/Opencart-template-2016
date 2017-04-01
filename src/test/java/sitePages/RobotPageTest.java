@@ -6,13 +6,20 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Description;
+import ru.yandex.qatools.allure.annotations.Severity;
+import ru.yandex.qatools.allure.annotations.Title;
+import ru.yandex.qatools.allure.model.SeverityLevel;
+import sitePages.RobotsTXTPage;
 
 import static technical.BasePage.SiteURL;
 
 /**
- * Created by alex on 27.03.2017.
+ * Created by alex on 31.03.2017.
  */
-public class RobotsTXTPageTest {
+
+@Title("Robot.txt page tests")
+public class RobotPageTest {
     RobotsTXTPage robotsTXTPage;
 
     WebDriver driver;
@@ -24,7 +31,9 @@ public class RobotsTXTPageTest {
         driver.get(SiteURL + "/robots.txt");
         robotsTXTPage = new RobotsTXTPage(driver);
     }
-
+    @Title("Check the robot.txt file exists")
+    @Description("Check the robot.txt file exists")
+    @Severity(SeverityLevel.NORMAL)
     @Test
     public void testGet_Notfound() {
         Assert.assertTrue(robotsTXTPage.get_Notfound(),"Robots.txt file not found, kindly insert it");

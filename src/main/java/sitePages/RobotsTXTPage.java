@@ -13,6 +13,10 @@ public class RobotsTXTPage extends BasePage {
         super(driver);
     }
     public Boolean get_Notfound() {
-        return driver.findElement(By.cssSelector("h1")).getText().contains("Not Found");
+        if (driver.findElement(By.cssSelector("html>body>pre")).getText().contains("User-agent:")) {
+            return Boolean.TRUE;
+
+        } else
+            return Boolean.FALSE;
     }
 }

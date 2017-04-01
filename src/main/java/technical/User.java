@@ -1,12 +1,10 @@
 package technical;
-
 import java.util.Random;
 
 /**
  * Created by alex on 10.03.2017.
  */
 public class User {
-
     protected String getSaltString() {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder salt = new StringBuilder();
@@ -17,9 +15,7 @@ public class User {
         }
         String saltStr = salt.toString();
         return saltStr;
-
     }
-
 
     public String FirstName = "Rob";
     public String Lastname = "Kawalski";

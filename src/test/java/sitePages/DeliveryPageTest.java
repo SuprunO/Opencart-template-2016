@@ -1,18 +1,20 @@
+package sitePages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import sitePages.DeliveryPage;
 import technical.User;
 
 import static technical.BasePage.SiteURL;
 
 /**
- * Created by alex on 20.03.2017.
+ * Created by alex on 01.04.2017.
  */
-public class DeliveryPageCheckTest {
+public class DeliveryPageTest {
+
     WebDriver driver;
     DeliveryPage deliveryPage;
     User userData;
@@ -20,7 +22,7 @@ public class DeliveryPageCheckTest {
     @BeforeTest
     void StartUp() {
         driver = new FirefoxDriver();
-        driver.get(SiteURL+"/index.php?route=information/information&information_id=6");
+        driver.get(SiteURL + "/index.php?route=information/information&information_id=6");
         driver.manage().window().maximize();
         deliveryPage = new DeliveryPage(driver);
         userData = new User();
@@ -80,6 +82,5 @@ public class DeliveryPageCheckTest {
             System.out.println("some errors occured during closing driver: \n" + e);
         }
     }
-
 
 }

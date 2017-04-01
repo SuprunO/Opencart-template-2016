@@ -3,6 +3,7 @@ package technical;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,8 +17,8 @@ import java.util.List;
  */
 public class BasePage {
 
-//INPUT THE SITE NAME TO CHECK HERE:
-    public static String SiteURL = "http://"+"weddingdev.com";
+    //INPUT THE SITE NAME TO CHECK HERE:
+    public static String SiteURL = "http://" + "weddingdev.com";
 //-------------------------------------------------------------
     //kidsclothesmart.com
 
@@ -41,6 +42,11 @@ public class BasePage {
 
     public void clickOn(String CSSSelector) {
         driver.findElement(By.cssSelector(CSSSelector)).click();
+    }
+
+    public void hoverAndClick(WebDriver driver, WebElement hoverElement, WebElement clickElement) {
+        Actions action = new Actions(driver);
+        action.moveToElement(hoverElement).click(clickElement).build().perform();
     }
 
 

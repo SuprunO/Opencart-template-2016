@@ -9,8 +9,6 @@ import technical.BasePage;
  * Created by alex on 04.02.2017.
  */
 public class HomePage extends BasePage {
-
-
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -29,48 +27,11 @@ public class HomePage extends BasePage {
         return driver.findElement(By.linkText("Contact Us"));
     }
 
-    //Adjust all the methods like this!!!
-    public CartPage clickIconLinkCart() {
-        waiter(CART_ICON);
-         driver.findElement(By.cssSelector(CART_ICON)).click();
-        return new CartPage(driver);
-    }
-
-    //CART popup
-
-    public void clickOnCategory1(){
-        waiter(CATEGORY1_LINK);
-        clickOn(CATEGORY1_LINK);
-    }
-
-    private String CART_ICON = ".cart_div";
-
-    //Categories
-    private String CATEGORY1_LINK = ".with-sub-menu.hover>a>span>strong";
-   // private String CATEGORY2 = ".nav.navbar-nav>li:nth-child(2)>a";
-   // private String CATEGORY3 = ".nav.navbar-nav>li:nth-child(3)>a";
-
-    //Header Featured Products
-    private String FeaturedProducts = ".feature_container>h3";
+    //Add categories
 
 
-    //PRODUCTS
-    private String PRODUCT1="product clearfix product-hover";
+    //Add products
 
-    public WebElement get_Product1(){
-        waiter(PRODUCT1);
-        return driver.findElement(By.cssSelector(PRODUCT1));
-    }
-
-
-    //FOOTER
-    //Headers
-    private String INFO = ".col-sm-2:nth-child(1):first-child h4";
-    private String EXTRAS = ".col-sm-2:nth-child(2) h4";
-    private String MY_ACCOUNT = ".col-sm-2:nth-child(3) h4";
-    // TODO: 21.02.2017 Разобраться с локаторами / попросить команду изменить ихменить их
-    //private String COMPANY_INFO = "";
-    // private String CONTACT_US = "";
 }
 
 

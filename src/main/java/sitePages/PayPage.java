@@ -3,6 +3,7 @@ package sitePages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import ru.yandex.qatools.allure.annotations.Step;
 import technical.BasePage;
 
 /**
@@ -113,6 +114,7 @@ public class PayPage extends BasePage {
         return select.getFirstSelectedOption().getText();
     }
 
+    @Step
     public void clickOnSubmitTransactionButton() {
         clickOn(SUBMIT_TRANSACTIONBUTTON);
 
