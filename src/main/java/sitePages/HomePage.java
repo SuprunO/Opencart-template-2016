@@ -15,7 +15,6 @@ public class HomePage extends BasePage {
 
     //Header
     public WebElement get_lnk_Login() {
-
         return driver.findElement(By.linkText("Login"));
     }
 

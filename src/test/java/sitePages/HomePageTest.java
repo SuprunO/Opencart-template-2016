@@ -25,12 +25,17 @@ public class HomePageTest {
         homePage = new HomePage(driver);
     }
 
+    //UI Side
+
+
+
     @Test
     public void clickOnProductName() {
         WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
         Assert.assertNotEquals(product, null, "Product not found!");
         product.click();
     }
+
 
     @AfterClass
     public void cleanUp() {
