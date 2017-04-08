@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import ru.yandex.qatools.allure.annotations.Step;
 import technical.BasePage;
+import technical.User;
 
 /**
  * Created by alex on 21.02.2017.
@@ -32,21 +33,21 @@ public class PayPage extends BasePage {
     private String SUBMIT_TRANSACTIONBUTTON = "#formsubmit";
 
 
-    public void enterClientCredentialsPaypage(String FirstName, String LastName, String Address, String City, String PostalCode, String Country, String Phone, String Email, String IssuingBank, String CardNumber, String ExpirationMonth, String ExpirationYear, String CVV2) {
-        waiter(FIRSTNAME);
-        driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(FirstName);
-        driver.findElement(By.cssSelector(LASTNAME)).sendKeys(LastName);
-        driver.findElement(By.cssSelector(ADDRESS)).sendKeys(Address);
-        driver.findElement(By.cssSelector(CITY)).sendKeys(City);
-        driver.findElement(By.cssSelector(ZIP)).sendKeys(PostalCode);
-        driver.findElement(By.cssSelector(COUNTRY)).sendKeys(Country);
-        driver.findElement(By.cssSelector(PHONE)).sendKeys(Phone);
-        driver.findElement(By.cssSelector(EMAIL)).sendKeys(Email);
-        driver.findElement(By.cssSelector(ISSUINGBANK)).sendKeys(IssuingBank);
-        driver.findElement(By.cssSelector(CARDNUMBER)).sendKeys(CardNumber);
-        driver.findElement(By.cssSelector(EXPIRATIONMONTH)).sendKeys(ExpirationMonth);
-        driver.findElement(By.cssSelector(EXPIRATIONYEAR)).sendKeys(ExpirationYear);
-        driver.findElement(By.cssSelector(CVV)).sendKeys(CVV2);
+    public void enterClientCredentialsPaypage(User user) {
+        waitCSSSelector(FIRSTNAME);
+        driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(user.FirstName);
+        driver.findElement(By.cssSelector(LASTNAME)).sendKeys(user.Lastname);
+        driver.findElement(By.cssSelector(ADDRESS)).sendKeys(user.Address);
+        driver.findElement(By.cssSelector(CITY)).sendKeys(user.City);
+        driver.findElement(By.cssSelector(ZIP)).sendKeys(user.PostCode);
+        driver.findElement(By.cssSelector(COUNTRY)).sendKeys(user.Country);
+        driver.findElement(By.cssSelector(PHONE)).sendKeys(user.Telephone);
+        driver.findElement(By.cssSelector(EMAIL)).sendKeys(user.EMail);
+        driver.findElement(By.cssSelector(ISSUINGBANK)).sendKeys(user.IssuingBank);
+        driver.findElement(By.cssSelector(CARDNUMBER)).sendKeys(user.CardNumber);
+        driver.findElement(By.cssSelector(EXPIRATIONMONTH)).sendKeys(user.ExpirationMonth);
+        driver.findElement(By.cssSelector(EXPIRATIONYEAR)).sendKeys(user.ExpirationYear);
+        driver.findElement(By.cssSelector(CVV)).sendKeys(user.CVV2);
     }
 
     public String currentFirstNameInput() {
@@ -116,7 +117,7 @@ public class PayPage extends BasePage {
 
     @Step
     public void clickOnSubmitTransactionButton() {
-        clickOn(SUBMIT_TRANSACTIONBUTTON);
+        clickOnСSSSelector(SUBMIT_TRANSACTIONBUTTON);
 
     }
 }

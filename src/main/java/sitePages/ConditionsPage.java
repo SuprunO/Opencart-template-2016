@@ -15,7 +15,7 @@ public class ConditionsPage extends BasePage {
     private String CONDITIONS_PAGE_CONTENT = "#content";
 
     private String getConditionsPageText() {
-        waiter(CONDITIONS_PAGE_CONTENT);
+        waitCSSSelector(CONDITIONS_PAGE_CONTENT);
         return driver.findElement(By.cssSelector(CONDITIONS_PAGE_CONTENT)).getText();
     }
 
@@ -25,7 +25,7 @@ public class ConditionsPage extends BasePage {
 
     //CSS
     public Boolean getConditionsPageFontsize() {
-        waiter(CONDITIONS_PAGE_CONTENT);
+        waitCSSSelector(CONDITIONS_PAGE_CONTENT);
         return driver.findElement(By.cssSelector(CONDITIONS_PAGE_CONTENT)).getCssValue("font-size").contains("14px");
     }
 }

@@ -34,7 +34,7 @@ public class RegistrPageWithUserCredentials extends BasePage {
 
     //click on method
     public void enterCountry() {
-        clickOn(this.COUNTRY);
+        clickOnСSSSelector(this.COUNTRY);
     }
 
 

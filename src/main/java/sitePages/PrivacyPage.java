@@ -15,16 +15,18 @@ public class PrivacyPage extends BasePage {
     private String PRIVACY_PAGE_CONTENT = "#content";
 
     private String getPrivacyPageText(){
-        waiter(PRIVACY_PAGE_CONTENT);
+        waitCSSSelector(PRIVACY_PAGE_CONTENT);
         return driver.findElement(By.cssSelector(PRIVACY_PAGE_CONTENT)).getText();
     }
+
+
     public Boolean privacyPageTextIsPresent(){
         return getPrivacyPageText().isEmpty();
     }
 
     //CSS
     public Boolean getPrivacyPageFontsize() {
-        waiter(PRIVACY_PAGE_CONTENT);
+        waitCSSSelector(PRIVACY_PAGE_CONTENT);
         return driver.findElement(By.cssSelector(PRIVACY_PAGE_CONTENT)).getCssValue("font-size").contains("14px");
     }
 }

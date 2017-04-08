@@ -1,5 +1,7 @@
 package sitePages;
 
+
+import constantElements.Layout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -11,12 +13,15 @@ import technical.BasePage;
  */
 
 
-
 public class ProductPage extends BasePage {
 
-    //Locators
-    private String CHOOSESIZEFIELD = "#input-option292";
-    private String CHOOSECOLORFIELD = "#input-option291";
+    public Layout getLayout(){
+        return new Layout(driver);
+
+    }
+
+    private String COLORLOCATOR = "#input-option526";
+    private String SIZELOCATOR = "#input-option525";
     private String CHOOSEQTYFIELD = "#input-quantity";
     private String ADDTOCARTBUTTON = "#button-cart";
 
@@ -24,29 +29,32 @@ public class ProductPage extends BasePage {
         super(driver);
     }
 
-    @Step
-    public void chooseSize() {
-        Select select = new Select(driver.findElement(By.cssSelector(CHOOSESIZEFIELD)));
-        select.selectByIndex(3);
-    }
-
-    @Step
-    public String currentSize() {
-        Select select = new Select(driver.findElement(By.cssSelector(CHOOSESIZEFIELD)));
-        return select.getFirstSelectedOption().getText();
-    }
 
     @Step
     public void chooseColor() {
-        Select select = new Select(driver.findElement(By.cssSelector(CHOOSECOLORFIELD)));
+        waitCSSSelector(COLORLOCATOR);
+        Select select = new Select(driver.findElement(By.cssSelector(COLORLOCATOR)));
         select.selectByIndex(1);
     }
 
     @Step
     public String currentColor() {
-        Select select = new Select(driver.findElement(By.cssSelector(CHOOSECOLORFIELD)));
+        Select select = new Select(driver.findElement(By.cssSelector(COLORLOCATOR)));
         return select.getFirstSelectedOption().getText();
     }
+
+    @Step
+    public void chooseSize() {
+        Select select = new Select(driver.findElement(By.cssSelector(SIZELOCATOR)));
+        select.selectByIndex(3);
+    }
+
+    @Step
+    public String currentSize() {
+        Select select = new Select(driver.findElement(By.cssSelector(SIZELOCATOR)));
+        return select.getFirstSelectedOption().getText();
+    }
+
 
     @Step
     public void inputProductsQuantity() {
@@ -57,8 +65,8 @@ public class ProductPage extends BasePage {
 
     @Step
     public void pushAddToCartButton() {
-        waiter(ADDTOCARTBUTTON);
-        clickOn(ADDTOCARTBUTTON);
+        waitCSSSelector(ADDTOCARTBUTTON);
+        clickOnСSSSelector(ADDTOCARTBUTTON);
     }
 }
 

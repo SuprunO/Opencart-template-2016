@@ -17,7 +17,7 @@ public class DeliveryPage extends BasePage {
     private String DELIVERY_PAGE_CONTENT = "#content";
 
     private String getDeliveryPageText(){
-        waiter(DELIVERY_PAGE_CONTENT);
+        waitCSSSelector(DELIVERY_PAGE_CONTENT);
       return driver.findElement(By.cssSelector(DELIVERY_PAGE_CONTENT)).getText();
     }
 
@@ -58,7 +58,7 @@ public class DeliveryPage extends BasePage {
 
     //CSS
     public Boolean getDeliveryPageFontsize(){
-        waiter(DELIVERY_PAGE_CONTENT);
+        waitCSSSelector(DELIVERY_PAGE_CONTENT);
         return driver.findElement(By.cssSelector(DELIVERY_PAGE_CONTENT)).getCssValue("font-size").contains("14px");
     }
 }

@@ -35,7 +35,7 @@ public class CheckoutPage extends BasePage {
     @Step
     public void inputCredentials(User user) {
 
-        waiter(FIRSTNAME);
+        waitCSSSelector(FIRSTNAME);
         driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(user.FirstName);
         driver.findElement(By.cssSelector(LASTNAME)).sendKeys(user.Lastname);
         driver.findElement(By.cssSelector(EMAIL)).sendKeys(user.EMail);
@@ -70,7 +70,7 @@ public class CheckoutPage extends BasePage {
 
     @Step
     public void clickPrivacyPolicyRadioButton() {
-        clickOn(RADIOBUTTON);
+        clickOnСSSSelector(RADIOBUTTON);
     }
 
     // CHECKOUT STEPS
@@ -84,36 +84,36 @@ public class CheckoutPage extends BasePage {
 
     @Step
     public void clickOn_Step1_AccountContinueButton() {
-        waiter(NEW_CUSTOMER_CONTINUE_BUTTON);
-        clickOn(NEW_CUSTOMER_CONTINUE_BUTTON);
+        waitCSSSelector(NEW_CUSTOMER_CONTINUE_BUTTON);
+        clickOnСSSSelector(NEW_CUSTOMER_CONTINUE_BUTTON);
     }
 
     @Step
     public void clickOn_Step2_BillingContinueButton() {
-        clickOn(this.BILLING_CONTINUE_BUTTON);
+        clickOnСSSSelector(this.BILLING_CONTINUE_BUTTON);
     }
 
     @Step
     public void clickOn_Step3_DeliveryDetailsContinueButton() {
-        waiter(DELIVERY_DETAILS_CONTINUE_BUTTON);
-        clickOn(this.DELIVERY_DETAILS_CONTINUE_BUTTON);
+        waitCSSSelector(DELIVERY_DETAILS_CONTINUE_BUTTON);
+        clickOnСSSSelector(this.DELIVERY_DETAILS_CONTINUE_BUTTON);
     }
 
     @Step
     public void clickOn_Step4_DeliveryMethodContinueButton() {
-        waiter(DELIVERY_METHOD_CONTINUE_BUTTON);
-        clickOn(this.DELIVERY_METHOD_CONTINUE_BUTTON);
+        waitCSSSelector(DELIVERY_METHOD_CONTINUE_BUTTON);
+        clickOnСSSSelector(this.DELIVERY_METHOD_CONTINUE_BUTTON);
     }
 
     @Step
     public void clickOn_Step5_PaymentMethodContinueButton() {
-        waiter(PAYMENT_METHOD_CONTINUE_BUTTON);
-        clickOn(this.PAYMENT_METHOD_CONTINUE_BUTTON);
+        waitCSSSelector(PAYMENT_METHOD_CONTINUE_BUTTON);
+        clickOnСSSSelector(this.PAYMENT_METHOD_CONTINUE_BUTTON);
     }
 
     @Step
-    public void clickOn_Step6_ConfirmOrderButton() {
-        waiter(CONFIRM_ORDER_BUTTON);
-        clickOn(this.CONFIRM_ORDER_BUTTON);
+    public PayPage clickOn_Step6_ConfirmOrderButton() {
+        waitCSSSelector(CONFIRM_ORDER_BUTTON).click();
+        return new PayPage(driver);
     }
 }

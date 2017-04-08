@@ -27,6 +27,14 @@ public class HomePage extends BasePage {
         return driver.findElement(By.linkText("Contact Us"));
     }
 
+
+    private String PRODUCTLOCATOR = "#col-sm-39>a";
+
+    public void clickOnFirstProduct(){
+        waitCSSSelector(PRODUCTLOCATOR).click();
+
+    }
+
     //Add categories
 
 

@@ -21,7 +21,7 @@ public class CategoriesPage extends BasePage {
     }
 
     public  void  ClickOnProduct1(){
-        clickOn(PRODUCT_1LINK);
+        clickOnСSSSelector(PRODUCT_1LINK);
     }
 
 

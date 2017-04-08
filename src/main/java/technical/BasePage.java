@@ -7,8 +7,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
 
 
@@ -29,66 +27,42 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public void waiter(String SomeLocatorByCSSSelector) {
+    public WebElement waitCSSSelector(String SomeLocatorByCSSSelector) {
         WebDriverWait waitForOne = new WebDriverWait(driver, 30);
-        waitForOne.until(ExpectedConditions.elementToBeClickable(By.cssSelector(SomeLocatorByCSSSelector)));
+        return waitForOne.until(ExpectedConditions.elementToBeClickable(By.cssSelector(SomeLocatorByCSSSelector)));
     }
 
-    public void waiterByLinkText(String ByLinkText) {
+    public void waitByLinkText(String ByLinkText) {
         WebDriverWait waitForOne = new WebDriverWait(driver, 25);
         waitForOne.until(ExpectedConditions.elementToBeClickable(By.linkText(ByLinkText)));
     }
 
 
-    public void clickOn(String CSSSelector) {
+    public void clickOnСSSSelector(String CSSSelector) {
         driver.findElement(By.cssSelector(CSSSelector)).click();
     }
 
-    public void hoverAndClick(WebDriver driver, WebElement hoverElement, WebElement clickElement) {
+    public void hoverAndClick(WebDriver driver, WebElement clickElement) {
         Actions action = new Actions(driver);
-        action.moveToElement(hoverElement).click(clickElement).build().perform();
-    }
-
-
-    public void verifyImages() {
-        List<WebElement> images = driver.findElements(By.tagName("img"));
-        System.out.println("Total links are " + images.size());
-
-        for (int i = 0; i < images.size(); i++) {
-            WebElement ele = images.get(i);
-            String url = ele.getAttribute("src");
-            verifyActive(url);
-        }
-    }
-
-    public void verifyLinks() {
-        List<WebElement> images = driver.findElements(By.tagName("a"));
-        System.out.println("Total links are " + images.size());
-
-        for (int i = 0; i < images.size(); i++) {
-            WebElement ele = images.get(i);
-            String url = ele.getAttribute("href");
-            verifyActive(url);
-        }
-    }
-
-    public void verifyActive(String linkUrl) {
+        action.moveToElement(clickElement).build().perform();
         try {
-            URL img = new URL(linkUrl);
-            HttpURLConnection httpURLConnect = (HttpURLConnection) img.openConnection();
-            httpURLConnect.setConnectTimeout(3000);
-            httpURLConnect.connect();
-
-            if (httpURLConnect.getResponseCode() == 200) {
-                System.out.println(linkUrl + " - " + httpURLConnect.getResponseMessage());
-            }
-            if (httpURLConnect.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) {
-                System.out.println(linkUrl + " - " + httpURLConnect.getResponseMessage() + " - " + HttpURLConnection.HTTP_NOT_FOUND);
-            }
-        } catch (Exception e) {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        clickElement.click();
     }
 
-
+    public WebElement findProductByText(String name) {
+        List<WebElement> products = driver.findElements(By.cssSelector("h4>a"));
+        for (WebElement product : products) {
+            if (product.getText().contains(name)) {
+              return product;
+            }
+        }
+        return null;
+    }
 }
+
+
 
