@@ -38,4 +38,15 @@ public class PrivacyPageTest {
     public void checkPrivacyFontsize() {
         Assert.assertEquals(privacyPage.getPrivacyPageFontsize(), Boolean.TRUE, "PrivacyPageFontsize is not 14px, kindly fix");
     }
+
+
+//    @AfterClass
+//    public void cleanUp() {
+//        try {
+//            driver.close();
+//            driver.quit();
+//        } catch (Exception e) {
+//            System.out.println("some errors occured during closing driver: \n" + e);
+//        }
+//    }
 }

@@ -3,7 +3,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
@@ -93,15 +92,15 @@ public class EndToEndTest {
 
     }
 
-    @AfterClass
-    public void cleanUp() {
-        try {
-            driver.close();
-            driver.quit();
-        } catch (Exception e) {
-            System.out.println("some errors occured during closing driver: \n" + e);
-        }
-    }
+//    @AfterClass
+//    public void cleanUp() {
+//        try {
+//            driver.close();
+//            driver.quit();
+//        } catch (Exception e) {
+//            System.out.println("some errors occured during closing driver: \n" + e);
+//        }
+//    }
 }
 
 
