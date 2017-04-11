@@ -95,7 +95,7 @@ public class ProductPage extends BasePage {
     public String sizeDropdownExpectedOptions(){
         ArrayList<String> size = new ArrayList<String>();
         size.add("--- Please Select ---");
-        size.add("US4");
+        size.add("US2");
         size.add("US4");
         size.add("US6");
         size.add("US8");

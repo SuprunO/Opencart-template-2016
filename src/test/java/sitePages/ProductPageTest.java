@@ -32,7 +32,7 @@ public class ProductPageTest {
     }
 
     @Test
-    public void verifyEachElementInSizeDropdownByLenghs() {
+    public void verifySizeDropdownByListSize() {
         WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
         Assert.assertNotEquals(product, null, "Product not found!");
         product.click();
@@ -45,14 +45,32 @@ public class ProductPageTest {
         WebElement colorDropdown = driver.findElement(By.cssSelector("#input-option525"));
         Select select = new Select(colorDropdown);
         List<WebElement> actualDropdownOptions = select.getOptions();
-        Assert.assertEquals(actualDropdownOptions.size(), productPage.sizeDropdownExpectedSize());
+        //  Assert.assertEquals(actualDropdownOptions.size(), productPage.sizeDropdownExpectedSize());
         for (WebElement color: actualDropdownOptions){
-           Assert.assertTrue(productPage.sizeDropdownExpectedOptions().contains(color.getText()),"The dropdown is not equal");
+            Assert.assertTrue(productPage.sizeDropdownExpectedOptions().contains(color.getText()),"The dropdown is not equal");
         }
     }
 
 
 
+    @Test
+    public void verifySizeDropdownByEquality() {
+        WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
+        Assert.assertNotEquals(product, null, "Product not found!");
+        product.click();
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        WebElement colorDropdown = driver.findElement(By.cssSelector("#input-option525"));
+        Select select = new Select(colorDropdown);
+        List<WebElement> actualDropdownOptions = select.getOptions();
+        for (WebElement color: actualDropdownOptions){
+           Assert.assertTrue(productPage.sizeDropdownExpectedOptions().contains(color.getText()),"The dropdown is not equal");
+        }
+}
 
     @AfterClass
     public void cleanUp() {
