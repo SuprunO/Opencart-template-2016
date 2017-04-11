@@ -57,10 +57,17 @@ public class BasePage {
         List<WebElement> products = driver.findElements(By.cssSelector("h4>a"));
         for (WebElement product : products) {
             if (product.getText().contains(name)) {
-              return product;
+                return product;
             }
         }
         return null;
+    }
+
+    public WebElement findPriceByProductName(String name) {
+        String nameXPath = findProductByText(name).getAttribute("xpath");
+        String priceXPath = nameXPath + "../../p[2]";
+        WebElement price = driver.findElement(By.xpath(priceXPath));
+        return price;
     }
 }
 
