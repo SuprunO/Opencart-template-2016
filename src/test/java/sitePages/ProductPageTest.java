@@ -47,8 +47,6 @@ public class ProductPageTest {
         List<WebElement> actualDropdownOptions = select.getOptions();
         Assert.assertEquals(actualDropdownOptions.size(), productPage.sizeDropdownExpectedSize());
         for (WebElement color: actualDropdownOptions){
-
-          productPage.sizeDropdownExpectedOptions().contains(color.getText());
            Assert.assertTrue(productPage.sizeDropdownExpectedOptions().contains(color.getText()),"The dropdown is not equal");
         }
     }
