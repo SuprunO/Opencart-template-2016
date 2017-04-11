@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.Select;
 import ru.yandex.qatools.allure.annotations.Step;
 import technical.BasePage;
 
+import java.util.ArrayList;
+
 /**
  * Created by alex on 21.02.2017.
  */
@@ -67,6 +69,25 @@ public class ProductPage extends BasePage {
     public void pushAddToCartButton() {
         waitCSSSelector(ADDTOCARTBUTTON);
         clickOnСSSSelector(ADDTOCARTBUTTON);
+    }
+
+    public void colorList() {
+        ArrayList<String> obj = new ArrayList<String>();
+        obj.add("US2");
+        obj.add("US4");
+        obj.add("US6");
+        obj.add("US8");
+        obj.add("US10");
+        obj.add("US12");
+        obj.add("US14");
+        obj.add("US16");
+        obj.add("US16W");
+        obj.add("US18W");
+        obj.add("US20W");
+        obj.add("US22W");
+        obj.add("US24W");
+        obj.add("US26W");
+        obj.toArray();
     }
 }
 
