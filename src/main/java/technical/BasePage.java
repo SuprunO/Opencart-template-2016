@@ -64,10 +64,7 @@ public class BasePage {
     }
 
     public WebElement findPriceByProductName(String name) {
-        String nameXPath = findProductByText(name).getAttribute("xpath");
-        String priceXPath = nameXPath + "../../p[2]";
-        WebElement price = driver.findElement(By.xpath(priceXPath));
-        return price;
+        return findProductByText(name).findElement(By.xpath("../../p[2]"));
     }
 }
 

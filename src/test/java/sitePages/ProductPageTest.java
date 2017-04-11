@@ -42,24 +42,18 @@ public class ProductPageTest {
             e.printStackTrace();
         }
 
-        String[] expSizes = {"US2", "US4", "US6", "US8", "US10", "US12", "US14", "US16", "US16W", "US18W", "US20W", "US22W", "US24W", "US26W",};
-        productPage.waitCSSSelector("#input-option525");
         WebElement colorDropdown = driver.findElement(By.cssSelector("#input-option525"));
         Select select = new Select(colorDropdown);
+        List<WebElement> actualDropdownOptions = select.getOptions();
+        Assert.assertEquals(actualDropdownOptions.size(), productPage.sizeDropdownExpectedSize());
+        for (WebElement color: actualDropdownOptions){
 
-        List<WebElement> options = select.getOptions();
-        int count = 0;
-        for (WebElement size : options) {
-            for (int i = 0; i < expSizes.length; i++) {
-                if (size.getText().trim().equals(expSizes[i])) {
-                    count++;
-                }
-            }
+            System.out.println((productPage.sizeDropdownExpectedOptions().contains(color.getText())));
+           // Assert.assertTrue(productPage.sizeDropdownExpectedOptions().contains(color.getText()),"The dropdown is not equal");
         }
-
-        Assert.assertEquals(count,expSizes.length,"The list is not equal");
-
     }
+
+
 
 
     @AfterClass

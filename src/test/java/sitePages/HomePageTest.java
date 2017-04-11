@@ -24,7 +24,7 @@ public class HomePageTest {
 
     @Test
     public void findPriceByProductName() {
-        System.out.println(homePage.findPriceByProductName("Scoop Natural Zipper Knee-Length"));
+        System.out.println(homePage.findPriceByProductName("Scoop Natural Zipper Knee-Length").getText());
     }
 }
 

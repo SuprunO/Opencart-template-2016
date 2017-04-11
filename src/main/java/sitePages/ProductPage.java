@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class ProductPage extends BasePage {
 
-    public Layout getLayout(){
+    public Layout getLayout() {
         return new Layout(driver);
 
     }
@@ -71,23 +71,45 @@ public class ProductPage extends BasePage {
         clickOnСSSSelector(ADDTOCARTBUTTON);
     }
 
-    public void colorList() {
-        ArrayList<String> obj = new ArrayList<String>();
-        obj.add("US2");
-        obj.add("US4");
-        obj.add("US6");
-        obj.add("US8");
-        obj.add("US10");
-        obj.add("US12");
-        obj.add("US14");
-        obj.add("US16");
-        obj.add("US16W");
-        obj.add("US18W");
-        obj.add("US20W");
-        obj.add("US22W");
-        obj.add("US24W");
-        obj.add("US26W");
-        obj.toArray();
+    public int sizeDropdownExpectedSize() {
+        ArrayList<String> size = new ArrayList<String>();
+        size.add("--- Please Select ---");
+        size.add("US2");
+        size.add("US4");
+        size.add("US6");
+        size.add("US8");
+        size.add("US10");
+        size.add("US12");
+        size.add("US14");
+        size.add("US16");
+        size.add("US16W");
+        size.add("US18W");
+        size.add("US20W");
+        size.add("US22W");
+        size.add("US24W");
+        size.add("US26W");
+        return size.size();
+    }
+
+
+    public String sizeDropdownExpectedOptions(){
+        ArrayList<String> size = new ArrayList<String>();
+        size.add("--- Please Select ---");
+        size.add("US4");
+        size.add("US4");
+        size.add("US6");
+        size.add("US8");
+        size.add("US10");
+        size.add("US12");
+        size.add("US14");
+        size.add("US16");
+        size.add("US16W");
+        size.add("US18W");
+        size.add("US20W");
+        size.add("US22W");
+        size.add("US24W");
+        size.add("US26W");
+        return size.toString();
     }
 }
 
