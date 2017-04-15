@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>Opencart_Template_2016</groupId>
@@ -12,6 +12,7 @@
     <properties>
         <aspectj.version>1.8.5</aspectj.version>
         <allure.version>{latest-allure-version}</allure.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
