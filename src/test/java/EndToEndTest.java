@@ -29,11 +29,10 @@ public class EndToEndTest {
 
     @BeforeTest
     public void StartUp() {
-        System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "//home//alexei//geckodriver");
         driver = new FirefoxDriver();
         userData = new User();
         driver.get(SiteURL);
-        //"/index.php?route=product/product&product_id=86");
         driver.manage().window().maximize();
         productPage = new ProductPage(driver);
         homePage = new HomePage(driver);
@@ -54,7 +53,7 @@ public class EndToEndTest {
     @Test
     public void endToEndTest() {
 
-        WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
+        WebElement product = homePage.findProductByText("Water Wars Pistols & Vests");
         Assert.assertNotEquals(product, null, "Product not found!");
         product.click();
 
@@ -72,7 +71,7 @@ public class EndToEndTest {
         productPage.inputProductsQuantity();
         productPage.pushAddToCartButton();
 
-        cartPopUp = productPage.getLayout().hoverandClickCartIcon();
+        productPage.getLayout().clickOnСSSSelector("#cart");
         checkoutPage = cartPopUp.getCartCheckoutButton();
         checkoutPage.clickOn_Step1_AccountContinueButton();
         checkoutPage.inputCredentials(userData);
@@ -101,6 +100,7 @@ public class EndToEndTest {
 //            System.out.println("some errors occured during closing driver: \n" + e);
 //        }
 //    }
+    //!
 }
 
 

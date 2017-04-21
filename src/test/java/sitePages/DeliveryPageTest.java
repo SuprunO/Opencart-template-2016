@@ -21,12 +21,14 @@ import static technical.BasePage.SiteURL;
 
 public class DeliveryPageTest {
 
+
     WebDriver driver;
     DeliveryPage deliveryPage;
     User userData;
 
     @BeforeTest
     void StartUp() {
+        System.setProperty("webdriver.gecko.driver", "//home//alexei//geckodriver");
         driver = new FirefoxDriver();
         driver.get(SiteURL + "/index.php?route=information/information&information_id=6");
         driver.manage().window().maximize();

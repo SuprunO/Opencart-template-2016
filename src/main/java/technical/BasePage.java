@@ -16,7 +16,7 @@ import java.util.List;
 public class BasePage {
 
     //INPUT THE SITE NAME TO CHECK HERE:
-    public static String SiteURL = "http://" + "weddingdev.com";
+    public static String SiteURL = "http://" + "giftsshoppro.com";
 //-------------------------------------------------------------
     //kidsclothesmart.com
 
@@ -39,6 +39,7 @@ public class BasePage {
 
 
     public void clickOnСSSSelector(String CSSSelector) {
+        waitCSSSelector(CSSSelector);
         driver.findElement(By.cssSelector(CSSSelector)).click();
     }
 
