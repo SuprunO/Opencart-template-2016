@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
@@ -38,12 +39,11 @@ public class EndToEndTest {
         homePage = new HomePage(driver);
         payPage = new PayPage(driver);
         categoriesPage = new CategoriesPage(driver);
+        cartPopUp = new CartPopUp(driver);
 
     }
 
     //Locators
-
-
 
     @Title("Product purchase E/E test")
     @Description("Purchase the product and assert the data is inputted correctly")
@@ -53,7 +53,7 @@ public class EndToEndTest {
     @Test
     public void endToEndTest() {
 
-        WebElement product = homePage.findProductByText("Water Wars Pistols & Vests");
+        WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
         Assert.assertNotEquals(product, null, "Product not found!");
         product.click();
 
@@ -79,7 +79,7 @@ public class EndToEndTest {
         Assert.assertEquals(checkoutPage.currentCountrySelected(), "United States", "The Country have to be United States");
         checkoutPage.chooseState();
         Assert.assertEquals(checkoutPage.currentStateSelected(), "Arkansas", "The State name have to be Arkansas");
-        checkoutPage.clickPrivacyPolicyRadioButton();
+
         checkoutPage.clickOn_Step2_BillingContinueButton();
         checkoutPage.clickOn_Step3_DeliveryDetailsContinueButton();
         checkoutPage.clickOn_Step4_DeliveryMethodContinueButton();
@@ -88,19 +88,20 @@ public class EndToEndTest {
 
         payPage.enterClientCredentialsPaypage(userData);
         payPage.clickOnSubmitTransactionButton();
+        //Assert
 
     }
 
-//    @AfterClass
-//    public void cleanUp() {
-//        try {
-//            driver.close();
-//            driver.quit();
-//        } catch (Exception e) {
-//            System.out.println("some errors occured during closing driver: \n" + e);
-//        }
-//    }
-    //!
+    @AfterClass
+    public void cleanUp() {
+        try {
+            driver.close();
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println("some errors occured during closing driver: \n" + e);
+        }
+
+    }
 }
 
 
