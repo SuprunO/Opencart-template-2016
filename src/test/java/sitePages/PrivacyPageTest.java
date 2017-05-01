@@ -1,7 +1,8 @@
 package sitePages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -21,8 +22,11 @@ public class PrivacyPageTest {
 
     @BeforeClass
     public void startUp() {
-        System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", "C://chromedriver/chromedriver.exe");
+        // System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
+        ChromeDriver driver = new ChromeDriver(options);
         driver.get(SiteURL + "/index.php?route=information/information&information_id=3");
         privacyPage = new PrivacyPage(driver);
     }

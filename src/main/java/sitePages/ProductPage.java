@@ -4,11 +4,13 @@ package sitePages;
 import constantElements.Layout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import ru.yandex.qatools.allure.annotations.Step;
 import technical.BasePage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by alex on 21.02.2017.
@@ -71,25 +73,6 @@ public class ProductPage extends BasePage {
         clickOnСSSSelector(ADDTOCARTBUTTON);
     }
 
-    public int sizeDropdownExpectedSize() {
-        ArrayList<String> size = new ArrayList<String>();
-        size.add("--- Please Select ---");
-        size.add("US2");
-        size.add("US4");
-        size.add("US6");
-        size.add("US8");
-        size.add("US10");
-        size.add("US12");
-        size.add("US14");
-        size.add("US16");
-        size.add("US16W");
-        size.add("US18W");
-        size.add("US20W");
-        size.add("US22W");
-        size.add("US24W");
-        size.add("US26W");
-        return size.size();
-    }
 
 
     public String sizeDropdownExpectedOptions(){
@@ -110,6 +93,31 @@ public class ProductPage extends BasePage {
         size.add("US24W");
         size.add("US26W");
         return size.toString();
+    }
+
+    public class Product {
+        public WebElement color;
+        public WebElement size;
+        public WebElement button;
+
+
+        public Product(String name){
+            color = findElementByName(name);
+            size =  color.findElement(By.xpath("../div[2]"));
+            button =  color.findElement(By.xpath("../div[2]"));
+        }
+
+        private WebElement findElementByName(String name) {
+            List<WebElement> notes = driver.findElements(By.cssSelector(".col-xs-4>div>.title"));
+            for (WebElement note : notes) {
+                if (note.getText().contains(name)) {
+                    return note;
+                }
+            }
+            return null;
+        }
+
+
     }
 }
 

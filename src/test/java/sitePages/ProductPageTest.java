@@ -3,7 +3,9 @@ package sitePages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -24,7 +26,11 @@ public class ProductPageTest {
 
     @BeforeTest
     void StartUp() {
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", "C://chromedriver/chromedriver.exe");
+        // System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
+        ChromeDriver driver = new ChromeDriver(options);
         driver.get(SiteURL);
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
