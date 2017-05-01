@@ -45,10 +45,7 @@ public class EndToEndTest {
         categoriesPage = new CategoriesPage(driver);
 
     }
-
     //Locators
-
-
     @Title("Product purchase E/E test")
     @Description("Purchase the product and assert the data is inputted correctly")
     @Severity(SeverityLevel.CRITICAL)
@@ -68,31 +65,30 @@ public class EndToEndTest {
         }
 
         productPage.chooseColor();
-        Assert.assertEquals(productPage.currentColor(), "Blue", "The color is wrong");
+        Assert.assertEquals(productPage.currentColor().trim(), "Blue", "The color is wrong");
         productPage.chooseSize();
-        Assert.assertEquals(productPage.currentSize(), "US6", "The size of US6 is not matched");
+        Assert.assertEquals(productPage.currentSize().trim(), "US6", "The size of US6 is not matched");
 
         productPage.inputProductsQuantity();
         productPage.pushAddToCartButton();
 
         cartPopUp = productPage.getLayout().hoverandClickCartIcon();
         checkoutPage = cartPopUp.getCartCheckoutButton();
-        checkoutPage.clickOn_Step1_AccountContinueButton();
+        checkoutPage.clickStep1AccountContinueButton();
         checkoutPage.inputCredentials(userData);
         checkoutPage.chooseCountry();
         Assert.assertEquals(checkoutPage.currentCountrySelected(), "United States", "The Country have to be United States");
         checkoutPage.chooseState();
         Assert.assertEquals(checkoutPage.currentStateSelected(), "Arkansas", "The State name have to be Arkansas");
         checkoutPage.clickPrivacyPolicyRadioButton();
-        checkoutPage.clickOn_Step2_BillingContinueButton();
-        checkoutPage.clickOn_Step3_DeliveryDetailsContinueButton();
-        checkoutPage.clickOn_Step4_DeliveryMethodContinueButton();
-        checkoutPage.clickOn_Step5_PaymentMethodContinueButton();
-        payPage = checkoutPage.clickOn_Step6_ConfirmOrderButton();
+        checkoutPage.clickStep2BillingContinueButton();
+        checkoutPage.clickStep3DeliveryDetailsContinueButton();
+        checkoutPage.clickStep4DeliveryMethodContinueButton();
+        checkoutPage.clickStep5PaymentMethodContinueButton();
+        payPage = checkoutPage.clickStep6ConfirmOrderButton();
 
         payPage.enterClientCredentialsPaypage(userData);
         payPage.clickOnSubmitTransactionButton();
-
     }
 
     @AfterClass

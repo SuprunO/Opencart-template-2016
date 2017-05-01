@@ -29,7 +29,6 @@ public class DeliveryPageTest {
     @BeforeTest
     void StartUp() {
         System.setProperty("webdriver.chrome.driver", "C://chromedriver/chromedriver.exe");
-        // System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
         ChromeDriver driver = new ChromeDriver(options);

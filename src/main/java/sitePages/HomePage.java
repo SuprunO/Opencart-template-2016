@@ -1,5 +1,6 @@
 package sitePages;
 
+import constantElements.Layout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,31 +14,13 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    //Header
-    public WebElement get_lnk_Login() {
-        return driver.findElement(By.linkText("Login"));
-    }
-
-    public WebElement get_lnk_Home() {
-        return driver.findElement(By.linkText("Home"));
-    }
-
-    public WebElement get_lnk_ContactUs() {
-        return driver.findElement(By.linkText("Contact Us"));
+    public Layout getLayout() {
+        return new Layout(driver);
     }
 
 
-    private String PRODUCTLOCATOR = "#col-sm-39>a";
 
-    public void clickOnFirstProduct(){
-        waitCSSSelector(PRODUCTLOCATOR).click();
-
-    }
-
-    //Add categories
-
-
-    //Add products
+// Pictures
 
 }
 
