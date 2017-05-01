@@ -50,7 +50,6 @@ public class EndToEndTest {
     @Description("Purchase the product and assert the data is inputted correctly")
     @Severity(SeverityLevel.CRITICAL)
 
-
     @Test
     public void endToEndTest() {
 

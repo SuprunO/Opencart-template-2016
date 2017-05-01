@@ -52,7 +52,7 @@ public class DeliveryPageTest {
     @Severity(SeverityLevel.NORMAL)
     @Test
     public void checkShippingRate() {
-        Assert.assertEquals(deliveryPage.getShipingRate(), Boolean.TRUE, "The shipping rate to be $18 per order");
+        Assert.assertEquals(deliveryPage.getShipingRate(), Boolean.TRUE, "shipping rate of $15 for every order");
     }
 
     @Title("Maximum 20 working days condition")
@@ -94,7 +94,7 @@ public class DeliveryPageTest {
 
     @Test
     public void getRefundsInCaseOfCancellation() {
-        Assert.assertEquals(deliveryPage.getMaxPeriodOfRefundsInCaseOfCancellation(), Boolean.TRUE, "The purchase needs 48 hours to prepare it for shipping");
+        Assert.assertEquals(deliveryPage.getMaxPeriodOfRefundsInCaseOfCancellation(), Boolean.TRUE, "10 working days");
     }
 
     @Test

@@ -23,7 +23,7 @@ public class CheckoutPageTest {
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
         ChromeDriver driver = new ChromeDriver(options);
-        driver.get(SiteURL + "/index.php?route=information/information&information_id=6");
+        driver.get(SiteURL);
         driver.manage().window().maximize();
         deliveryPage = new DeliveryPage(driver);
         userData = new User();

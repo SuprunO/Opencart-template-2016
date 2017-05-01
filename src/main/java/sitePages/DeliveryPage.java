@@ -28,15 +28,15 @@ public class DeliveryPage extends BasePage {
     }
 
     public Boolean getShipingRate(){
-        return getDeliveryPageText().contains("$18 per order");
+        return getDeliveryPageText().contains("$15 for every order");
     }
 
     public Boolean getMaximumDeliveryPeriod(){
-        return getDeliveryPageText().contains("maximum 20 working days");
+        return getDeliveryPageText().contains("20 working days");
     }
 
     public Boolean PaymentDetails(){
-        return getDeliveryPageText().contains("MasterCard and VISA");
+        return getDeliveryPageText().contains("MasterCard or VISA");
     }
 
     public Boolean getMaximumStatusCheck(){
@@ -44,7 +44,7 @@ public class DeliveryPage extends BasePage {
     }
 
     public Boolean getRefunds(){
-        return getDeliveryPageText().contains("10 working days");
+        return getDeliveryPageText().contains("10 working days.");
     }
 
     public Boolean getRefundsInCaseOfCancellation(){

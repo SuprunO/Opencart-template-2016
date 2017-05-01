@@ -27,6 +27,8 @@ public class HomePageTest {
         homePage = new HomePage(driver);
     }
 
+
+    //реализовать мок товара
     @Test
     public void findPriceByProductName() {
         System.out.println(homePage.findPriceByProductName("Scoop Natural Zipper Knee-Length").getText());
