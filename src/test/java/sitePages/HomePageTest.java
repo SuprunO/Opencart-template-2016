@@ -3,7 +3,7 @@ package sitePages;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static technical.BasePage.SiteURL;
@@ -15,7 +15,7 @@ public class HomePageTest {
     ChromeDriver driver;
     HomePage homePage;
 
-    @BeforeTest
+    @BeforeClass
     void StartUp() {
         System.setProperty("webdriver.chrome.driver", "C://chromedriver/chromedriver.exe");
         // System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");

@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class ProductPageTest {
     HomePage homePage;
     ProductPage productPage;
 
-    @BeforeTest
+    @BeforeClass
     void StartUp() {
         System.setProperty("webdriver.chrome.driver", "C://chromedriver/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();

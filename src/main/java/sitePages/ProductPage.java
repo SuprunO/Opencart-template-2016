@@ -68,7 +68,7 @@ public class ProductPage extends BasePage {
 
 
     @Step
-    public void pushAddToCartButton() {
+    public void clickAddToCartButton() {
         waitCSSSelector(ADDTOCARTBUTTON);
         clickOnСSSSelector(ADDTOCARTBUTTON);
     }

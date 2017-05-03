@@ -1,8 +1,10 @@
 package sitePages;
 
 import constantElements.CartPopUp;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
@@ -46,25 +48,25 @@ public class CartPopUpTest {
 
 
     @Test
-    public void CartPopUpTest() {}
-//        WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
-//        Assert.assertNotEquals(product, null, "Product not found!");
-//        product.click();
-//
-//        try {
-//            Thread.sleep(8000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        productPage.chooseColor();
-//        Assert.assertEquals(productPage.currentColor(), "Blue", "The color is wrong");
-//        productPage.chooseSize();
-//        Assert.assertEquals(productPage.currentSize(), "US6", "The size of US6 is not matched");
-//
-//        productPage.inputProductsQuantity();
-//        productPage.pushAddToCartButton();
-//    }
+    public void CartPopUpTest() {
+        WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
+        Assert.assertNotEquals(product, null, "Product not found!");
+        product.click();
+
+        try {
+            Thread.sleep(8000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        productPage.chooseColor();
+        Assert.assertEquals(productPage.currentColor(), "Blue", "The color is wrong");
+        productPage.chooseSize();
+        Assert.assertEquals(productPage.currentSize(), "US6", "The size of US6 is not matched");
+
+        productPage.inputProductsQuantity();
+        productPage.clickAddToCartButton();
+    }
 
     @AfterClass
     public void cleanUp() {
@@ -75,4 +77,6 @@ public class CartPopUpTest {
             System.out.println("some errors occured during closing driver: \n" + e);
         }
     }
+
+
 }
