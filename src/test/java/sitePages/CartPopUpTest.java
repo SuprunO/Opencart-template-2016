@@ -1,9 +1,9 @@
 package sitePages;
 
 import constantElements.CartPopUp;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Severity;
@@ -18,7 +18,7 @@ import static technical.BasePage.SiteURL;
  */
 public class CartPopUpTest {
 
-    WebDriver driver;
+    ChromeDriver driver;
     ProductPage productPage;
     User userData;
     HomePage homePage;
@@ -30,7 +30,7 @@ public class CartPopUpTest {
         // System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-        ChromeDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         userData = new User();
         driver.get(SiteURL);
         driver.manage().window().maximize();
@@ -66,5 +66,13 @@ public class CartPopUpTest {
 //        productPage.pushAddToCartButton();
 //    }
 
-
+    @AfterClass
+    public void cleanUp() {
+        try {
+            driver.close();
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println("some errors occured during closing driver: \n" + e);
+        }
+    }
 }

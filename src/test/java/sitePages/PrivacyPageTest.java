@@ -1,9 +1,9 @@
 package sitePages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
@@ -17,7 +17,7 @@ import static technical.BasePage.SiteURL;
 
 @Title("Privacy Page tests")
 public class PrivacyPageTest {
-    WebDriver driver;
+    ChromeDriver driver;
     PrivacyPage privacyPage;
 
     @BeforeClass
@@ -26,7 +26,7 @@ public class PrivacyPageTest {
         // System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-        ChromeDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         driver.get(SiteURL + "/index.php?route=information/information&information_id=3");
         privacyPage = new PrivacyPage(driver);
     }
@@ -44,13 +44,13 @@ public class PrivacyPageTest {
     }
 
 
-//    @AfterClass
-//    public void cleanUp() {
-//        try {
-//            driver.close();
-//            driver.quit();
-//        } catch (Exception e) {
-//            System.out.println("some errors occured during closing driver: \n" + e);
-//        }
-//    }
+    @AfterClass
+    public void cleanUp() {
+        try {
+            driver.close();
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println("some errors occured during closing driver: \n" + e);
+        }
+    }
 }

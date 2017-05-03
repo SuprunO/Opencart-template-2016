@@ -1,6 +1,5 @@
 package sitePages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
@@ -22,7 +21,7 @@ import static technical.BasePage.SiteURL;
 public class RobotPageTest {
     RobotsTXTPage robotsTXTPage;
 
-    WebDriver driver;
+    ChromeDriver  driver;
 
     @BeforeClass
     public void startUp() {
@@ -30,7 +29,7 @@ public class RobotPageTest {
         // System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-        ChromeDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         driver.get(SiteURL + "/robots.txt");
         robotsTXTPage = new RobotsTXTPage(driver);
     }
@@ -51,15 +50,4 @@ public class RobotPageTest {
             System.out.println("some errors occured during closing driver: \n" + e);
         }
     }
-
-
-//    @AfterClass
-//    public void cleanUp() {
-//        try {
-//            driver.close();
-//            driver.quit();
-//        } catch (Exception e) {
-//            System.out.println("some errors occured during closing driver: \n" + e);
-//        }
-//    }
 }

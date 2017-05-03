@@ -1,9 +1,9 @@
 package UISitePages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import sitePages.HomePage;
@@ -15,7 +15,7 @@ import static technical.BasePage.SiteURL;
  * Created by alex on 01.05.2017.
  */
 public class UIHomepageTest {
-    WebDriver driver;
+    ChromeDriver driver;
     HomePage homePage;
     User userData;
 
@@ -24,7 +24,7 @@ public class UIHomepageTest {
         System.setProperty("webdriver.chrome.driver", "C://chromedriver/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-        ChromeDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         userData = new User();
         driver.get(SiteURL);
         driver.manage().window().maximize();
@@ -129,6 +129,16 @@ public class UIHomepageTest {
 
     public void verifyTermsSpecialsLinkTextFooter(){
         Assert.assertEquals(homePage.getLayout().getSpecialsLinkText().getText(),"Specials","Specials is written wrong, fix to Specials");
+    }
+
+    @AfterClass
+    public void cleanUp() {
+        try {
+            driver.close();
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println("some errors occured during closing driver: \n" + e);
+        }
     }
 
 }

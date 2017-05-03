@@ -1,5 +1,4 @@
 import constantElements.CartPopUp;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -20,7 +19,7 @@ import static technical.BasePage.SiteURL;
  * Created by alex on 21.02.2017.
  */
 public class EndToEndTest {
-    WebDriver driver;
+    ChromeDriver driver;
     ProductPage productPage;
     User userData;
     CheckoutPage checkoutPage;
@@ -28,6 +27,8 @@ public class EndToEndTest {
     HomePage homePage;
     CategoriesPage categoriesPage;
     CartPopUp cartPopUp;
+    TransactionFinalPage transactionFinalPage;
+
 
     @BeforeTest
     public void StartUp() {
@@ -35,7 +36,7 @@ public class EndToEndTest {
         // System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-        ChromeDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         userData = new User();
         driver.get(SiteURL);
         driver.manage().window().maximize();
@@ -43,8 +44,10 @@ public class EndToEndTest {
         homePage = new HomePage(driver);
         payPage = new PayPage(driver);
         categoriesPage = new CategoriesPage(driver);
+        transactionFinalPage = new TransactionFinalPage(driver);
 
     }
+
     //Locators
     @Title("Product purchase E/E test")
     @Description("Purchase the product and assert the data is inputted correctly")
@@ -79,7 +82,6 @@ public class EndToEndTest {
         Assert.assertEquals(checkoutPage.currentCountrySelected(), "United States", "The Country have to be United States");
         checkoutPage.chooseState();
         Assert.assertEquals(checkoutPage.currentStateSelected(), "Arkansas", "The State name have to be Arkansas");
-        checkoutPage.clickPrivacyPolicyRadioButton();
         checkoutPage.clickStep2BillingContinueButton();
         checkoutPage.clickStep3DeliveryDetailsContinueButton();
         checkoutPage.clickStep4DeliveryMethodContinueButton();
@@ -88,6 +90,7 @@ public class EndToEndTest {
 
         payPage.enterClientCredentialsPaypage(userData);
         payPage.clickOnSubmitTransactionButton();
+        Assert.assertEquals(transactionFinalPage.TransactionIsSuccessful().getText(), "Transaction Success", "Transaction is not successful or the text Transaction Success is wrong");
     }
 
     @AfterClass

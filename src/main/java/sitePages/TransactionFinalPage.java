@@ -18,7 +18,7 @@ public class TransactionFinalPage extends BasePage {
     // Locators
     private String PAYMENTISSUCCESSFUL = "div>h2";
 
-    public WebElement checkTheTransactionIsSuccessful(){
+    public WebElement TransactionIsSuccessful(){
         return driver.findElement(By.cssSelector(PAYMENTISSUCCESSFUL));
 
     }

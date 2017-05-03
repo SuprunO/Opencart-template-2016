@@ -1,6 +1,5 @@
 package sitePages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
@@ -22,7 +21,7 @@ import static technical.BasePage.SiteURL;
 
 public class DeliveryPageTest {
 
-    WebDriver driver;
+    ChromeDriver driver;
     DeliveryPage deliveryPage;
     User userData;
 
@@ -31,7 +30,7 @@ public class DeliveryPageTest {
         System.setProperty("webdriver.chrome.driver", "C://chromedriver/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-        ChromeDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         driver.get(SiteURL + "/index.php?route=information/information&information_id=6");
         driver.manage().window().maximize();
         deliveryPage = new DeliveryPage(driver);

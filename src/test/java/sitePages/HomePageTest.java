@@ -1,8 +1,8 @@
 package sitePages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -12,7 +12,7 @@ import static technical.BasePage.SiteURL;
  * Created by alex on 11.04.2017.
  */
 public class HomePageTest {
-    WebDriver driver;
+    ChromeDriver driver;
     HomePage homePage;
 
     @BeforeTest
@@ -21,7 +21,7 @@ public class HomePageTest {
         // System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-        ChromeDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         driver.get(SiteURL);
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
@@ -32,6 +32,16 @@ public class HomePageTest {
     @Test
     public void findPriceByProductName() {
         System.out.println(homePage.findPriceByProductName("Scoop Natural Zipper Knee-Length").getText());
+    }
+
+    @AfterClass
+    public void cleanUp() {
+        try {
+            driver.close();
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println("some errors occured during closing driver: \n" + e);
+        }
     }
 }
 

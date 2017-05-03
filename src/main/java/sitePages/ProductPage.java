@@ -74,7 +74,7 @@ public class ProductPage extends BasePage {
     }
 
 
-    public String sizeDropdownExpectedOptions(){
+    public String sizeDropdownExpectedOptions() {
         ArrayList<String> size = new ArrayList<String>();
         size.add("--- Please Select ---");
         size.add("US2");
@@ -94,29 +94,26 @@ public class ProductPage extends BasePage {
         return size.toString();
     }
 
-    public class Product {
-        public WebElement color;
-        public WebElement size;
-        public WebElement button;
+//    public class Product {
+//        public WebElement color;
+//        public WebElement size;
+//        public WebElement button;
+//
+//
+//        public Product(String name){
+//            color = findElementByName(name);
+//            size =  color.findElement(By.xpath("../div[2]"));
+//            button =  color.findElement(By.xpath("../div[2]"));
+//        }
 
-
-        public Product(String name){
-            color = findElementByName(name);
-            size =  color.findElement(By.xpath("../div[2]"));
-            button =  color.findElement(By.xpath("../div[2]"));
-        }
-
-        private WebElement findElementByName(String name) {
-            List<WebElement> notes = driver.findElements(By.cssSelector(".col-xs-4>div>.title"));
-            for (WebElement note : notes) {
-                if (note.getText().contains(name)) {
-                    return note;
-                }
+    private WebElement findElementByName(String name) {
+        List<WebElement> notes = driver.findElements(By.cssSelector(".col-xs-4>div>.title"));
+        for (WebElement note : notes) {
+            if (note.getText().contains(name)) {
+                return note;
             }
-            return null;
         }
-
-
+        return null;
     }
 }
 
