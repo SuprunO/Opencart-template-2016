@@ -33,6 +33,10 @@ public class ProductPage extends BasePage {
         super(driver);
     }
 
+    public WebElement getProductNameLocator(){
+       return driver.findElement(By.cssSelector("#content>h1"));
+    }
+
 
     @Step
     public void chooseColor() {
@@ -93,18 +97,6 @@ public class ProductPage extends BasePage {
         size.add("US26W");
         return size.toString();
     }
-
-//    public class Product {
-//        public WebElement color;
-//        public WebElement size;
-//        public WebElement button;
-//
-//
-//        public Product(String name){
-//            color = findElementByName(name);
-//            size =  color.findElement(By.xpath("../div[2]"));
-//            button =  color.findElement(By.xpath("../div[2]"));
-//        }
 
     private WebElement findElementByName(String name) {
         List<WebElement> notes = driver.findElements(By.cssSelector(".col-xs-4>div>.title"));

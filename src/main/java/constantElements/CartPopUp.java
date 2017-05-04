@@ -17,6 +17,8 @@ public class CartPopUp extends BasePage {
     public CartPopUp(WebDriver driver) {
         super(driver);
     }
+
+
     private String CART_CHECKOUT_BUTTON = ".text-right a:nth-child(2)";
 
     @Step
@@ -26,7 +28,7 @@ public class CartPopUp extends BasePage {
     }
 
 
-    public WebElement getProductName(){
+    public WebElement getProductNameLocator(){
         return driver.findElement(By.cssSelector(".table.table-striped>tbody>tr>td:nth-of-type(2)>a"));
     }
 
@@ -49,17 +51,17 @@ public class CartPopUp extends BasePage {
 
     public WebElement getSubtotalPriceLocator(){
 
-        return driver.findElement(By.cssSelector(""));
+        return driver.findElement(By.cssSelector("#td-sm-7"));
     }
 
     public WebElement getTotalPriceLocator(){
 
-        return driver.findElement(By.cssSelector(""));
+        return driver.findElement(By.cssSelector("#td-sm-9"));
     }
 
     public WebElement getViewCartButtonLocator(){
 
-        return driver.findElement(By.cssSelector(""));
+        return driver.findElement(By.cssSelector(".text-right>a:first-child"));
     }
 
 }

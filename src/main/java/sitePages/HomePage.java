@@ -1,9 +1,7 @@
 package sitePages;
 
 import constantElements.Layout;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import technical.BasePage;
 
 /**
@@ -18,7 +16,17 @@ public class HomePage extends BasePage {
         return new Layout(driver);
     }
 
-
+//    public class Product {
+//        public WebElement color;
+//        public WebElement size;
+//        public WebElement button;
+//
+//
+//        public Product(String name){
+//            color = findElementByName(name);
+//            size =  color.findElement(By.xpath("../div[2]"));
+//            button =  color.findElement(By.xpath("../div[2]"));
+//        }
 
 // Pictures
 

@@ -16,11 +16,8 @@ import java.util.List;
 public class BasePage {
 
     //INPUT THE SITE NAME TO CHECK HERE:
-    public static String SiteURL = "http://" + "weddingdev.com";
+    public static String SiteURL = "http://" + "giftsshopstar.com";
 //-------------------------------------------------------------
-    //kidsclothesmart.com
-
-
     public WebDriver driver;
 
     public BasePage(WebDriver driver) {

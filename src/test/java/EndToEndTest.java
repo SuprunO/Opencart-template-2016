@@ -72,7 +72,7 @@ public class EndToEndTest {
         Assert.assertEquals(productPage.currentSize().trim(), "US6", "The size of US6 is not matched");
 
         productPage.inputProductsQuantity();
-        productPage.pushAddToCartButton();
+        productPage.clickAddToCartButton();
 
         cartPopUp = productPage.getLayout().hoverandClickCartIcon();
         checkoutPage = cartPopUp.getCartCheckoutButton();

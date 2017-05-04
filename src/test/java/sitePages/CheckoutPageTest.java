@@ -29,7 +29,7 @@ public class CheckoutPageTest {
         userData = new User();
     }
     @Test
-    public void step1CheckpoutOptions(){
+    public void step1CheckoutOptions(){
 
     }
 
