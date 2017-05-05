@@ -51,8 +51,6 @@ public class ProductPageTest {
         }
     }
 
-
-
     @Test
     public void verifySizeDropdownByEquality() {
         WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");

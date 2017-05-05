@@ -53,7 +53,7 @@ public class EndToEndTest {
     @Test
     public void endToEndTest() {
 
-        WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
+        WebElement product = homePage.findProductByText("Bunny Light");
         Assert.assertNotEquals(product, null, "Product not found!");
         product.click();
 
@@ -64,9 +64,9 @@ public class EndToEndTest {
         }
 
         productPage.chooseColor();
-        Assert.assertEquals(productPage.currentColor(), "Blue", "The color is wrong");
-        productPage.chooseSize();
-        Assert.assertEquals(productPage.currentSize(), "US6", "The size of US6 is not matched");
+        Assert.assertEquals(productPage.currentColor(), "White", "The color is wrong");
+        //productPage.chooseSize();
+       // Assert.assertEquals(productPage.currentSize(), "US6", "The size of US6 is not matched");
 
         productPage.inputProductsQuantity();
         productPage.pushAddToCartButton();

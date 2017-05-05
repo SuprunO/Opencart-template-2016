@@ -4,11 +4,13 @@ package sitePages;
 import constantElements.Layout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import ru.yandex.qatools.allure.annotations.Step;
 import technical.BasePage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by alex on 21.02.2017.
@@ -29,6 +31,10 @@ public class ProductPage extends BasePage {
 
     public ProductPage(WebDriver driver) {
         super(driver);
+    }
+
+    public WebElement getProductNameLocator(){
+        return driver.findElement(By.cssSelector("#content>h1"));
     }
 
 
@@ -66,33 +72,13 @@ public class ProductPage extends BasePage {
 
 
     @Step
-    public void pushAddToCartButton() {
+    public void clickAddToCartButton() {
         waitCSSSelector(ADDTOCARTBUTTON);
         clickOnСSSSelector(ADDTOCARTBUTTON);
     }
 
-    public int sizeDropdownExpectedSize() {
-        ArrayList<String> size = new ArrayList<String>();
-        size.add("--- Please Select ---");
-        size.add("US2");
-        size.add("US4");
-        size.add("US6");
-        size.add("US8");
-        size.add("US10");
-        size.add("US12");
-        size.add("US14");
-        size.add("US16");
-        size.add("US16W");
-        size.add("US18W");
-        size.add("US20W");
-        size.add("US22W");
-        size.add("US24W");
-        size.add("US26W");
-        return size.size();
-    }
 
-
-    public String sizeDropdownExpectedOptions(){
+    public String sizeDropdownExpectedOptions() {
         ArrayList<String> size = new ArrayList<String>();
         size.add("--- Please Select ---");
         size.add("US2");
@@ -110,6 +96,16 @@ public class ProductPage extends BasePage {
         size.add("US24W");
         size.add("US26W");
         return size.toString();
+    }
+
+    private WebElement findElementByName(String name) {
+        List<WebElement> notes = driver.findElements(By.cssSelector(".col-xs-4>div>.title"));
+        for (WebElement note : notes) {
+            if (note.getText().contains(name)) {
+                return note;
+            }
+        }
+        return null;
     }
 }
 
