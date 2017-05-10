@@ -24,7 +24,7 @@ public class ProductPage extends BasePage {
 
     }
 
-    private String COLORLOCATOR = "#input-option526";
+    private String COLORLOCATOR = "#input-option356";
     private String SIZELOCATOR = "#input-option525";
     private String CHOOSEQTYFIELD = "#input-quantity";
     private String ADDTOCARTBUTTON = "#button-cart";

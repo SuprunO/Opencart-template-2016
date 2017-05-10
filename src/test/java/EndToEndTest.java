@@ -53,7 +53,7 @@ public class EndToEndTest {
     @Test
     public void endToEndTest() {
 
-        WebElement product = homePage.findProductByText("Bunny Light");
+        WebElement product = homePage.findProductByText("DOUBLE DRAGON TIGER SKULL");
         Assert.assertNotEquals(product, null, "Product not found!");
         product.click();
 
@@ -64,12 +64,12 @@ public class EndToEndTest {
         }
 
         productPage.chooseColor();
-        Assert.assertEquals(productPage.currentColor(), "White", "The color is wrong");
+        Assert.assertEquals(productPage.currentColor(), "Black", "The color is wrong");
         //productPage.chooseSize();
        // Assert.assertEquals(productPage.currentSize(), "US6", "The size of US6 is not matched");
 
         productPage.inputProductsQuantity();
-        productPage.pushAddToCartButton();
+        productPage.clickAddToCartButton();
 
         productPage.getLayout().clickOnСSSSelector("#cart");
         checkoutPage = cartPopUp.getCartCheckoutButton();
@@ -83,6 +83,11 @@ public class EndToEndTest {
         checkoutPage.clickOn_Step2_BillingContinueButton();
         checkoutPage.clickOn_Step3_DeliveryDetailsContinueButton();
         checkoutPage.clickOn_Step4_DeliveryMethodContinueButton();
+
+        checkoutPage.clickOnTermsAndConditionsRadioButton();
+        checkoutPage.clickOnDeliveryRadioButton();
+        checkoutPage.clickOnPrivacyRadioButton();
+
         checkoutPage.clickOn_Step5_PaymentMethodContinueButton();
         payPage = checkoutPage.clickOn_Step6_ConfirmOrderButton();
 

@@ -78,7 +78,7 @@ public class CheckoutPage extends BasePage {
     private String BILLING_CONTINUE_BUTTON = "#button-register";
     private String DELIVERY_DETAILS_CONTINUE_BUTTON = "#button-shipping-address";
     private String DELIVERY_METHOD_CONTINUE_BUTTON = "#button-shipping-method";
-    private String PAYMENT_METHOD_CONTINUE_BUTTON = "#button-payment-method";
+    private String PAYMENT_METHOD_CONTINUE_BUTTON = "#button-payment-method_check";
     private String CONFIRM_ORDER_BUTTON = "#cardgate-confirm";
 
 
@@ -103,6 +103,21 @@ public class CheckoutPage extends BasePage {
     public void clickOn_Step4_DeliveryMethodContinueButton() {
         waitCSSSelector(DELIVERY_METHOD_CONTINUE_BUTTON);
         clickOnСSSSelector(this.DELIVERY_METHOD_CONTINUE_BUTTON);
+    }
+
+    @Step
+    public void clickOnTermsAndConditionsRadioButton(){
+        waitCSSSelector("#agree1").click();
+    }
+
+    @Step
+    public void clickOnDeliveryRadioButton(){
+        waitCSSSelector("#shipping1").click();
+    }
+
+    @Step
+    public void clickOnPrivacyRadioButton(){
+        waitCSSSelector("#privacy1").click();
     }
 
     @Step

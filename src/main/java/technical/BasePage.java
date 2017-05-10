@@ -16,7 +16,7 @@ import java.util.List;
 public class BasePage {
 
     //INPUT THE SITE NAME TO CHECK HERE:
-    public static String SiteURL = "http://" + "giftsshopstar.com";
+    public static String SiteURL = "http://" + "accessoriesspace.com";
 //-------------------------------------------------------------
 
 
