@@ -17,7 +17,7 @@ public class CartPopUp extends BasePage {
     public CartPopUp(WebDriver driver) {
         super(driver);
     }
-    private String CART_CHECKOUT_BUTTON = ".btn.btn-primary";
+    private String CART_CHECKOUT_BUTTON = ".btn.btn-default:last-of-type";
 
     @Step
     public CheckoutPage getCartCheckoutButton() {

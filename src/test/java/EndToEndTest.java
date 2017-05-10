@@ -27,6 +27,7 @@ public class EndToEndTest {
     HomePage homePage;
     CategoriesPage categoriesPage;
     CartPopUp cartPopUp;
+    TransactionFinalPage transactionFinalPage;
 
     @BeforeTest
     public void StartUp() {
@@ -40,6 +41,7 @@ public class EndToEndTest {
         payPage = new PayPage(driver);
         categoriesPage = new CategoriesPage(driver);
         cartPopUp = new CartPopUp(driver);
+        transactionFinalPage = new TransactionFinalPage(driver);
 
     }
 
@@ -93,7 +95,7 @@ public class EndToEndTest {
 
         payPage.enterClientCredentialsPaypage(userData);
         payPage.clickOnSubmitTransactionButton();
-        //Assert
+        Assert.assertEquals(transactionFinalPage.checkTheTransactionIsSuccessful().getText(),"Transaction Success","The text Transaction Success is missing, all the transaction is not success");
 
     }
 
