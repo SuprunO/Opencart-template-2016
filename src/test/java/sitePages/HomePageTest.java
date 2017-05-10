@@ -16,6 +16,7 @@ public class HomePageTest {
 
     @BeforeTest
     void StartUp() {
+        System.setProperty("webdriver.gecko.driver", "//home//alexei//geckodriver");
         driver = new FirefoxDriver();
         driver.get(SiteURL);
         driver.manage().window().maximize();

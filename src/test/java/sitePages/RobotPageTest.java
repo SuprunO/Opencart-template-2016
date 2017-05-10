@@ -25,7 +25,7 @@ public class RobotPageTest {
 
     @BeforeClass
     public void startUp() {
-        System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "//home//alexei//geckodriver");
         driver = new FirefoxDriver();
         driver.get(SiteURL + "/robots.txt");
         robotsTXTPage = new RobotsTXTPage(driver);

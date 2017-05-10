@@ -16,12 +16,13 @@ import static technical.BasePage.SiteURL;
 
 @Title("Privacy Page tests")
 public class PrivacyPageTest {
+
     WebDriver driver;
     PrivacyPage privacyPage;
 
     @BeforeClass
     public void startUp() {
-        System.setProperty("webdriver.gecko.driver", "C://gecko/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "//home//alexei//geckodriver");
         driver = new FirefoxDriver();
         driver.get(SiteURL + "/index.php?route=information/information&information_id=3");
         privacyPage = new PrivacyPage(driver);
