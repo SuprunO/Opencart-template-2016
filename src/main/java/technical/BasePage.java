@@ -63,9 +63,22 @@ public class BasePage {
         return null;
     }
 
-    public WebElement findPriceByProductName(String name) {
-        return findProductByText(name).findElement(By.xpath("../../p[2]"));
+
+    public WebElement findValigatorByText(String name, String CSSSelector) {
+        List<WebElement> products = driver.findElements(By.cssSelector(CSSSelector));
+        for (WebElement product : products) {
+            if (product.getText().contains(name)) {
+                return product;
+            }
+        }
+        return null;
     }
+
+
+
+//    public WebElement findPriceByProductName(String name) {
+//        return findProductByText(name).findElement(By.xpath("../../p[2]"));
+//    }
 }
 
 

@@ -3,6 +3,7 @@ package sitePages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import ru.yandex.qatools.allure.annotations.Step;
 import technical.BasePage;
@@ -46,6 +47,7 @@ public class CheckoutPage extends BasePage {
         driver.findElement(By.cssSelector(PASSWORD)).sendKeys(user.Password);
         driver.findElement(By.cssSelector(PASSCONFIRM)).sendKeys(user.Password);
     }
+
     @Step
     public void chooseCountry() {
         Select select = new Select(driver.findElement(By.cssSelector(COUNTRY)));
@@ -106,17 +108,17 @@ public class CheckoutPage extends BasePage {
     }
 
     @Step
-    public void clickOnTermsAndConditionsRadioButton(){
+    public void clickOnTermsAndConditionsRadioButton() {
         waitCSSSelector("#agree1").click();
     }
 
     @Step
-    public void clickOnDeliveryRadioButton(){
+    public void clickOnDeliveryRadioButton() {
         waitCSSSelector("#shipping1").click();
     }
 
     @Step
-    public void clickOnPrivacyRadioButton(){
+    public void clickOnPrivacyRadioButton() {
         waitCSSSelector("#privacy1").click();
     }
 
@@ -131,4 +133,55 @@ public class CheckoutPage extends BasePage {
         waitCSSSelector(CONFIRM_ORDER_BUTTON).click();
         return new PayPage(driver);
     }
+
+
+    @Step
+    public WebElement nameValidatorLocator(){
+       return findValigatorByText("First Name must be between 1 and 32 characters!",".form-group.required.has-error>div");
+    }
+
+//    @Step
+//    public void surnameValidatorLocator() {
+//       findProductByText("");
+//    }
+//
+//    @Step
+//    public void emailValidatorLocator() {
+//        waitCSSSelector("");
+//    }
+//
+//    @Step
+//    public void telephoneValidatorLocator() {
+//        waitCSSSelector("");
+//    }
+//
+//    @Step
+//    public void passwordValidatorLocator() {
+//        waitCSSSelector("");
+//    }
+//
+//    @Step
+//    public void confirmPasswordValidatorLocator() {
+//        waitCSSSelector("");
+//    }
+//
+//    @Step
+//    public void address1ValidatorLocator() {
+//        waitCSSSelector("");
+//    }
+//
+//    @Step
+//    public void cityValidatorLocator() {
+//        waitCSSSelector("");
+//    }
+//
+//    @Step
+//    public void postCodeValidatorLocator() {
+//        waitCSSSelector("");
+//    }
+//
+//    @Step
+//    public void state1ValidatorLocator() {
+//        waitCSSSelector("");
+//    }
 }
