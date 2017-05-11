@@ -21,12 +21,12 @@ public class ValidatorTest {
     WebDriver driver;
     ProductPage productPage;
     User userData;
-    CheckoutPage checkoutPage;
     PayPage payPage;
     HomePage homePage;
     CategoriesPage categoriesPage;
     CartPopUp cartPopUp;
-    TransactionFinalPage transactionFinalPage;
+
+    CheckoutPage checkoutPage;
 
     @BeforeTest
     public void StartUp() {
@@ -40,7 +40,7 @@ public class ValidatorTest {
         payPage = new PayPage(driver);
         categoriesPage = new CategoriesPage(driver);
         cartPopUp = new CartPopUp(driver);
-        transactionFinalPage = new TransactionFinalPage(driver);
+        checkoutPage = new CheckoutPage(driver);
 
     }
 

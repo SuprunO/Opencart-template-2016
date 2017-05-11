@@ -136,8 +136,8 @@ public class CheckoutPage extends BasePage {
 
 
     @Step
-    public WebElement nameValidatorLocator(){
-       return findValigatorByText("First Name must be between 1 and 32 characters!",".form-group.required.has-error>div");
+    public String nameValidatorLocator(){
+       return findValigatorByText("First Name must be between 1 and 32 characters!",".form-group.required.has-error>div").getText();
     }
 
 //    @Step
