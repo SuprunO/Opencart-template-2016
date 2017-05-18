@@ -64,11 +64,11 @@ public class BasePage {
     }
 
 
-    public WebElement findValigatorByText(String name, String CSSSelector) {
-        List<WebElement> products = driver.findElements(By.cssSelector(CSSSelector));
-        for (WebElement product : products) {
-            if (product.getText().contains(name)) {
-                return product;
+    public WebElement findValidatorByText(String name) {
+        List<WebElement> validators = driver.findElements(By.cssSelector(".form-group.required.has-error>div"));
+        for (WebElement validator : validators) {
+            if (validator.getText().contains(name)) {
+                return validator;
             }
         }
         return null;
