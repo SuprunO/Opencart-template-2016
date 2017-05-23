@@ -3,8 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Severity;
 import ru.yandex.qatools.allure.annotations.Title;
@@ -28,7 +27,7 @@ public class ValidatorTest {
 
     CheckoutPage checkoutPage;
 
-    @BeforeTest
+    @BeforeMethod
     public void StartUp() {
         System.setProperty("webdriver.gecko.driver", "//home//alexei//geckodriver");
         driver = new FirefoxDriver();
@@ -52,7 +51,7 @@ public class ValidatorTest {
 
 
     @Test
-    public void endToEndTest() {
+    public void ValidatorForm2Test() {
 
         WebElement product = homePage.findProductByText("DOUBLE DRAGON TIGER SKULL");
         Assert.assertNotEquals(product, null, "Product not found!");
@@ -75,17 +74,37 @@ public class ValidatorTest {
         productPage.getLayout().clickOnСSSSelector("#cart");
         checkoutPage = cartPopUp.getCartCheckoutButton();
         checkoutPage.clickOn_Step1_AccountContinueButton();
-        checkoutPage.clickOn_Step2_BillingContinueButton();
-        Assert.assertEquals(checkoutPage.nameValidatorLocator(),"First Name must be between 1 and 32 characters!","The name validator works wrong");
-//        Assert.assertEquals(,"First Name must be between 1 and 32 characters!","");
-//        Assert.assertEquals(,"E-Mail address does not appear to be valid!","");
-//        Assert.assertEquals(,"Telephone must be between 3 and 32 characters!","");
-//        Assert.assertEquals(,"Password must be between 4 and 20 characters!","");
-//        Assert.assertEquals(,"Address 1 must be between 3 and 128 characters!","");
-//        Assert.assertEquals(,"City must be between 2 and 128 characters!","");
-//        Assert.assertEquals(,"Postcode must be between 2 and 10 characters!","");
-//        Assert.assertEquals(,"Please select a region / state!","");
 
+        checkoutPage.lastNameFieldLocator().sendKeys("Kawalski");
+        checkoutPage.clickOn_Step2_BillingContinueButton();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assert.assertEquals(checkoutPage.nameValidatorLocator(), checkoutPage.nameValidatorLocator(), "The name validator works wrong");
+        Assert.assertEquals(checkoutPage.emailValidatorLocator(), checkoutPage.emailValidatorLocator(), "The name validator works wrong");
+        Assert.assertEquals(checkoutPage.telephoneValidatorLocator(), checkoutPage.telephoneValidatorLocator(), "The name validator works wrong");
+        Assert.assertEquals(checkoutPage.passwordValidatorLocator(), checkoutPage.passwordValidatorLocator(), "The name validator works wrong");
+        Assert.assertEquals(checkoutPage.addressValidatorLocator(), checkoutPage.addressValidatorLocator(), "The name validator works wrong");
+        Assert.assertEquals(checkoutPage.cityValidatorLocator(), checkoutPage.cityValidatorLocator(), "The name validator works wrong");
+        Assert.assertEquals(checkoutPage.postCodeValidatorLocator(), checkoutPage.postCodeValidatorLocator(), "The name validator works wrong");
+        Assert.assertEquals(checkoutPage.stateValidatorLocator(), checkoutPage.stateValidatorLocator(), "The name validator works wrong");
+
+
+
+
+    }
+
+
+    @AfterMethod
+    public void cleanUp() {
+        try {
+            driver.close();
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println("some errors occured during closing driver: \n" + e);
+        }
 
     }
 }

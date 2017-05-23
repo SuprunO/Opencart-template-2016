@@ -140,48 +140,49 @@ public class CheckoutPage extends BasePage {
        return findValidatorByText("First Name must be between 1 and 32 characters!").getText();
     }
 
-//    @Step
-//    public void surnameValidatorLocator() {
-//       findProductByText("");
-//    }
-//
-//    @Step
-//    public void emailValidatorLocator() {
-//        waitCSSSelector("");
-//    }
-//
-//    @Step
-//    public void telephoneValidatorLocator() {
-//        waitCSSSelector("");
-//    }
-//
-//    @Step
-//    public void passwordValidatorLocator() {
-//        waitCSSSelector("");
-//    }
-//
-//    @Step
-//    public void confirmPasswordValidatorLocator() {
-//        waitCSSSelector("");
-//    }
-//
-//    @Step
-//    public void address1ValidatorLocator() {
-//        waitCSSSelector("");
-//    }
-//
-//    @Step
-//    public void cityValidatorLocator() {
-//        waitCSSSelector("");
-//    }
-//
-//    @Step
-//    public void postCodeValidatorLocator() {
-//        waitCSSSelector("");
-//    }
-//
-//    @Step
-//    public void state1ValidatorLocator() {
-//        waitCSSSelector("");
-//    }
+    @Step
+    public String surnameValidatorLocator(){
+        return findValidatorByText("First Name must be between 1 and 32 characters!").getText();
+    }
+
+    @Step
+    public String emailValidatorLocator(){
+        return findValidatorByText("E-Mail address does not appear to be valid!").getText();
+    }
+
+    @Step
+    public String telephoneValidatorLocator(){
+        return findValidatorByText("Telephone must be between 3 and 32 characters!").getText();
+    }
+
+    @Step
+    public String passwordValidatorLocator(){
+        return findValidatorByText("Password must be between 4 and 20 characters!").getText();
+    }
+
+    @Step
+    public String addressValidatorLocator(){
+        return findValidatorByText("Address 1 must be between 3 and 128 characters!").getText();
+    }
+
+    @Step
+    public String cityValidatorLocator(){
+        return findValidatorByText("City must be between 2 and 128 characters!").getText();
+    }
+
+    @Step
+    public String postCodeValidatorLocator(){
+        return findValidatorByText("Postcode must be between 2 and 10 characters!").getText();
+    }
+
+    @Step
+    public String stateValidatorLocator(){
+        return findValidatorByText("Please select a region / state!").getText();
+    }
+
+
+    public WebElement lastNameFieldLocator(){
+       return waitCSSSelector("#input-payment-lastname");
+    }
+
 }

@@ -1,10 +1,10 @@
 import constantElements.CartPopUp;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Severity;
 import ru.yandex.qatools.allure.annotations.Title;
@@ -24,11 +24,9 @@ public class CheckoutPageDataProviderTest {
     User userData;
     CheckoutPage checkoutPage;
     HomePage homePage;
-    CategoriesPage categoriesPage;
     CartPopUp cartPopUp;
-    TransactionFinalPage transactionFinalPage;
 
-    @BeforeTest
+    @BeforeMethod
     public void StartUp() {
         System.setProperty("webdriver.gecko.driver", "//home//alexei//geckodriver");
         driver = new FirefoxDriver();
@@ -37,11 +35,7 @@ public class CheckoutPageDataProviderTest {
         driver.manage().window().maximize();
         productPage = new ProductPage(driver);
         homePage = new HomePage(driver);
-
-        categoriesPage = new CategoriesPage(driver);
         cartPopUp = new CartPopUp(driver);
-        transactionFinalPage = new TransactionFinalPage(driver);
-
     }
 
 
@@ -50,8 +44,8 @@ public class CheckoutPageDataProviderTest {
     @Severity(SeverityLevel.CRITICAL)
 
 
-    @Test
-    public void endToEndTest() {
+    @Test (dataProvider = "CredentialsData")
+    public void PenForm(String name) {
 
         WebElement product = homePage.findProductByText("DOUBLE DRAGON TIGER SKULL");
         Assert.assertNotEquals(product, null, "Product not found!");
@@ -73,5 +67,33 @@ public class CheckoutPageDataProviderTest {
         productPage.getLayout().clickOnСSSSelector("#cart");
         checkoutPage = cartPopUp.getCartCheckoutButton();
         checkoutPage.clickOn_Step1_AccountContinueButton();
+        userData.FirstName = name;
+        checkoutPage.inputCredentials(userData);
+
+        checkoutPage.chooseCountry();
+        checkoutPage.chooseState();
+        checkoutPage.clickOn_Step2_BillingContinueButton();
+
+    }
+
+    @DataProvider(name = "CredentialsData")
+    public java.lang.Object[][] passData(){
+        return new Object[][]{
+                {"Rob"},
+                {"Test0"}
+        };
+    }
+
+
+
+   @AfterMethod
+    public void cleanUp() {
+        try {
+            driver.close();
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println("some errors occured during closing driver: \n" + e);
+        }
+
     }
 }

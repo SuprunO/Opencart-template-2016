@@ -45,7 +45,6 @@ public class EndToEndTest {
 
     }
 
-    //Locators
 
     @Title("Product purchase E/E test")
     @Description("Purchase the product and assert the data is inputted correctly")
