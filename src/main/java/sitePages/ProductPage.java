@@ -24,10 +24,17 @@ public class ProductPage extends BasePage {
 
     }
 
-    private String COLORLOCATOR = "#input-option526";
-    private String SIZELOCATOR = "#input-option525";
+    private String COLORLOCATOR = "#product>div:nth-of-type(1)>select";
+    private String SIZELOCATOR = "#product>div:nth-of-type(2)>select";
     private String CHOOSEQTYFIELD = "#input-quantity";
     private String ADDTOCARTBUTTON = "#button-cart";
+
+    public static final By SELECT_COLOR = By.cssSelector("#product>div:nth-of-type(1)>select");
+    public static final By SELECT_COLOR_VALUE = By.cssSelector("#product>div:nth-of-type(1)>select>option:last-child");
+    public static final By SELECT_SIZE = By.cssSelector("#product>div:nth-of-type(2)>select");
+    public static final By SELECT_SIZE_VALUE = By.cssSelector("#product>div:nth-of-type(2)>select>option:last-child");
+
+
 
     public ProductPage(WebDriver driver) {
         super(driver);
