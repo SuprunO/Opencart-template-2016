@@ -125,22 +125,20 @@ public class EndToEndTest {
             homePage.clickOnElement(ShoppingCartPage.CART_CHECKOUT_BUTTON2, "CART_CHECKOUT_BUTTON2");
         }
 
-        if (shoppingCartPage.isElementPresent(ShoppingCartPage.CART_CHECKOUT_BUTTON1) == true) {
-            shoppingCartPage.clickOnElement(ShoppingCartPage.CART_CHECKOUT_BUTTON1, "CART_CHECKOUT_BUTTON1");
-//        } else {
-//            shoppingCartPage.clickOnElement(ShoppingCartPage.CART_CHECKOUT_BUTTON2, "CART_CHECKOUT_BUTTON2");
-//        }
+        checkoutPage.threadSleep(5000);
+
+
+        if (checkoutPage.isElementPresent(CheckoutPage.CONTINUE_BUTTON1) == true) {
             checkoutPage.threadSleep(5000);
-
-
-            if (checkoutPage.isElementPresent(CheckoutPage.CONTINUE_BUTTON1) == true) {
-                checkoutPage.clickOnElement(CheckoutPage.CONTINUE_BUTTON1, "CONTINUE_BUTTON1");
-            } else {
+            checkoutPage.clickOnElement(CheckoutPage.CONTINUE_BUTTON1, "CONTINUE_BUTTON1");
+           } else {
                 checkoutPage.clickOnElement(CheckoutPage.CONTINUE_BUTTON2, "CONTINUE_BUTTON Site 2");
-            }
+           }
+           checkoutPage.threadSleep(5000);
             checkoutPage.inputCredentials(userData);
         }
-    }
+
+
 
 
 

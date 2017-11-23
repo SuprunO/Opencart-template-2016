@@ -84,7 +84,7 @@ public class CheckoutPage extends BasePage {
     private String CONFIRM_ORDER_BUTTON = "#cardgate-confirm";
 
 
-    public static final By CONTINUE_BUTTON1 = By.cssSelector("#tdb2:first-of-type");
+    public static final By CONTINUE_BUTTON1 = By.cssSelector("#button-account:first-of-type");
     public static final By CONTINUE_BUTTON2 = By.cssSelector("#tdb2:first-of-type");
 
 
