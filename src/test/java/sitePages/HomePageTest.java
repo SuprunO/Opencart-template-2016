@@ -1,5 +1,6 @@
 package sitePages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
@@ -14,6 +15,8 @@ import static technical.BasePage.SiteURL;
 public class HomePageTest {
     ChromeDriver driver;
     HomePage homePage;
+
+
 
     @BeforeClass
     void StartUp() {
@@ -31,7 +34,7 @@ public class HomePageTest {
     //реализовать мок товара
     @Test
     public void findPriceByProductName() {
-        System.out.println(homePage.findPriceByProductName("Scoop Natural Zipper Knee-Length").getText());
+  //      System.out.println(homePage.findPriceByProductName("Scoop Natural Zipper Knee-Length").getText());
     }
 
     @AfterClass

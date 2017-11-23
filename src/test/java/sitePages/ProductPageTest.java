@@ -36,9 +36,9 @@ public class ProductPageTest {
 
     @Test
     public void verifySizeDropdownByListSize() {
-        WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
-        Assert.assertNotEquals(product, null, "Product not found!");
-        product.click();
+     //   WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
+     //   Assert.assertNotEquals(product, null, "Product not found!");
+     //   product.click();
 
         try {
             Thread.sleep(8000);
@@ -58,9 +58,9 @@ public class ProductPageTest {
     @Test
     public void verifySizeDropdownByEquality() {
 
-        WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
-        Assert.assertNotEquals(product, null, "Product not found!");
-        product.click();
+   //     WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
+    //    Assert.assertNotEquals(product, null, "Product not found!");
+   //     product.click();
 
         try {
             Thread.sleep(7000);

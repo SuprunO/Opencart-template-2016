@@ -1,4 +1,5 @@
 import constantElements.CartPopUp;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,6 +15,7 @@ import ru.yandex.qatools.allure.model.SeverityLevel;
 import sitePages.*;
 import technical.User;
 
+import static org.openqa.selenium.By.cssSelector;
 import static technical.BasePage.SiteURL;
 
 /**
@@ -49,38 +51,59 @@ public class EndToEndTest {
     }
 
 
-
-    @DataProvider(name = "data-provider")
-    public Object[][] urlDataProviderMethod() {
-        return new Object[][]{{"http://weddingdev.com"},
-                {"http://weddingstuffhub.com"},
-                {"http://yourgiftshome.com"},
-                {"http:/bestaccessoriesnow.com"},
-                {"http:/bestwatchesweb.com"}
+    @DataProvider(name = "url-data-provider")
+    public Object[][] urlDataProvider() {
+        return new Object[][]{{"http://yourgiftshome.com"},
+                {"http://weddingdev.com"},
+              //  {"http://weddingstuffhub.com"},
+               // {"http:/bestaccessoriesnow.com"},
+              //  {"http:/bestwatchesweb.com"}
         };
     }
 
-
-    @Test (dataProvider = "data-provider")
+    @Test(dataProvider = "url-data-provider")
     public void endToEndTest(String url) {
         driver.get(url);
         driver.manage().window().maximize();
-        WebElement product = homePage.findProductByText("Marvelous Tulle Bateau Neckline Sheath");
-        Assert.assertNotEquals(product, null, "Product not found!");
+//        homePage.clickOnСSSSelector("#col-sm-35>div>div:nth-of-type(2)>div");
 
-        product.click();
+        if (homePage.isElementPresent(HomePage.ListOfProducts1) == true) {
+            WebElement product = homePage.findProductByText("Marvelous Tulle Bateau Neckline Sheath", "h4>a");
+            Assert.assertNotEquals(product, null, "Product not found!");
+            product.click();
+        } else if (homePage.isElementPresent(HomePage.ListOfProducts2) == true) {
+            WebElement product = homePage.findProductByText("Feather Wedding Fur Wrap Shawl", ".product-content>a");
+            Assert.assertNotEquals(product, null, "Product not found!");
+            product.click();
+        }
+
+        else if (homePage.isElementPresent(HomePage.ListOfProducts3) == true) {
+            WebElement product = homePage.findProductByText("Feather Wedding Fur Wrap Shawl",
+                    ".info-p-name:nth-of-type(1)>a");
+            Assert.assertNotEquals(product, null, "Product not found!");
+            product.click();
+        }
+
 
         try {
             Thread.sleep(8000);
-        } catch (InterruptedException e) {
+        } catch (
+                InterruptedException e)
+
+        {
             e.printStackTrace();
         }
 
         productPage.chooseColor();
         //   Assert.assertEquals(productPage.currentColor().trim(), "Blue", "The color is wrong");
-        try {
+        try
+
+        {
             Thread.sleep(5000);
-        } catch (InterruptedException e) {
+        } catch (
+                InterruptedException e)
+
+        {
             e.printStackTrace();
         }
         productPage.chooseSize();
@@ -89,7 +112,10 @@ public class EndToEndTest {
         productPage.inputProductsQuantity();
         productPage.clickAddToCartButton();
 
-        cartPopUp = productPage.getLayout().hoverandClickCartIcon();
+        cartPopUp = productPage.getLayout().
+
+                hoverandClickCartIcon();
+
         checkoutPage = cartPopUp.getCartCheckoutButton();
         checkoutPage.clickStep1AccountContinueButton();
         checkoutPage.inputCredentials(userData);
@@ -105,7 +131,9 @@ public class EndToEndTest {
 
         payPage.enterClientCredentialsPaypage(userData);
         payPage.clickOnSubmitTransactionButton();
-        Assert.assertEquals(transactionFinalPage.TransactionIsSuccessful().getText(), "Transaction Success", "Transaction is not successful or the text Transaction Success is wrong");
+        Assert.assertEquals(transactionFinalPage.TransactionIsSuccessful().
+
+                getText(), "Transaction Success", "Transaction is not successful or the text Transaction Success is wrong");
     }
 
     @AfterClass
