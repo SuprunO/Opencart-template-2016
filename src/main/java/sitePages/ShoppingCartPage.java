@@ -13,6 +13,10 @@ public class ShoppingCartPage extends BasePage {
         super(driver);
     }
 
+    public static final By CART_CHECKOUT_BUTTON1 = By.cssSelector(".btn-primary:last-of-type");
+    public static final By CART_CHECKOUT_BUTTON2 = By.cssSelector("#tdb5");
+
+
 
     public WebElement ShoppingCartHeader() {
         return driver.findElement(By.cssSelector("#content>h1"));

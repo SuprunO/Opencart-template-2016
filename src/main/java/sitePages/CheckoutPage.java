@@ -36,7 +36,7 @@ public class CheckoutPage extends BasePage {
     @Step
     public void inputCredentials(User user) {
 
-        waitCSSSelector(FIRSTNAME);
+
         driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(user.FirstName);
         driver.findElement(By.cssSelector(LASTNAME)).sendKeys(user.Lastname);
         driver.findElement(By.cssSelector(EMAIL)).sendKeys(user.EMail);
@@ -84,10 +84,9 @@ public class CheckoutPage extends BasePage {
     private String CONFIRM_ORDER_BUTTON = "#cardgate-confirm";
 
 
-    @Step
-    public void clickStep1AccountContinueButton() {
-        waitCSSSelector(NEW_CUSTOMER_CONTINUE_BUTTON).click();
-    }
+    public static final By CONTINUE_BUTTON1 = By.cssSelector("#tdb2:first-of-type");
+    public static final By CONTINUE_BUTTON2 = By.cssSelector("#tdb2:first-of-type");
+
 
     @Step
     public void clickStep2BillingContinueButton() {
@@ -96,25 +95,25 @@ public class CheckoutPage extends BasePage {
 
     @Step
     public void clickStep3DeliveryDetailsContinueButton() {
-        waitCSSSelector(DELIVERY_DETAILS_CONTINUE_BUTTON);
+
         clickOnСSSSelector(this.DELIVERY_DETAILS_CONTINUE_BUTTON);
     }
 
     @Step
     public void clickStep4DeliveryMethodContinueButton() {
-        waitCSSSelector(DELIVERY_METHOD_CONTINUE_BUTTON);
+
         clickOnСSSSelector(this.DELIVERY_METHOD_CONTINUE_BUTTON);
     }
 
     @Step
     public void clickStep5PaymentMethodContinueButton() {
-        waitCSSSelector(PAYMENT_METHOD_CONTINUE_BUTTON);
+
         clickOnСSSSelector(this.PAYMENT_METHOD_CONTINUE_BUTTON);
     }
 
     @Step
     public PayPage clickStep6ConfirmOrderButton() {
-        waitCSSSelector(CONFIRM_ORDER_BUTTON).click();
+
         return new PayPage(driver);
     }
 

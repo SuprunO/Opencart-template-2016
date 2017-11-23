@@ -25,6 +25,7 @@ public class EndToEndTest {
     ChromeDriver driver;
     ProductPage productPage;
     User userData;
+    ShoppingCartPage shoppingCartPage;
     CheckoutPage checkoutPage;
     PayPage payPage;
     HomePage homePage;
@@ -41,8 +42,10 @@ public class EndToEndTest {
         options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
         driver = new ChromeDriver(options);
         userData = new User();
-
+        cartPopUp = new CartPopUp(driver);
+        shoppingCartPage = new ShoppingCartPage(driver);
         productPage = new ProductPage(driver);
+        checkoutPage = new CheckoutPage(driver);
         homePage = new HomePage(driver);
         payPage = new PayPage(driver);
         categoriesPage = new CategoriesPage(driver);
@@ -53,11 +56,12 @@ public class EndToEndTest {
 
     @DataProvider(name = "url-data-provider")
     public Object[][] urlDataProvider() {
-        return new Object[][]{{"http://yourgiftshome.com"},
+        return new Object[][]{//{"http://yourgiftshome.com"},
                 {"http://weddingdev.com"},
-              //  {"http://weddingstuffhub.com"},
-               // {"http:/bestaccessoriesnow.com"},
-              //  {"http:/bestwatchesweb.com"}
+                {"http:/bestwatchesweb.com"}
+                //  {"http://weddingstuffhub.com"},
+                // {"http:/bestaccessoriesnow.com"},
+
         };
     }
 
@@ -65,78 +69,101 @@ public class EndToEndTest {
     public void endToEndTest(String url) {
         driver.get(url);
         driver.manage().window().maximize();
-//        homePage.clickOnСSSSelector("#col-sm-35>div>div:nth-of-type(2)>div");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 
         if (homePage.isElementPresent(HomePage.ListOfProducts1) == true) {
-            WebElement product = homePage.findProductByText("Marvelous Tulle Bateau Neckline Sheath", "h4>a");
+            WebElement product = homePage.findProductByText("Marvelous Tulle Bateau Neckline Sheath", HomePage.ListOfProducts1);
             Assert.assertNotEquals(product, null, "Product not found!");
             product.click();
-        } else if (homePage.isElementPresent(HomePage.ListOfProducts2) == true) {
-            WebElement product = homePage.findProductByText("Feather Wedding Fur Wrap Shawl", ".product-content>a");
-            Assert.assertNotEquals(product, null, "Product not found!");
-            product.click();
+        } else if (homePage.isElementPresent(HomePage.Products2) == true) {
+            homePage.clickOnElement(HomePage.Products2, "Click on Product Site 2");
         }
 
-        else if (homePage.isElementPresent(HomePage.ListOfProducts3) == true) {
-            WebElement product = homePage.findProductByText("Feather Wedding Fur Wrap Shawl",
-                    ".info-p-name:nth-of-type(1)>a");
-            Assert.assertNotEquals(product, null, "Product not found!");
-            product.click();
+        productPage.threadSleep(5000);
+        if (productPage.isElementPresent(ProductPage.SELECT_COLOR) == true) {
+
+            productPage.chooseColor();
+        } else {
+
+        }
+
+        productPage.threadSleep(5000);
+        if (productPage.isElementPresent(ProductPage.SELECT_SIZE) == true) {
+            productPage.chooseSize();
+        } else {
+
+        }
+
+        if (productPage.isElementPresent(ProductPage.CHOOSEQTYFIELD) == true) {
+            productPage.inputProductsQuantity();
+        } else {
+
+        }
+        if (productPage.isElementPresent(ProductPage.ADDTOCARTBUTTON1) == true) {
+            productPage.clickOnElement(ProductPage.ADDTOCARTBUTTON1, "Add to cart Button Site 1");
+        } else {
+            productPage.clickOnElement(ProductPage.ADDTOCARTBUTTON2, "Add to cart Button Site 2");
         }
 
 
-        try {
-            Thread.sleep(8000);
-        } catch (
-                InterruptedException e)
-
-        {
-            e.printStackTrace();
+        productPage.threadSleep(5000);
+        if (homePage.isElementPresent(ProductPage.Link_to_shopping_cart) == true) {
+            homePage.clickOnElement(ProductPage.Link_to_shopping_cart, "Shopping Cart icon");
+        } else {
+            homePage.clickOnElement(ProductPage.Link_to_shopping_cart2, "Checkout Cart icon Site 2");
         }
 
-        productPage.chooseColor();
-        //   Assert.assertEquals(productPage.currentColor().trim(), "Blue", "The color is wrong");
-        try
 
-        {
-            Thread.sleep(5000);
-        } catch (
-                InterruptedException e)
-
-        {
-            e.printStackTrace();
+        if (homePage.isElementPresent(ShoppingCartPage.CART_CHECKOUT_BUTTON1) == true) {
+            homePage.clickOnElement(ShoppingCartPage.CART_CHECKOUT_BUTTON1, "CART_CHECKOUT_BUTTON1");
+        } else {
+            homePage.clickOnElement(ShoppingCartPage.CART_CHECKOUT_BUTTON2, "CART_CHECKOUT_BUTTON2");
         }
-        productPage.chooseSize();
-        //    Assert.assertEquals(productPage.currentSize().trim(), "US6", "The size of US6 is not matched");
 
-        productPage.inputProductsQuantity();
-        productPage.clickAddToCartButton();
+        if (shoppingCartPage.isElementPresent(ShoppingCartPage.CART_CHECKOUT_BUTTON1) == true) {
+            shoppingCartPage.clickOnElement(ShoppingCartPage.CART_CHECKOUT_BUTTON1, "CART_CHECKOUT_BUTTON1");
+//        } else {
+//            shoppingCartPage.clickOnElement(ShoppingCartPage.CART_CHECKOUT_BUTTON2, "CART_CHECKOUT_BUTTON2");
+//        }
+            checkoutPage.threadSleep(5000);
 
-        cartPopUp = productPage.getLayout().
 
-                hoverandClickCartIcon();
-
-        checkoutPage = cartPopUp.getCartCheckoutButton();
-        checkoutPage.clickStep1AccountContinueButton();
-        checkoutPage.inputCredentials(userData);
-        checkoutPage.chooseCountry();
-        Assert.assertEquals(checkoutPage.currentCountrySelected(), "United States", "The Country have to be United States");
-        checkoutPage.chooseState();
-        Assert.assertEquals(checkoutPage.currentStateSelected(), "Arkansas", "The State name have to be Arkansas");
-        checkoutPage.clickStep2BillingContinueButton();
-        checkoutPage.clickStep3DeliveryDetailsContinueButton();
-        checkoutPage.clickStep4DeliveryMethodContinueButton();
-        checkoutPage.clickStep5PaymentMethodContinueButton();
-        payPage = checkoutPage.clickStep6ConfirmOrderButton();
-
-        payPage.enterClientCredentialsPaypage(userData);
-        payPage.clickOnSubmitTransactionButton();
-        Assert.assertEquals(transactionFinalPage.TransactionIsSuccessful().
-
-                getText(), "Transaction Success", "Transaction is not successful or the text Transaction Success is wrong");
+            if (checkoutPage.isElementPresent(CheckoutPage.CONTINUE_BUTTON1) == true) {
+                checkoutPage.clickOnElement(CheckoutPage.CONTINUE_BUTTON1, "CONTINUE_BUTTON1");
+            } else {
+                checkoutPage.clickOnElement(CheckoutPage.CONTINUE_BUTTON2, "CONTINUE_BUTTON Site 2");
+            }
+            checkoutPage.inputCredentials(userData);
+        }
     }
 
+
+
+//        checkoutPage.chooseCountry();
+//        Assert.assertEquals(checkoutPage.currentCountrySelected(), "United States", "The Country have to be United States");
+//        checkoutPage.chooseState();
+//        Assert.assertEquals(checkoutPage.currentStateSelected(), "Arkansas", "The State name have to be Arkansas");
+//        checkoutPage.clickStep2BillingContinueButton();
+//        checkoutPage.clickStep3DeliveryDetailsContinueButton();
+//        checkoutPage.clickStep4DeliveryMethodContinueButton();
+//        checkoutPage.clickStep5PaymentMethodContinueButton();
+//        payPage = checkoutPage.clickStep6ConfirmOrderButton();
+//
+//        payPage.enterClientCredentialsPaypage(userData);
+//        payPage.clickOnSubmitTransactionButton();
+//        Assert.assertEquals(transactionFinalPage.TransactionIsSuccessful().
+//
+//                getText(), "Transaction Success", "Transaction is not successful or the text Transaction Success is wrong");
+//    }
+
+
     @AfterClass
+
     public void cleanUp() {
         try {
             driver.close();
@@ -146,6 +173,7 @@ public class EndToEndTest {
         }
     }
 }
+
 
 
 

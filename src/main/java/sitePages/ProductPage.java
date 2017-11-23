@@ -24,15 +24,16 @@ public class ProductPage extends BasePage {
 
     }
 
-    private String COLORLOCATOR = "#product>div:nth-of-type(1)>select";
-    private String SIZELOCATOR = "#product>div:nth-of-type(2)>select";
-    private String CHOOSEQTYFIELD = "#input-quantity";
-    private String ADDTOCARTBUTTON = "#button-cart";
 
     public static final By SELECT_COLOR = By.cssSelector("#product>div:nth-of-type(1)>select");
     public static final By SELECT_COLOR_VALUE = By.cssSelector("#product>div:nth-of-type(1)>select>option:last-child");
     public static final By SELECT_SIZE = By.cssSelector("#product>div:nth-of-type(2)>select");
     public static final By SELECT_SIZE_VALUE = By.cssSelector("#product>div:nth-of-type(2)>select>option:last-child");
+    public static final By ADDTOCARTBUTTON1 = By.cssSelector("#button-cart");
+    public static final By ADDTOCARTBUTTON2 = By.cssSelector("#tdb3");
+    public static final By CHOOSEQTYFIELD  = By.cssSelector("#input-quantity");
+    public static final By Link_to_shopping_cart = By.cssSelector(".alert-success>a:last-of-type");
+    public static final By Link_to_shopping_cart2 = By.cssSelector(".popup-button>#tdb2");
 
 
 
@@ -47,42 +48,27 @@ public class ProductPage extends BasePage {
 
     @Step
     public void chooseColor() {
-        waitCSSSelector(COLORLOCATOR);
-        Select select = new Select(driver.findElement(By.cssSelector(COLORLOCATOR)));
+        Select select = new Select(driver.findElement(SELECT_COLOR));
         select.selectByIndex(1);
     }
 
-    @Step
-    public String currentColor() {
-        Select select = new Select(driver.findElement(By.cssSelector(COLORLOCATOR)));
-        return select.getFirstSelectedOption().getText();
-    }
+
 
     @Step
     public void chooseSize() {
-        Select select = new Select(driver.findElement(By.cssSelector(SIZELOCATOR)));
+        Select select = new Select(driver.findElement(SELECT_SIZE));
         select.selectByIndex(3);
-    }
-
-    @Step
-    public String currentSize() {
-        Select select = new Select(driver.findElement(By.cssSelector(SIZELOCATOR)));
-        return select.getFirstSelectedOption().getText();
     }
 
 
     @Step
     public void inputProductsQuantity() {
-        driver.findElement(By.cssSelector(CHOOSEQTYFIELD)).clear();
-        driver.findElement(By.cssSelector(CHOOSEQTYFIELD)).sendKeys("5");
+        driver.findElement(CHOOSEQTYFIELD).clear();
+        driver.findElement(CHOOSEQTYFIELD).sendKeys("1");
     }
 
 
-    @Step
-    public void clickAddToCartButton() {
-        waitCSSSelector(ADDTOCARTBUTTON);
-        clickOnСSSSelector(ADDTOCARTBUTTON);
-    }
+
 
 
     public String sizeDropdownExpectedOptions() {
@@ -105,15 +91,6 @@ public class ProductPage extends BasePage {
         return size.toString();
     }
 
-    private WebElement findElementByName(String name) {
-        List<WebElement> notes = driver.findElements(By.cssSelector(".col-xs-4>div>.title"));
-        for (WebElement note : notes) {
-            if (note.getText().contains(name)) {
-                return note;
-            }
-        }
-        return null;
-    }
 }
 
 

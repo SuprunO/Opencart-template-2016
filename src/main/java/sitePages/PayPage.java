@@ -34,7 +34,7 @@ public class PayPage extends BasePage {
 
 
     public void enterClientCredentialsPaypage(User user) {
-        waitCSSSelector(FIRSTNAME);
+
         driver.findElement(By.cssSelector(FIRSTNAME)).sendKeys(user.FirstName);
         driver.findElement(By.cssSelector(LASTNAME)).sendKeys(user.Lastname);
         driver.findElement(By.cssSelector(ADDRESS)).sendKeys(user.Address);

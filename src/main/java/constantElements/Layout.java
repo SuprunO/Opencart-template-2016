@@ -15,13 +15,13 @@ public class Layout extends BasePage {
         super(driver);
     }
 
-    private WebElement cartIcon = driver.findElement(By.cssSelector("#cart"));
 
-    @Step
-    public CartPopUp hoverandClickCartIcon() {
-        hoverAndClick(driver, cartIcon);
-        return new CartPopUp(driver);
-    }
+
+
+
+
+
+
 
     //Header
     public WebElement getLoginLinkText() {

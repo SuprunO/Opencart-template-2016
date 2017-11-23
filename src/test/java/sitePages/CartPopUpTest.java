@@ -47,31 +47,6 @@ public class CartPopUpTest {
     @Severity(SeverityLevel.CRITICAL)
 
 
-    @Test
-    public void CartPopUpTest() {
-   //     WebElement product = homePage.findProductByText("Scoop Natural Zipper Knee-Length");
-   //     Assert.assertNotEquals(product, null, "Product not found!");
-    ///    product.click();
-        homePage.waitCSSSelector("#content>h1");
-
-        productPage.chooseColor();
-        Assert.assertEquals(productPage.currentColor().trim(), "Blue", "The color is wrong");
-        productPage.chooseSize();
-        Assert.assertEquals(productPage.currentSize().trim(), "US6", "The size of US6 is not matched");
-
-        productPage.inputProductsQuantity();
-        productPage.clickAddToCartButton();
-        cartPopUp = productPage.getLayout().hoverandClickCartIcon();
-        Assert.assertEquals(cartPopUp.getProductNameLocator().getText(),productPage.getProductNameLocator().getText(), "The product name is wrong");
-        Assert.assertEquals(cartPopUp.getColorLocator().getText().trim(),"Color Blue", "The product color in the pop up is wrong");
-        Assert.assertEquals(cartPopUp.getSizeLocator().getText().trim(),"Size US6", "The product color size in the popup is wrong");
-        Assert.assertEquals(cartPopUp.getNumberOfItemsLocator().getText().replace("x ","").trim(),"5","The quantity is wrong");
-        Assert.assertEquals(cartPopUp.getProductPriceLocator().getText().trim(),"$660", "The product price in the popup is wrong");
-       // Assert.assertEquals(cartPopUp.getSubtotalPriceLocator().getText().trim(),"$660","The product subtotal price in the in the popup is wrong");
-       // Assert.assertEquals(cartPopUp.getTotalPriceLocator().getText().trim(),"$660","The product total price in the in the popup is wrong");
-        Assert.assertEquals(cartPopUp.getViewCartButtonLocator().getText(),"View Cart","The text is wrong");
-    }
-
     @AfterClass
     public void cleanUp() {
         try {

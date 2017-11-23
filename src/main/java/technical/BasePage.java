@@ -26,10 +26,7 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public WebElement waitCSSSelector(String SomeLocatorByCSSSelector) {
-        WebDriverWait waitForOne = new WebDriverWait(driver, 30);
-        return waitForOne.until(ExpectedConditions.elementToBeClickable(By.cssSelector(SomeLocatorByCSSSelector)));
-    }
+
 
     public void waitByLinkText(String ByLinkText) {
         WebDriverWait waitForOne = new WebDriverWait(driver, 25);
@@ -52,8 +49,8 @@ public class BasePage {
         clickElement.click();
     }
 
-    public WebElement findProductByText(String name, String locator) {
-        List<WebElement> products = driver.findElements(By.cssSelector(locator));
+    public WebElement findProductByText(String name, By locator) {
+        List<WebElement> products = driver.findElements(locator);
         for (WebElement product : products) {
             if (product.getText().contains(name)) {
                 return product;
@@ -69,7 +66,7 @@ public class BasePage {
 
     /**
      * Checks if specified an element is present on the current the page.
-     * Note: for Ajax or elements with delayed appearing: "wait"|fluent-wait methods sould be used.
+     * Note: for Ajax or elements with delayed appearing: "wait"|fluent-wait methods should be used.
      *
      * @param elementLocator By locator of target element
      * @return Boolean
@@ -101,6 +98,24 @@ public class BasePage {
         //  LOGGER.info("Clicking on: " + elementName);
         driver.findElement(locator).click();
     }
+
+
+    /**
+     * Causes the currently executing thread to sleep (temporarily cease execution)
+     * for the specified number of milliseconds, subject to the precision and accuracy of system timers and schedulers.
+     * The thread does not lose ownership of any monitors
+     *
+     * @param millis the length of time to sleep in milliseconds
+     */
+
+    public void threadSleep(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
 

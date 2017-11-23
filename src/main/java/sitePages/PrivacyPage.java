@@ -15,7 +15,7 @@ public class PrivacyPage extends BasePage {
     private String PRIVACY_PAGE_CONTENT = "#content";
 
     private String getPrivacyPageText(){
-        waitCSSSelector(PRIVACY_PAGE_CONTENT);
+
         return driver.findElement(By.cssSelector(PRIVACY_PAGE_CONTENT)).getText();
     }
 
@@ -26,7 +26,7 @@ public class PrivacyPage extends BasePage {
 
     //CSS
     public Boolean getPrivacyPageFontsize() {
-        waitCSSSelector(PRIVACY_PAGE_CONTENT);
+
         return driver.findElement(By.cssSelector(PRIVACY_PAGE_CONTENT)).getCssValue("font-size").contains("14px");
     }
 }
